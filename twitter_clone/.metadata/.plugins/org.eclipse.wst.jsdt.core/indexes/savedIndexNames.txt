@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+D:\Twitter\java_workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+234294194.index
+2597479929.index
+3954560285.index
+1165727227.index

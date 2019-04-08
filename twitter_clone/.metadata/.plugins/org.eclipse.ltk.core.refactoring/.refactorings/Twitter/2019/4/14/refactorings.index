@@ -1,0 +1,23 @@
+1554241442535	Rename package 'com.me.dao'
+1554241707072	Rename package 'com.me.twitter'
+1554242058824	Rename resource 'WelcomePage.jsp'
+1554247286172	Delete element
+1554248239385	Delete element
+1554262626311	Delete element
+1554264141483	Rename type 'HomeController'
+1554265166641	Rename type 'UserDAO'
+1554265386768	Rename type 'UserDao'
+1554265433731	Rename type 'UserDAO'
+1554266096719	Rename type 'UserDao'
+1554266157357	Rename type 'UserDAO'
+1554266233574	Rename type 'UserDao'
+1554266277717	Rename type 'UDao'
+1554318879158	Rename resource 'assests'
+1554319582717	Delete element
+1554319611325	Move folder
+1554429499839	Rename type 'Message'
+1554429702083	Rename field 'messages'
+1554435328320	Rename type 'MessageController'
+1554435343951	Rename type 'MessageDao'
+1554440415143	Rename resource 'editProfie.jsp'
+1554503910277	Delete element

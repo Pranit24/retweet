@@ -1,0 +1,573 @@
+!SESSION 2019-04-07 19:41:13.248 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+This is a continuation of log file D:\java_workspace\.metadata\.bak_0.log
+Created Time: 2019-04-07 23:18:58.440
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:18:58.442
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:18:58.445
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.eclipse.ui 4 0 2019-04-07 23:20:35.938
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: org.jboss.tools.common.el.core.ELReference.init(Ljava/lang/String;)V
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillElReferencesForRegionNode(PageContextFactory.java:656)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillElReferencesForNode(PageContextFactory.java:626)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForNode(PageContextFactory.java:574)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForChildNodes(PageContextFactory.java:565)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForChildNodes(PageContextFactory.java:566)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForChildNodes(PageContextFactory.java:566)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForChildNodes(PageContextFactory.java:566)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.fillContextForChildNodes(PageContextFactory.java:566)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.createPageContext(PageContextFactory.java:412)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.createPageContext(PageContextFactory.java:226)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.createPageContext(PageContextFactory.java:215)
+	at org.jboss.tools.jst.web.kb.PageContextFactory.createPageContext(PageContextFactory.java:204)
+	at org.jboss.tools.jst.text.ext.hyperlink.ELHyperlinkDetector.detectHyperlinks(ELHyperlinkDetector.java:44)
+	at org.eclipse.ui.texteditor.HyperlinkDetectorRegistry$HyperlinkDetectorDelegate.detectHyperlinks(HyperlinkDetectorRegistry.java:81)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:289)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.findHyperlinks(HyperlinkManager.java:262)
+	at org.eclipse.jface.text.hyperlink.HyperlinkManager.mouseMove(HyperlinkManager.java:457)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:216)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1055)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3944)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3547)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.964
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.968
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.971
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.976
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.980
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.984
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:35.987
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.696
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.699
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.702
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.704
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.707
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.710
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:36.712
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.342
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.345
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.349
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.353
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.356
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.359
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.363
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.720
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.723
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.726
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.729
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.732
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.735
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:20:43.737
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.737
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.742
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.745
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.749
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.752
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.756
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.759
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.972
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.975
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.978
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.981
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.983
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.986
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:15.989
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.054
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.057
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.060
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.063
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.066
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.069
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.072
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.283
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.286
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.289
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.292
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.294
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.297
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-07 23:21:25.300
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-07 23:44:53.761
+!MESSAGE Failed to load icon cache
+!SESSION 2019-04-08 01:07:31.295 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.jboss.tools.ws.creation.ui 4 0 2019-04-08 01:07:32.969
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.ws.creation.ui [1951]
+  Unresolved requirement: Require-Bundle: org.jboss.tools.ws.ui
+    -> Bundle-SymbolicName: org.jboss.tools.ws.ui; bundle-version="1.3.1.v20130112-0330-H156-Final"; singleton:="true"
+       org.jboss.tools.ws.ui [1954]
+         Unresolved requirement: Import-Package: javax.servlet; version="[2.4.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:452)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1784)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1763)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1726)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1657)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.jboss.tools.ws.ui 4 0 2019-04-08 01:07:32.974
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.ws.ui [1954]
+  Unresolved requirement: Import-Package: javax.servlet; version="[2.4.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:452)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1784)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1763)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1726)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1657)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.eclipse.egit.core 1 0 2019-04-08 01:07:53.213
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-04-08 01:07:54.213
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-08 01:07:54.213
+!MESSAGE A conflict occurred for ALT+CTRL+P:
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.eclipse.m2e.profiles.ui.commands.selectMavenProfileCommand,Select Maven Profiles,
+		,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@106a6420,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.jboss.tools.maven.ui.commands.selectMavenProfileCommand,Select Maven Profiles,
+		,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@60a54ad2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-08 01:07:54.213
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5fe1b8d2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@597ef918,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2019-04-08 01:07:56.086
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2019-04-08 01:07:56.086
+!MESSAGE Could not load repository template extension contributed by 'org.jboss.tools.common.mylyn' with connectorKind 'jira'
+
+!ENTRY org.eclipse.jface 2 0 2019-04-08 01:08:00.742
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-08 01:08:00.742
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,References in Workspace,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ec32f69,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.beans.ui.editor.commands.searchBeanReferences,Spring Beans References Search,
+		,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74409dc9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.jboss.tools.seam.ui.find.references,Find Seam References,
+		Find Seam References,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5d4c616,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.152
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.163
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.171
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.180
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.187
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.195
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:08:01.205
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-08 01:08:01.255
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 01:08:01.661
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Pranit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui.workbench 4 2 2019-04-08 01:08:01.683
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Executable extension definition for "class" not found.
+	at org.eclipse.core.internal.registry.ConfigurationElement.throwException(ConfigurationElement.java:65)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:225)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.ui.internal.WorkbenchPlugin.lambda$0(WorkbenchPlugin.java:291)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:288)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:56)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2707)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:08:01.683
+!MESSAGE Executable extension definition for "class" not found.
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:08:01.683
+!MESSAGE Executable extension definition for "class" not found.
+
+!ENTRY org.eclipse.ui 4 0 2019-04-08 01:08:01.690
+!MESSAGE Unable to execute early startup code for the org.eclipse.ui.IStartup extension contributed by the 'org.jboss.ide.eclipse.as.ui' plug-in.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Executable extension definition for "class" not found.
+	at org.eclipse.core.internal.registry.ConfigurationElement.throwException(ConfigurationElement.java:65)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:225)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.ui.internal.WorkbenchPlugin.lambda$0(WorkbenchPlugin.java:291)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:288)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:56)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2707)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:08:01.690
+!MESSAGE Executable extension definition for "class" not found.
+!SESSION 2019-04-08 01:11:41.820 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.jboss.tools.ws.creation.ui 4 0 2019-04-08 01:11:43.435
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.ws.creation.ui [1951]
+  Unresolved requirement: Require-Bundle: org.jboss.tools.ws.ui
+    -> Bundle-SymbolicName: org.jboss.tools.ws.ui; bundle-version="1.3.1.v20130112-0330-H156-Final"; singleton:="true"
+       org.jboss.tools.ws.ui [1954]
+         Unresolved requirement: Import-Package: javax.servlet; version="[2.4.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:452)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1784)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1763)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1726)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1657)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.jboss.tools.ws.ui 4 0 2019-04-08 01:11:43.440
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.ws.ui [1954]
+  Unresolved requirement: Import-Package: javax.servlet; version="[2.4.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:452)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1784)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1763)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1726)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1657)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:343)
+
+!ENTRY org.eclipse.egit.core 1 0 2019-04-08 01:11:54.662
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-04-08 01:11:55.659
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-08 01:11:55.659
+!MESSAGE A conflict occurred for ALT+CTRL+P:
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.eclipse.m2e.profiles.ui.commands.selectMavenProfileCommand,Select Maven Profiles,
+		,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8b814b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+P,
+	ParameterizedCommand(Command(org.jboss.tools.maven.ui.commands.selectMavenProfileCommand,Select Maven Profiles,
+		,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@397f3ff5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-08 01:11:55.659
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6f3d33bc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3299cc9f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2019-04-08 01:11:57.633
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2019-04-08 01:11:57.633
+!MESSAGE Could not load repository template extension contributed by 'org.jboss.tools.common.mylyn' with connectorKind 'jira'
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.231
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.236
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.241
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.246
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.251
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.255
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-08 01:12:03.259
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-08 01:12:04.381
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.ui.workbench 4 2 2019-04-08 01:12:05.009
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Executable extension definition for "class" not found.
+	at org.eclipse.core.internal.registry.ConfigurationElement.throwException(ConfigurationElement.java:65)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:225)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.ui.internal.WorkbenchPlugin.lambda$0(WorkbenchPlugin.java:291)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:288)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:56)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2707)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:12:05.009
+!MESSAGE Executable extension definition for "class" not found.
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:12:05.009
+!MESSAGE Executable extension definition for "class" not found.
+
+!ENTRY org.eclipse.ui 4 0 2019-04-08 01:12:05.015
+!MESSAGE Unable to execute early startup code for the org.eclipse.ui.IStartup extension contributed by the 'org.jboss.ide.eclipse.as.ui' plug-in.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Executable extension definition for "class" not found.
+	at org.eclipse.core.internal.registry.ConfigurationElement.throwException(ConfigurationElement.java:65)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:225)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.ui.internal.WorkbenchPlugin.lambda$0(WorkbenchPlugin.java:291)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:288)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:56)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2707)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2019-04-08 01:12:05.015
+!MESSAGE Executable extension definition for "class" not found.
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 01:12:05.091
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Pranit'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

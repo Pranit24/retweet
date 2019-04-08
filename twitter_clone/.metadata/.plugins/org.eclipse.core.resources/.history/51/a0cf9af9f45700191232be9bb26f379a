@@ -1,0 +1,44 @@
+package com.me.validator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
+import com.me.dao.UserDao;
+import com.me.pojo.User;
+
+public class UserValidator implements Validator{
+
+	@Autowired
+	UserDao userDao;
+	
+	@Override
+	public boolean supports(Class<?> clazz) {
+		return User.class.isAssignableFrom(clazz);
+	}
+
+	
+	@Override
+	public void validate(Object target, Errors errors) {
+		User logged_user = (User) target;
+		if(logged_user.getEmail().equals("")) {
+			errors.rejectValue("email","", "Enter an email address");
+		}
+		else if(!logged_user.getEmail().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+(.[a-zA-Z]{2,})$")) {
+			errors.rejectValue("email", "","Enter a valid email address!");
+		}
+		if(logged_user.getPassword().equals("")){
+			errors.rejectValue("password", "", "Enter a password");
+		}
+		if(errors.hasErrors()) return;
+		System.out.println("HERE VALID");
+		User user = userDao.check(logged_user.getEmail(), logged_user.getPassword());
+		if(user==null) {
+			System.out.println("HERE?");
+			errors.rejectValue("email","","This email does not exists");
+			errors.rejectValue("password","","The password might be wrong");
+		}
+		
+	}
+
+}

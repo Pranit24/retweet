@@ -1,0 +1,46 @@
+package com.me.pojo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+@Entity
+public class Following {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long followerId;
+	
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name="userid", nullable=false)
+//	private User user_following;
+//
+//	public User getUser_following() {
+//		return user_following;
+//	}
+//
+//	public void setUser_following(User user_following) {
+//		this.user_following = user_following;
+//	}
+
+	public Following() {
+	}
+	
+//	public Following(User u) {
+//		this.user_following=u;
+//	}
+
+	public Long getFollowerId() {
+		return followerId;
+	}
+	public void setFollowerId(Long followerId) {
+		this.followerId = followerId;
+	}
+
+}

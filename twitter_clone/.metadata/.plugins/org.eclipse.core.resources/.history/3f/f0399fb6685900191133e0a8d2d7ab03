@@ -1,0 +1,22 @@
+package com.me.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.me.dao.UserDao;
+
+@Controller
+@RequestMapping("/follow/*")
+public class FollowController {
+
+	@Autowired
+	UserDao userDao;
+	
+	@RequestMapping(value="/*", method=RequestMethod.GET)
+	public void follow(HttpServletRequest request) {
+		
+	}
+}

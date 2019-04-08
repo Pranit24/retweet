@@ -1,0 +1,24 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+</head>
+<body>
+<form:form action="${pageContext.request.contextPath}/register/create" method="post" modelAttribute="register">
+	
+	Email: <form:input path="email" type="text"/><br/>
+	Password: <form:input path="password" type="password"/><br/>
+	Name: <form:input path="name" type="text"/><br/>
+	Handle: <form:input path="handle" type="text"/><br/>
+	<input type="submit" value="Register"/>
+	
+</form:form>
+
+
+
+</body>
+</html>

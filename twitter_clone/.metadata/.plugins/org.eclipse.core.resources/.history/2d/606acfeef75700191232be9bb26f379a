@@ -1,0 +1,40 @@
+package com.me.validator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+import com.me.dao.UserDao;
+import com.me.pojo.User;
+
+public class RegisterValidator  implements Validator{
+
+	@Autowired
+	UserDao userDao;
+	
+	@Override
+	public boolean supports(Class<?> clazz) {
+		return User.class.isAssignableFrom(clazz);
+	}
+
+	@Override
+	public void validate(Object target, Errors errors) {
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Please enter a name");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "", "Please enter a password");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "handle", "", "Please enter a handle");
+		User user = (User) target;
+		if(user.getEmail().equals("")) {
+			errors.rejectValue("email","", "Enter an email address");
+		}
+		else if(!user.getEmail().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+(.[a-zA-Z]{2,})$")) {
+			errors.rejectValue("email", "","Enter a valid email address!");
+		}
+		
+		if(user.getPassword().equals("")){
+			System.out.println("???");
+			errors.rejectValue("password", "", "Enter a password");
+		}
+		
+	}
+}

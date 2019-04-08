@@ -1,0 +1,5 @@
+.top-buffer { margin-top:20px; }
+
+.right-buffer {margin-right: 20px}
+
+div:empty{display:none}

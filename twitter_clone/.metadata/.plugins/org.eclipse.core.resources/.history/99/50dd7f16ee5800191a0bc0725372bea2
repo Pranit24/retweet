@@ -1,0 +1,50 @@
+package com.me.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
+
+import com.me.pojo.Tweet;
+import com.me.pojo.User;
+
+public class TweetDao extends DAO{
+
+	public List<Tweet> getTweet(User user) {
+		List<Tweet> tweets= null;
+		try {
+			begin();
+			Query query = getSession().createQuery("from Tweet where userid="+user.getUserId());
+			tweets = query.list();
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		
+		return tweets;
+	}
+	
+	public void addTweet(User user, Tweet tweet) {
+		
+		try {
+			begin();
+			Query query = getSession().createQuery("from Tweet where userid="+user.getUserId());
+			List<Tweet> tw = query.list();
+			tw.add(tweet);
+			user.setListOfTweets(tw);
+			getSession().update(user);
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+	}
+}

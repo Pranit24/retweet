@@ -1,0 +1,24 @@
+package com.me.pojo;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Followers {
+
+	@Column(name="")
+	private Long followerid;
+	private Long userid;
+	
+	public Long getFollowerid() {
+		return followerid;
+	}
+	public void setFollowerid(Long followerid) {
+		this.followerid = followerid;
+	}
+	public Long getUserid() {
+		return userid;
+	}
+	public void setUserid(Long userid) {
+		this.userid = userid;
+	}
+}

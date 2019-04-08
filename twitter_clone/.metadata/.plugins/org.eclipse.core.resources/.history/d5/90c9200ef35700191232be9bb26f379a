@@ -1,0 +1,5 @@
+##login.email##
+NotEmpty.login.email= Please enter an email.
+
+## login.password ##
+Size.login.password = Your password must be 6 and 10 characters long.
