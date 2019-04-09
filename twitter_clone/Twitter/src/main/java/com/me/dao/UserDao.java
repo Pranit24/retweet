@@ -153,4 +153,57 @@ public class UserDao extends DAO{
 		}	
 		return num;
 	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<Long> getFollowing(User user) {
+		List<Long> list = null;
+		try {
+			begin();
+			Query query = getSession().createQuery("select fId from Following where userid="+user.getUserId());
+			list = query.list();
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}	
+		
+		return list;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public boolean checkIfFollowing(User user_logged, User user) {
+		List<Following> list = null;
+		try {
+			begin();
+			Query query = getSession().createQuery("from Following where userid="+user_logged.getUserId()+" and fId="+user.getUserId());
+			list = query.list();
+			if(list.size() == 0) return false;
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return true;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public User search(String searchString) {
+		User user = null;
+		try {
+			begin();
+//			Query query = getSession().createQuery("from User where handle="+searchString);
+			Criteria criteria = getSession().createCriteria(User.class);
+			criteria.add(Restrictions.eq("handle",searchString));
+			criteria.setMaxResults(1);
+			user = (User) criteria.uniqueResult();
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return user;
+	}
 }

@@ -28,9 +28,9 @@
       </li>
      
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
     	<div class="input-group">
-            <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
                 <div class="input-group-text bg-light">
                 <i class="fa fa-search"></i>
@@ -89,13 +89,25 @@
 		  
 		  
 		  <!-- FOLLOW BUTTON -->
-		  <c:if test="${requestScope.user.handle ne sessionScope['user-logged'].handle }">
+		  <c:if test="${requestScope.user.handle ne sessionScope['user-logged'].handle && requestScope.alreadyFollowing eq false}">
 		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
 		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/" method="post" modelAttribute="following">
 			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
 			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
 			<button type="submit" class="btn btn-primary mx-sm-3"  style="background-color: #1DA1F2">
 	   		Follow
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
+		  <!-- TODO IMPLEMENT UNFOLLOW -->
+		  <c:if test="${requestScope.user.handle ne sessionScope['user-logged'].handle && requestScope.alreadyFollowing eq true}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/" method="post" modelAttribute="following">
+			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
+			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
+			<button type="submit" class="btn btn-outline-primary mx-sm-3" disabled>
+	   		Following
 			</button>
 		</form:form>
 		  </li>
@@ -163,10 +175,10 @@
     		
     	</c:if>
     	
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && not empty sessionScope['user-logged'] && sessionScope['user-logged'].handle ne requestScope.user.handle }">
+    	<c:if test="${not empty requestScope.user && not empty sessionScope['user-logged'] && sessionScope['user-logged'].handle ne requestScope.user.handle && fn:length(requestScope.user.listOfTweets) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
-  			<h5 class="card-title"> @${requestScope.user.handle} hasn't tweeted yet!</h5>
+  			<h5 class="card-title"> @${requestScope.user.handle} hasn't tweeted yet!123</h5>
     		<form class="form-inline d-flex justify-content-center" action="${pageContext.request.contextPath}/tweet/tweet.htm" method="get">
 		
 	</form>
@@ -176,7 +188,7 @@
     		
     	</c:if>
     	
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && empty sessionScope['user-logged'] && not empty requestScope.user }">
+    	<c:if test="${empty sessionScope['user-logged'] && not empty requestScope.user && fn:length(requestScope.user.listOfTweets) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"> @${requestScope.user.handle} hasn't tweeted yet!</h5>

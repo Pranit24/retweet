@@ -1,11 +1,13 @@
 package com.me.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.query.Query;
 
+import com.me.pojo.Following;
 import com.me.pojo.Tweet;
 import com.me.pojo.User;
 
@@ -32,6 +34,7 @@ public class TweetDao extends DAO{
 		
 		return tweets;
 	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addTweet(User user, Tweet tweet) {
 		
@@ -53,5 +56,29 @@ public class TweetDao extends DAO{
 		}finally {
 			close();
 		}
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Tweet> getFollowingTweet(List<Long> listOfFollowing) {
+		List<Tweet> tweets = new ArrayList<Tweet>();
+		try {
+			begin();
+			for(Long useridLong : listOfFollowing) {
+				Query query = getSession().createQuery("from Tweet where userid="+useridLong);
+				List<Tweet> tweetsFromUser = query.list();
+				for(Tweet tw: tweetsFromUser) {
+					Hibernate.initialize(tw.getLikes());
+					Hibernate.initialize(tw.getRetweets());
+					tweets.add(tw);
+				}
+			}
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return tweets;
 	}
 }

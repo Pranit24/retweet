@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Profile</title>
+<title>Twitter</title>
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,9 +27,9 @@
       </li>
      
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
     	<div class="input-group">
-            <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
                 <div class="input-group-text bg-light">
                 <i class="fa fa-search"></i>
@@ -74,10 +74,10 @@
   
   		<div class="card-body">
     
-    <h5 class="card-title">${requestScope.user.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@${requestScope.user.handle}</h6>
-    <p class="card-text"><pre>${requestScope.user.description}</pre></p>
-    <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a>
+    <h5 class="card-title">${sessionScope['user-logged'].name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">@${sessionScope['user-logged'].handle}</h6>
+    <p class="card-text"><pre>${sessionScope['user-logged'].description}</pre></p>
+   <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
   	</div>
 		</div>
       </div>
@@ -85,8 +85,8 @@
    
       <div class="col-md-6 mt-2">
       
-      <c:if test="${fn:length(requestScope.user.listOfTweets) gt 0 }">
-   		<c:forEach var="tweet" items="${requestScope.user.listOfTweets}">
+      <c:if test="${fn:length(requestScope.followingTweets) gt 0 }">
+   		<c:forEach var="tweet" items="${requestScope.followingTweets}">
       	<div class="card h-10">
   
   		<div class="card-body">
@@ -104,20 +104,21 @@
 		</div>
     	</c:forEach>
     	</c:if>
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 }">
+    	<c:if test="${sessionScope['user-logged'].followers eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
-  			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks like you haven't tweeted anything yet</h5>
-    		<form class="form-inline d-flex justify-content-center" action="${pageContext.request.contextPath}/tweet/tweet.htm" method="get">
-		
-		<button type="submit" class="btn btn-primary mx-5 "  style="background-color: #1DA1F2">
-   		<span class="fas fa-edit"></span> Tweet
-		</button>
-	</form>
-	</div>
-  			</div>
-    	
+  			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks like you are not following anyone!</h5>
     		
+			</div>
+  			</div>	
+    	</c:if>
+    	<c:if test="${fn:length(requestScope.followingTweets) eq 0 }">
+    		<div class="card my-2">
+    		<div class="card-body">
+  			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks no one has tweeted anything yet!</h5>
+    		
+			</div>
+  			</div>	
     	</c:if>
     </div>
     
