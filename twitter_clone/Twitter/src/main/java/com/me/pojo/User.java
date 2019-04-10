@@ -5,23 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
+
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import com.me.dao.UserDao;
-
 
 
 @Entity
@@ -45,15 +36,13 @@ public class User {
 	@Column(name="Handle")
 	private String handle;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "USERID", nullable = false)
+	@OneToMany(mappedBy = "tweet_user")
 	private List<Tweet> listOfTweets = new ArrayList<Tweet>();
 	
 	@Column(name="Followers")
 	private Integer followers;
-	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "USERID", nullable = false)
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "following_user")
 	private Set<Following> following = new HashSet<Following>();
 	
 	@Column(name = "Role")
@@ -65,9 +54,8 @@ public class User {
 	@Column(name="Description")
 	private String description;
 	
-	@ElementCollection
-	@CollectionTable(name = "Links", joinColumns = @JoinColumn(name = "USERID") )
-	private List<String> links = new ArrayList<String>();
+	@OneToMany(mappedBy = "userLink")
+	private List<Link> links = new ArrayList<Link>();
 	
 	
 	public String getDescription() {
@@ -78,11 +66,11 @@ public class User {
 		this.description = description;
 	}
 
-	public List<String> getLinks() {
+	public List<Link> getLinks() {
 		return links;
 	}
 
-	public void setLinks(List<String> links) {
+	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
 

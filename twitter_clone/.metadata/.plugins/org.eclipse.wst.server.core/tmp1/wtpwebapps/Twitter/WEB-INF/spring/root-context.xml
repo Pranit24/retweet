@@ -5,6 +5,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-		<bean id="msgDao" class="com.me.dao.TweetDao"/>
+		<bean id="tweetDao" class="com.me.dao.TweetDao"/>
 		<bean id="userDao" class="com.me.dao.UserDao"/>
 </beans>

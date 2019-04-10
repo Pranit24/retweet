@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
 D:\java_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3723808826.index
 \Twitter\src\main\java
+D:\Twitter\twitter_clone\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3723808826.index
+\Twitter\src\main\java

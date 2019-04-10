@@ -27,9 +27,9 @@
       </li>
      
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
     	<div class="input-group">
-            <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
                 <div class="input-group-text bg-light">
                 <i class="fa fa-search"></i>
@@ -48,10 +48,10 @@
     
 
 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <c:out value="${sessionScope['user-logged'].name}"/>
+        <c:out value="${sessionScope['user_logged'].name}"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile.htm"><i class="fas fa-user-circle"></i>Profile</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/register/edit.htm"><i class="fas fa-cog"></i>Settings</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/signout.htm"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
         </div>
@@ -65,24 +65,27 @@
       </div>
 		<div class="col-md-5">
 			
-			<div class="card my-2">
+			<div class="card my-2 mr-3">
   
-  		<div class="card-body">
+  <div class="card-body">
     
-    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em"><c:out value="${sessionScope['user-logged'].name}"/></h5>
-    <h6 class="card-title mb-2 text-muted">@<c:out value="${sessionScope['user-logged'].handle}"/></h6>
+     <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${sessionScope.user_logged.name}
+    <font class="card-title mb-2 text-muted" size=3px>@${sessionScope.user_logged.handle}</font></h5>
     <p class="card-text">
     <form:form  action="${pageContext.request.contextPath}/tweet/tweet.htm" method="post" modelAttribute="message" class="form-inline">
     <div class="form-group">
-        	<form:textarea class="form-control d-flex justify-content-center white-space" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
+        	<form:textarea class="form-control d-flex justify-content-center white-space" maxlength="140" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
         	
         </div>
         
+    
     <button type="submit" class="btn btn-primary mr-sm-3 mt-sm-3 float-left"  style="background-color: #1DA1F2">
    		<span class="fas fa-edit"></span> Tweet
 		</button>
+	<div class="text-muted float-right mt-n4 h2" style="font-size:12px;margin-left:225px">Maximum Characters=140</div>
+		
 	</form:form>
-    </p>
+
   	</div>
 		</div>
 

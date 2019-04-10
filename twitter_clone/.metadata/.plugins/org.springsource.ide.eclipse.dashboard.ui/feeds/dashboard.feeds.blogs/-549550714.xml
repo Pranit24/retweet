@@ -5,7 +5,37 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-04-05T14:38:59Z</updated>
+  <updated>2019-04-09T22:13:21Z</updated>
+  <entry>
+    <title>This Week in Spring - April 9th, 2019</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/04/09/this-week-in-spring-april-9th-2019" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2019-04-09:3633</id>
+    <updated>2019-04-09T22:13:21Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another wild-and-wacky week of &lt;em&gt;This Week in Spring&lt;/em&gt;! I&amp;rsquo;m in Johannesburg, South Africa where I both spoke at the SpringOne Tour South Africa event and at the Johannesburg Java User Group. Had tons of fun on safari visiting (from the safety of a good deal of distance and an SUV) the utterly astonishing and beautiful - majestic - wildlife here. I can&amp;rsquo;t stress that last part enough. The animals here are so, so, SO breathtaking. I got as close as I ever want to get to an elephant that was like a small house with eyes. Utterly &lt;em&gt;massive&lt;/em&gt;! It towered over buses. When you go into the bush, my tour guide warned, you enter the food chain, and there, we don&amp;rsquo;t figure very high at all. The experience reminded me how insignificant I am and how utterly privileged I am to be here, with you, dear community. We&amp;rsquo;re all pretty lucky. &lt;/p&gt;
+&lt;p&gt;I also really enjoyed meeting some of the local community. My friend, &lt;a href="http://twitter.com/rorypreddy"&gt;Rory Preddy&lt;/a&gt; at Microsoft South Africa, was telling me that the local community here in South Africa is &lt;em&gt;very&lt;/em&gt; small - tens of thousands of professional developers, if that. What the community lacks in quantity they more than made up for, it eems, in quality. &lt;/p&gt;
+&lt;p&gt;What an amazing inspiring few days it&amp;rsquo;s been! Tomorrow, I&amp;rsquo;m off to Mauritius for &lt;a href="https://conference.mscc.mu/"&gt;the MSCC&lt;/a&gt; and then back in South Africa on Friday for the SpringOne Tour Capetown event. This figures to be fun! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;In last week&amp;rsquo;s installment of &lt;em&gt;A Bootiful Podcast&lt;/em&gt; &lt;a href="https://spring.io/blog/2019/04/05/a-bootiful-podcast-microsoft-s-kylie-liang-and-theresa-nguyen-on-microsoft-s-java-and-spring-support"&gt;I spoke Microsoft&amp;rsquo;s Kylie Liang and Theresa Nguyen on MIcrosoft&amp;rsquo;s Java and Spring Support&lt;/a&gt;. This was a really interesting discussion for me. Azure is getting better and better and even though I try there&amp;rsquo;s something about which I&amp;rsquo;m unaware. I&amp;rsquo;m grateful Kylie and Theresa were able to sit down and educate me.&lt;/li&gt;
+  &lt;li&gt;In yet another unplanned installment of &lt;em&gt;Spring Tips&lt;/em&gt;, &lt;a href="https://spring.io/blog/2019/04/03/spring-tips-webmvc-fn-the-functional-dsl-for-spring-mvc"&gt;I debut WebMvc.fn - the functional DSL for Spring MVC&lt;/a&gt;. Trust me, you&amp;rsquo;ll want to see this!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/04/spring-io-platform-cairo-sr8"&gt;Spring IO Platform Cairo-SR8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/04/spring-io-platform-brussels-sr17"&gt;Spring IO Platform Brussels-SR17&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/04/spring-boot-2-1-4-released"&gt;Spring Boot 2.1.4 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/03/spring-boot-2-0-9-released"&gt;Spring Boot 2.0.9 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/03/spring-boot-1-5-20-available-now"&gt;Spring Boot 1.5.20 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/03/spring-security-5-1-5-5-0-12-4-2-12-released"&gt;Spring Security 5.1.5, 5.0.12, 4.2.12 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2019/04/05/cve-2019-3795-spring-security-4-2-12-5-0-12-5-1-5-released"&gt;CVE-2019-3795: Spring Security 4.2.12, 5.0.12, 5.1.5 Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I really enjoyed this &lt;a href="https://dzone.com/articles/hystrix-vs-sentinel-a-tale-of-two-circuit-breakers"&gt;comparison of Alibaba&amp;rsquo;s Sentinel vs. Netflix&amp;rsquo;s Hystrix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This tweet [is everything to me!(&lt;a href="https://twitter.com/springcentral/status/1115162821258559488"&gt;https://twitter.com/springcentral/status/1115162821258559488&lt;/a&gt;) - congratulations Sara Torrey! :-)&lt;/li&gt;
+  &lt;li&gt;This was an intersting interview on &lt;a href="https://www.youtube.com/watch?v=mW0LCHtB7Aw"&gt;Spring Data JDBC with Jens Schauder on the Spring Data team&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://medium.com/buildpacks/cloud-native-buildpacks-hit-beta-4d9f2c85dd22"&gt;Cloud Native Buildpacks Hit Beta &#x1f4a5; – Buildpacks – Medium&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;It&amp;rsquo;s pretty cool that on April 1, 2019, Spring Boot turned five years! Congrats Spring Boot! Here&amp;rsquo;s to many more happy, &lt;em&gt;bootiful&lt;/em&gt; returns!&lt;/li&gt;
+  &lt;li&gt;Check out Richard Seroter&amp;rsquo;s post looking at &lt;a href="https://seroter.wordpress.com/2019/04/03/connecting-your-java-microservices-to-each-other-heres-how-to-use-spring-cloud-stream-with-azure-event-hubs/"&gt;the Spring Cloud Stream binder for Azure Event Hubs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>CVE-2019-3795: Spring Security 4.2.12, 5.0.12, 5.1.5 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/04/05/cve-2019-3795-spring-security-4-2-12-5-0-12-5-1-5-released" />
@@ -33,10 +63,10 @@
     style = "float: left; margin-right : 10px; padding-right : 10px " /&gt;
 &lt;p&gt;Hi Spring fans! In this week&amp;rsquo;s episode Josh talks to Microsoft&amp;rsquo;s Kylie Liang and Theresa Nguyen about the Microsoft Java and Spring integrations, the Java ecosystem, open-source, and more.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://twitter.com/liangkylie"&gt;Kylie (right) on Twitter (@liangkylie)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="twitter.com/RockClimberT"&gt;Theresa (left) on Twitter (@RockClimberT)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="twitter.com/starbuxman"&gt;Josh on Twitter (@starbuxman)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=jRgZe7kWDnU"&gt;The &amp;ldquo;Spring Tips&amp;rdquo; screencast introducing the Spring and Microsoft Azure integration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/liangkylie"&gt;Kylie (right) on Twitter (@liangkylie)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/RockClimberT"&gt;Theresa (left) on Twitter (@RockClimberT)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/starbuxman"&gt;Josh on Twitter (@starbuxman)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=jRgZe7kWDnU"&gt;The &amp;ldquo;Spring Tips&amp;rdquo; screencast introducing the Spring and Microsoft Azure integration&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/600772455%3Fsecret_token%3Ds-dwdd4&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"&gt;&lt;/iframe&gt;</content>
   </entry>
@@ -655,30 +685,5 @@ dependencies {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Initializr updates</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/03/21/spring-initializr-updates" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Damien Vitrac</name>
-    </author>
-    <id>tag:spring.io,2019-03-18:3606</id>
-    <updated>2019-03-21T15:20:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that &lt;strong&gt;Spring Initializr&lt;/strong&gt; has been updated and is now available on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#ui-changes-listening-to-your-feedback" class="anchor" name="ui-changes-listening-to-your-feedback"&gt;&lt;/a&gt;UI changes - listening to your feedback&lt;/h2&gt;
-&lt;p&gt;Following the last revision, the &lt;a href="https://spring.io/blog/2019/03/05/spring-initializr-new-ui"&gt;main feedback&lt;/a&gt; we received was about the missing list of dependencies. Some community members seemed to be looking at this list for information purposes (not necessarily using the website to generate a new app), while others would just like to see what&amp;rsquo;s available.&lt;/p&gt;
-&lt;img src="https://static.spring.io/blog/damienvitrac/20190318/initializr.png"&gt;
-&lt;p&gt;While &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt; seems like a very simple service, generating applications with a simple HTML form, there&amp;rsquo;s much more to it - this round of feedback taught us that we need to double-down on product discovery and user centered design.&lt;/p&gt;
-&lt;p&gt;We brought the &lt;strong&gt;dependency list&lt;/strong&gt; back to the page but in a way that will help us to better understand how the website is being used and how to improve it. We hope that the community will find in that list what was missing in the previous version.&lt;/p&gt;
-&lt;p&gt;Of course, we fixed a few HTML/CSS issues and improved version incompatibility messages to help you select the appropriate Spring Boot version.&lt;/p&gt;&lt;h2&gt;&lt;a href="#architecture" class="anchor" name="architecture"&gt;&lt;/a&gt;Architecture&lt;/h2&gt;
-&lt;p&gt;This application is still made of two parts:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The &lt;a href="https://github.com/spring-io/initializr"&gt;Initializr library&lt;/a&gt; that contains the project generation logic and the Web API&lt;/li&gt;
-  &lt;li&gt;The &lt;a href="https://github.com/spring-io/start.spring.io"&gt;start.spring.io&lt;/a&gt; service instance, with the specifics behind the instance running in production&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Because the &lt;strong&gt;Web UI&lt;/strong&gt; changes will be more and more involved, we&amp;rsquo;ve decided to move all Web UI-specific code to the start.spring.io project. This will hopefully clarify things. If you&amp;rsquo;re interested in running a service very similar to start.spring.io, you should now fork the start.spring.io project. If you&amp;rsquo;d like to write your own Web UI or work on core changes, then using the &lt;strong&gt;Initializr library&lt;/strong&gt; is a good starting point.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-rsquo-s-next" class="anchor" name="what-rsquo-s-next"&gt;&lt;/a&gt;What&amp;rsquo;s next?&lt;/h2&gt;
-&lt;p&gt;Over the next couple of weeks we will be conducting &lt;strong&gt;user interviews&lt;/strong&gt; to gain better insights on how to improve the website experience and a deeper understanding of the &lt;strong&gt;&amp;ldquo;whys&amp;rdquo;&lt;/strong&gt; behind how users are interacting with the service. &lt;/p&gt;
-&lt;p&gt;As we cannot interview all of our users (we appreciate you all!), we invite you to leave your input and thoughts with our optional &lt;a href="https://docs.google.com/forms/d/1CsQaJAYFntD8FkBz-2zjtew8maj2JWxV2Fv2ugea_VA/viewform?ts=5c8f9ee0&amp;edit_requested=true"&gt;anonymous survey&lt;/a&gt;. This will allow us to build a larger picture of how people are using the service and the expectations and wants from the community. &lt;/p&gt;
-&lt;p&gt;Thank you for your feedback and support as we continue on this journey.&lt;/p&gt;</content>
   </entry>
 </feed>

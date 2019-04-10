@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.me.dao.UserDao;
 import com.me.pojo.User;
+import com.me.validator.EditValidator;
 import com.me.validator.RegisterValidator;
 
 /**
@@ -35,15 +36,14 @@ public class RegisterController {
 	
 	@RequestMapping(value="/create.htm", method=RequestMethod.POST)
 	public String register(Model model, HttpServletRequest request,@ModelAttribute("register") User user, BindingResult results) {
-		//TODO Validate inputs and register user
 		RegisterValidator regValid = new RegisterValidator();
 		regValid.validate(user, results);
 		if(results.hasErrors()) {
 			return "register";
 		}
 		userDao.register(user);
-		HttpSession session = request.getSession();
-		session.setAttribute("user-logged", user);
+//		HttpSession session = request.getSession();
+//		session.setAttribute("user_logged", user);
 		
 		return "redirect:/";
 		
@@ -52,7 +52,7 @@ public class RegisterController {
 	@RequestMapping(value="/edit.htm", method=RequestMethod.GET)
 	public String edit(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		User user_logged = (User) session.getAttribute("user-logged");
+		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
 		System.out.println(user_logged.getUserId());
 		model.addAttribute("update", user_logged);
@@ -60,11 +60,19 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value="/edit.htm", method=RequestMethod.POST)
-	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user) {
+	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user, BindingResult results) {
 		HttpSession session = request.getSession();
-		User user_logged = (User) session.getAttribute("user-logged");
+		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
+		updated_user.setUserId(user_logged.getUserId());
+		EditValidator editValid = new EditValidator();
+		editValid.validate(updated_user, results);
+		if(results.hasErrors()) {
+			return "editProfile";
+		}
 		updateUser(user_logged, updated_user);
+		System.out.println(user_logged.getDescription()+":"+user_logged.getUserId());
+
 		userDao.editUser(user_logged);
 		return "redirect:/profile/"+user_logged.getHandle();
 	}

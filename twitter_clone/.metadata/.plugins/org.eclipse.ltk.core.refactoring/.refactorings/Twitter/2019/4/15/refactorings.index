@@ -6,3 +6,7 @@
 1554678558483	Rename local variable 'following'
 1554691064060	Rename field 'followerid'
 1554692709512	Rename local variable 'user_logged'
+1554785633624	Delete element
+1554786047863	Delete element
+1554786994526	Rename type 'Like'
+1554858675444	Rename local variable 'liked'

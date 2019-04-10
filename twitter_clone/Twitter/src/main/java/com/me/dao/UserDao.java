@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 import org.hibernate.query.Query;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -34,22 +33,22 @@ public class UserDao extends DAO{
 		return saved;
 	}
 	
-	public boolean alreadyExists(String field, String value) {
-		boolean exists = false;
+
+	@SuppressWarnings("deprecation")
+	public User alreadyExists(String field, String value) {
+		User user = null;
 		try {
 			begin();
-			@SuppressWarnings("deprecation")
 			Criteria criteria = getSession().createCriteria(User.class);
 			criteria.add(Restrictions.eq(field, value));
 			criteria.setMaxResults(1);
-			User user = (User) criteria.uniqueResult();
-			if(user != null) return true;
+			user = (User) criteria.uniqueResult();
 		}catch (HibernateException e) {
 			rollback();
 		}finally {
 			close();
 		}
-		return exists;
+		return user;
 	}
 	
 	public User check(String email, String password) {
@@ -105,7 +104,7 @@ public class UserDao extends DAO{
 	public void editUser(User user) {
 		try {
 			begin();
-			getSession().update(user);
+			getSession().merge(user);
 			commit();
 		}catch (HibernateException e) {
 			rollback();
@@ -113,29 +112,33 @@ public class UserDao extends DAO{
 			close();
 		}	
 	}
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public User follow(User user, Following follow) {
+
+
+	public void follow(Following follow) {
 		try {
 			begin();
-			String hql = "from Following where userid="+user.getUserId();
-			Query query = getSession().createQuery(hql);
-			List<Following> followingList = query.list();
-			followingList.add(follow);
-			System.out.println(follow.getfId());
-			Set<Following> followings = new HashSet<Following>(followingList);
-			System.out.println("LIST SIZE BEFORE: "+user.getFollowing().size());
-			System.out.println(followings.size());
-			user.setFollowing(followings);
-			System.out.println("LIST SIZE :"+user.getFollowing().size()+":"+user.getUserId()+":"+user.getHandle());
-			getSession().update(user);
+			getSession().save(follow);
 			commit();
 		}catch (HibernateException e) {
 			rollback();
 		}finally {
 			close();
 		}
-		return user;
+	}
+	
+	@SuppressWarnings({ "rawtypes" })
+	public void unfollow(Following follow, User user) {
+		try {
+			begin();
+			Query query = getSession().createQuery("from Following where fId="+follow.getfId()+" and userid="+user.getUserId());
+			Following follower = (Following) query.uniqueResult();
+			getSession().delete(follower);
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -152,6 +155,24 @@ public class UserDao extends DAO{
 			close();
 		}	
 		return num;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Set<Following>  getListOfFollowing(User user) {
+		Set<Following> following = null;
+		try {
+			begin();
+			Query query = getSession().createQuery("from Following where userid="+user.getUserId());
+			List<Following> list = query.list();
+			following = new HashSet<Following>(list);
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}	
+		
+		return following;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -205,5 +226,17 @@ public class UserDao extends DAO{
 			close();
 		}
 		return user;
+	}
+	
+	public void deleteUser(User user) {
+		try {
+			begin();
+			getSession().delete(user);
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
 	}
 }

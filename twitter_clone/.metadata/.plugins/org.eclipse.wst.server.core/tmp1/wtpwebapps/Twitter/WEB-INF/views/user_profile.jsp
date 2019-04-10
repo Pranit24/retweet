@@ -46,18 +46,18 @@
 	</form>
       
     
-<c:if test="${sessionScope['user-logged']!=null}">
+<c:if test="${sessionScope['user_logged']!=null}">
 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <c:out value="${sessionScope['user-logged'].name}"/>
+        <c:out value="${sessionScope['user_logged'].name}"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user-logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/register/edit.htm"><i class="fas fa-cog"></i>Settings</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/signout.htm"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
         </div>
         
 </c:if>
-<c:if test="${sessionScope['user-logged']==null}">
+<c:if test="${sessionScope['user_logged']==null}">
 <a class="nav-link text-dark" href="${pageContext.request.contextPath}" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">Login</a>
 </c:if>
   </div>

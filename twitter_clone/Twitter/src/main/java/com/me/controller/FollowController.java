@@ -20,16 +20,26 @@ public class FollowController {
 	@Autowired
 	UserDao userDao;
 	
-	@RequestMapping(value="/*", method=RequestMethod.POST)
+	@RequestMapping(value="/follow.htm", method=RequestMethod.POST)
 	public String follow(HttpServletRequest request, @ModelAttribute("following") Following follow) {
-		System.out.println(follow.getfId());
-		String url = "redirect:/profile/"+request.getParameter("profile");
 		HttpSession session = request.getSession();
-		User user_logged = (User) session.getAttribute("user-logged");
-		if(user_logged==null) return url;
-		userDao.follow(user_logged, follow);
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user_logged==null) return "redirect:/";
+		follow.setFollowing_user(user_logged);
+		userDao.follow(follow);
 		
+		return "redirect:/profile/"+request.getParameter("profile");
+	}
+	
+	@RequestMapping(value="/unfollow.htm", method=RequestMethod.POST)
+	public String unfollow(HttpServletRequest request, @ModelAttribute("following") Following follow) {
+		HttpSession session = request.getSession();
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user_logged==null) return "redirect:/";
+		follow.setFollowing_user(user_logged);
+		System.out.println(follow.getfId()+":"+follow.getFollowingId());
+		userDao.unfollow(follow, user_logged);
 		
-		return url;
+		return "redirect:/profile/"+request.getParameter("profile");
 	}
 }

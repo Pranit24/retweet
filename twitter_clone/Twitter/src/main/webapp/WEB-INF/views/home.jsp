@@ -46,18 +46,18 @@
 	</form>
       
     
-<c:if test="${sessionScope['user-logged']!=null}">
+<c:if test="${sessionScope['user_logged']!=null}">
 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <c:out value="${sessionScope['user-logged'].name}"/>
+        <c:out value="${sessionScope['user_logged'].name}"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user-logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/register/edit.htm"><i class="fas fa-cog"></i>Settings</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/signout.htm"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
         </div>
         
 </c:if>
-<c:if test="${sessionScope['user-logged']==null}">
+<c:if test="${sessionScope['user_logged']==null}">
 <a class="nav-link text-dark" href="${pageContext.request.contextPath}" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">Login</a>
 </c:if>
   </div>
@@ -74,9 +74,9 @@
   
   		<div class="card-body">
     
-    <h5 class="card-title">${sessionScope['user-logged'].name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@${sessionScope['user-logged'].handle}</h6>
-    <p class="card-text"><pre>${sessionScope['user-logged'].description}</pre></p>
+    <h5 class="card-title">${sessionScope['user_logged'].name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">@${sessionScope['user_logged'].handle}</h6>
+    <p class="card-text"><pre>${sessionScope['user_logged'].description}</pre></p>
    <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
   	</div>
 		</div>
@@ -92,19 +92,19 @@
   		<div class="card-body">
     	<fmt:parseDate var="parsedDate" value="${tweet.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
     	
-    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${requestScope.user.name}   
-    <font class="card-title mb-2 text-muted" size=3px>@${requestScope.user.handle}</font>
+    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${tweet.getUser().name}   
+    <font class="card-title mb-2 text-muted" size=3px>@${tweet.getUser().handle}</font>
     <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">
-    <a href="#"><i class="far fa-heart fa-lg"></i></a><font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
-    <a href="#"><i class="fas fa-retweet fa-lg"></i></a><font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a><font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a><font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
     </div>
   	</div>
 		</div>
     	</c:forEach>
     	</c:if>
-    	<c:if test="${sessionScope['user-logged'].followers eq 0 }">
+    	<c:if test="${fn:length(sessionScope['user_logged'].following) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks like you are not following anyone!</h5>
@@ -112,7 +112,7 @@
 			</div>
   			</div>	
     	</c:if>
-    	<c:if test="${fn:length(requestScope.followingTweets) eq 0 }">
+    	<c:if test="${fn:length(sessionScope['user_logged'].following) ne 0 && fn:length(requestScope.followingTweets) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks no one has tweeted anything yet!</h5>

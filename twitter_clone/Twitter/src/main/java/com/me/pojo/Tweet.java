@@ -4,15 +4,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-
-import javax.persistence.CollectionTable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,19 +30,31 @@ public class Tweet {
 	@Column(name = "Message")
 	private String message;
 	
-	@ElementCollection
-	@CollectionTable(name = "Likes", joinColumns = @JoinColumn(name = "USERID") )
-	private Set<Long> likes = new HashSet<Long>();
+	@OneToMany(mappedBy = "tweetLiked")
+//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "msgID", nullable = false)
+	private Set<LikedTweet> likes = new HashSet<LikedTweet>();
 	
-	@ElementCollection
-	@CollectionTable(name = "Retweets", joinColumns = @JoinColumn(name = "USERID") )
-	private Set<Long> retweets = new HashSet<Long>();;
-	
+	@OneToMany(mappedBy = "tweetRetweeted")
+	private Set<Retweet> retweets = new HashSet<Retweet>();
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TweetedOn")
 	private Date timestamp;
 	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+	@JoinColumn(name = "USERID", nullable = false)
+	private User tweet_user;
+	
+	
+	public User getUser() {
+		return tweet_user;
+	}
+
+	public void setUser(User user) {
+		this.tweet_user = user;
+	}
+
 	public Date getTimestamp() {
 		return timestamp;
 	}
@@ -53,7 +66,6 @@ public class Tweet {
 	public Tweet() {
 		
 	}
-	
 	public long getMsgId() {
 		return msgId;
 	}
@@ -66,16 +78,20 @@ public class Tweet {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Set<Long> getLikes() {
+
+	public Set<LikedTweet> getLikes() {
 		return likes;
 	}
-	public void setLikes(Set<Long> likes) {
+
+	public void setLikes(Set<LikedTweet> likes) {
 		this.likes = likes;
 	}
-	public Set<Long> getRetweets() {
+
+	public Set<Retweet> getRetweets() {
 		return retweets;
 	}
-	public void setRetweets(Set<Long> retweets) {
+
+	public void setRetweets(Set<Retweet> retweets) {
 		this.retweets = retweets;
 	}
 }

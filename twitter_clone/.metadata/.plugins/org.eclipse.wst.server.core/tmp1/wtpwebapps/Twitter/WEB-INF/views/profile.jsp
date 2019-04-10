@@ -28,9 +28,9 @@
       </li>
      
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
     	<div class="input-group">
-            <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
                 <div class="input-group-text bg-light">
                 <i class="fa fa-search"></i>
@@ -47,18 +47,18 @@
 	</form>
       
     
-<c:if test="${sessionScope['user-logged']!=null}">
+<c:if test="${sessionScope['user_logged']!=null}">
 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <c:out value="${sessionScope['user-logged'].name}"/>
+        <c:out value="${sessionScope['user_logged'].name}"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user-logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/register/edit.htm"><i class="fas fa-cog"></i>Settings</a>
           <a class="dropdown-item" href="${pageContext.request.contextPath}/signout.htm"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
         </div>
         
 </c:if>
-<c:if test="${sessionScope['user-logged']==null}">
+<c:if test="${sessionScope['user_logged']==null}">
 <a class="nav-link text-dark" href="${pageContext.request.contextPath}" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">Login</a>
 </c:if>
   </div>
@@ -89,13 +89,26 @@
 		  
 		  
 		  <!-- FOLLOW BUTTON -->
-		  <c:if test="${requestScope.user.handle ne sessionScope['user-logged'].handle }">
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyFollowing eq false}">
 		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
-		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/" method="post" modelAttribute="following">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/follow.htm" method="post" modelAttribute="following">
 			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
 			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
 			<button type="submit" class="btn btn-primary mx-sm-3"  style="background-color: #1DA1F2">
 	   		Follow
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
+		  <!-- TODO IMPLEMENT UNFOLLOW -->
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyFollowing eq true}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/unfollow.htm" method="post" modelAttribute="following">
+			
+			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
+			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
+			<button type="submit" class="btn btn-outline-primary mx-sm-3">
+	   		Following
 			</button>
 		</form:form>
 		  </li>
@@ -113,10 +126,9 @@
   	 
   		<div class="card-body">
     
-    <h5 class="card-title">${requestScope.user.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@${requestScope.user.handle}</h6>
+    <h4 class="card-title">${requestScope.user.name}</h4>
+    <h5 class="card-subtitle mb-2 text-muted">@${requestScope.user.handle}</h5>
     <p class="card-text"><pre>${requestScope.user.description}</pre></p>
-    <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a>
   	</div>
 		</div>
       </div>
@@ -135,19 +147,30 @@
   		<div class="card-body">
     	<fmt:parseDate var="parsedDate" value="${tweet.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
     	
-    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${requestScope.user.name}   
+    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${requestScope.user.name}
     <font class="card-title mb-2 text-muted" size=3px>@${requestScope.user.handle}</font>
-    <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
+    <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font>
+    <a class="card-title float-right nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownOptionLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownOptionLink">
+          <a class="dropdown-item" href="#">Copy link to Tweet</a>
+          <c:if test="${requestScope.user.handle eq sessionScope.user_logged.handle }">
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/tweet/delete?tweet=${tweet.msgId}">Delete Tweet</a>
+          </c:if>
+        </div>
+    </font>
+    </h5>
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">
-    <a href="#"><i class="far fa-heart fa-lg"></i></a><font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
-    <a href="#"><i class="fas fa-retweet fa-lg"></i></a><font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    
+    <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a><font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a><font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
     </div>
   	</div>
 		</div>
     	</c:forEach>
     	</c:if>
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && not empty requestScope.user && requestScope.user.handle eq sessionScope['user-logged'].handle }">
+    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && not empty requestScope.user && requestScope.user.handle eq sessionScope['user_logged'].handle }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"><i class="fas fa-broom mb-2"></i> Looks like you haven't tweeted anything yet</h5>
@@ -163,7 +186,7 @@
     		
     	</c:if>
     	
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && not empty sessionScope['user-logged'] && sessionScope['user-logged'].handle ne requestScope.user.handle }">
+    	<c:if test="${not empty requestScope.user && not empty sessionScope['user_logged'] && sessionScope['user_logged'].handle ne requestScope.user.handle && fn:length(requestScope.user.listOfTweets) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"> @${requestScope.user.handle} hasn't tweeted yet!</h5>
@@ -176,7 +199,7 @@
     		
     	</c:if>
     	
-    	<c:if test="${fn:length(requestScope.user.listOfTweets) eq 0 && empty sessionScope['user-logged'] && not empty requestScope.user }">
+    	<c:if test="${empty sessionScope['user_logged'] && not empty requestScope.user && fn:length(requestScope.user.listOfTweets) eq 0 }">
     		<div class="card my-2">
     		<div class="card-body">
   			<h5 class="card-title"> @${requestScope.user.handle} hasn't tweeted yet!</h5>

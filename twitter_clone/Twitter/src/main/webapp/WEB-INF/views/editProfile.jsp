@@ -48,7 +48,7 @@
     
 
 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <c:out value="${sessionScope['user-logged'].name}"/>
+        <c:out value="${sessionScope['user_logged'].name}"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="${pageContext.request.contextPath}/profile/${sessionScope['user-logged'].handle}"><i class="fas fa-user-circle"></i>Profile</a>
@@ -89,6 +89,9 @@
             <button class="btn btn-light btn-lg btn-block">Update</button>
         </div>
     </form:form>
+    <form class="form-group" action="${pageContext.request.contextPath}/delete" method="post">
+    	<button class="btn btn-danger btn-lg btn-block">Delete</button>
+    </form>
     
 </div>
 

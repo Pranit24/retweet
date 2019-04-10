@@ -32,12 +32,15 @@ public class RegisterValidator  implements Validator{
 		}else if(user.getPassword().length() >24) {
 			errors.rejectValue("password", "","-Password length must be less than 24");
 		}
+		if(!user.getHandle().matches("^[a-zA-Z0-9]*$")) {
+			errors.rejectValue("handle", "","-Only alphanumerical values for your handle");
+		}
 		if(errors.hasErrors()) return;
 		UserDao userDao = new UserDao();
-		if(userDao.alreadyExists("email", user.getEmail())) {
+		if(userDao.alreadyExists("email", user.getEmail()) != null) {
 			errors.rejectValue("email", "", "-Email already in use");
 		}
-		if(userDao.alreadyExists("handle", user.getHandle())) {
+		if(userDao.alreadyExists("handle", user.getHandle()) != null) {
 			errors.rejectValue("handle", "", "-Handle already in use");
 		}
 		
