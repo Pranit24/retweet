@@ -97,8 +97,25 @@
     <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">
-    <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a><font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
-    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a><font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    
+    <c:forEach var="likedUser" items="${tweet.likes }">
+    
+    <c:if test="${likedUser.userLikedId eq sessionScope.user_logged.userId }">
+    <c:set var="likedAlready" value="${likedUser.tweetLiked.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+	</c:if>
+    </c:forEach>
+    <!-- LIKES -->
+    <c:if test="${likedAlready ne tweet.msgId }">
+    
+    <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+    </c:if>
+    
+    <!-- RETWEETS -->
+    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
+    <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
     </div>
   	</div>
 		</div>
