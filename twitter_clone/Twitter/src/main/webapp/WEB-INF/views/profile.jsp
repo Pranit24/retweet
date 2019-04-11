@@ -108,9 +108,15 @@
 	
 	<div class=" bg-white col-12 border-bottom border-dark" style="padding-left:400px;height:60px">
 	<ul class="list-inline">
-		  <li class="list-inline-item">Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p></li>
-		  <li class="list-inline-item">Followers <p class="text-center">${requestScope.user.followers}</p></li>
-		  <li class="list-inline-item">Following <p class="text-center">${fn:length(requestScope.user.following) }</p></li>
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
+		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p>
+		  </a></li>
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
+		  Followers <p class="text-center">${requestScope.user.followers}</p>
+		  </a></li>
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
+		  Following <p class="text-center">${fn:length(requestScope.user.following) }</p>
+		  </a></li>
 		  
 		  
 		  <!-- FOLLOW BUTTON -->

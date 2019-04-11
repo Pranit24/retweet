@@ -13,6 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body class="bg-info">
 <nav class="navbar navbar-expand-md navbar-navbar-light" style="background-color: #e3f2fd;">
@@ -103,13 +104,37 @@
 	alt="Card image cap" style="height:120px"/>	
 	
 	</c:if>
-	<!-- Profile image -->
   	
-  		<div class="card-body">
+  		<div class="card-body" style="height:115px">
     
-    <h5 class="card-title mt-n3" style="margin-left:90px">${sessionScope['user_logged'].name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted" style="margin-left:90px">@${sessionScope['user_logged'].handle}</h6>
-     
+    <h5 class="card-title mt-n3" style="margin-left:90px">
+    <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+    ${sessionScope['user_logged'].name}</a></h5>
+    <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
+    <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+    @${sessionScope['user_logged'].handle}</a></h6>
+     <div class="row">
+     <div  class="col-12">
+     <ul class="list-inline">
+		  
+		  <li class="list-inline-item pr-3">
+		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black" id="hoverBlue">
+		  Tweets <p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].listOfTweets) }</p>
+		  </a></li>
+		  
+		  <li class="list-inline-item pr-3"> 
+		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+		  Followers <p class="text-center" style="color:blue">${sessionScope['user_logged'].followers}</p>
+		  </a></li>
+		  
+		  <li class="list-inline-item pr-2">
+		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+		  Following <p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].following) }</p>
+		  </a></li>
+	</ul>
+    
+     </div>
+     </div>
    <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
   	</div>
 		</div>

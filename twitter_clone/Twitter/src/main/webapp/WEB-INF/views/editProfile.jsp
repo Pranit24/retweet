@@ -64,7 +64,7 @@
    		<i class="far fa-edit"></i> Edit
 		</button>  -->
     <form:form action="${pageContext.request.contextPath}/register/edit.htm" method="POST" enctype="multipart/form-data" modelAttribute="update">
-    	<div class="alert alert-danger"><form:errors path="*"></form:errors></div> 
+    	<div class="alert alert-danger" style="width:350px"><form:errors path="*"></form:errors></div> 
         <div class="form-group">
             <h6>Email</h6>
             <form:input class="form-control form-control-lg" path="email" placeholder="${sessionScope['user-logged'].email}" type="text" id="change"  />
@@ -89,9 +89,9 @@
         <div class="form-group">
             <h6> Select file for profile picture </h6>
             <div class="form-check">
-        	<input class="form-check-input" type="checkbox" name="removeProfile" value="true"/>
-        	<label class="form-check-label" for="defaultCheck1">
-    			<h6>Remove profile image</h6>
+        	<input class="form-check-input" type="checkbox" name="removeProfile" value="true" id="removeProfile_id"/>
+        	<label class="form-check-label h6 mb-1" for="removeProfile_id">
+    			Remove profile image
   			</label>
         </div>
             <input type="file" name="profile" accept="image/*"/>
@@ -100,9 +100,9 @@
         <div class="form-group">
             <h6> Select file for profile banner </h6>
             <div class="form-check">
-        	<input class="form-check-input" type="checkbox" name="removeBanner" value="true"/>
-        	<label class="form-check-label" for="defaultCheck1">
-    			<h6>Remove banner</h6>
+        	<input class="form-check-input" type="checkbox" name="removeBanner" value="true" id="removeBanner_id"/>
+        	<label class="form-check-label h6 mb-1" for="removeBanner_id">
+    			Remove banner
   			</label>
         </div>
             <input type="file" name="profileBanner" accept="image/*"/>

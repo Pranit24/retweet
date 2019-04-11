@@ -59,10 +59,11 @@ public class LoginController {
 			      return o2.getTimestamp().compareTo(o1.getTimestamp());
 			  }
 			});
+
+		user_logged.setFollowing(userDao.getListOfFollowing(user_logged));
+		user_logged.setFollowers(userDao.getNumberOfFollowers(user_logged));
 		model.addAttribute("followingTweets",tweets);
-//		for(Tweet tw: tweets) {
-//			System.out.println(tw.);
-//		}
+		
 		return "home";
 	}
 	

@@ -73,6 +73,27 @@ public class RegisterController {
 			@RequestPart(value = "profileBanner", required = false) MultipartFile profileBanner) {
 		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
+		
+		// Check if uploaded file is JPG, BMP, GIF, PNG
+		if(!profileImage.isEmpty()) {
+			try {
+				ImageIO.read(profileImage.getInputStream()).toString();
+			}catch (Exception e) {
+				System.out.println("NOT IMAGE");
+				results.rejectValue("profileImage", "","-The profile image you uploaded was not an image!");
+			}
+		}
+		if(!profileBanner.isEmpty()) {
+			try {
+				ImageIO.read(profileBanner.getInputStream()).toString();
+			}catch (Exception e) {
+				System.out.println("NOT IMAGE");
+				results.rejectValue("profileBanner", "","-The profile banner you uploaded was not an image!");
+			}
+		}
+		
+		
+		
 		String removeProfile = request.getParameter("removeProfile");
 		String removeBanner = request.getParameter("removeBanner");
 		updated_user.setUserId(user_logged.getUserId());

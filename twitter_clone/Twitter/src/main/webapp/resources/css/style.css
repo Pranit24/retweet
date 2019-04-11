@@ -7,3 +7,7 @@ div:empty{display:none}
 .white-space{
 	white-space: pre-wrap;
 }
+
+.list-inline-item>li>a:hover{
+	color:blue;
+}

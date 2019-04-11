@@ -2,7 +2,6 @@ INDEX VERSION 1.4+D:\Twitter\twitter_clone\.metadata\.plugins\org.eclipse.wst.js
 3925453521.index
 1221440372.index
 2824478226.index
-3723808826.index
 2020486486.index
 588293300.index
 3224649296.index
