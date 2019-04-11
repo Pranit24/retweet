@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,13 +36,13 @@ public class User {
 	@Column(name="Handle")
 	private String handle;
 	
-	@OneToMany(mappedBy = "tweet_user")
+	@OneToMany(mappedBy = "tweet_user", cascade = CascadeType.ALL)
 	private List<Tweet> listOfTweets = new ArrayList<Tweet>();
 	
 	@Column(name="Followers")
 	private Integer followers;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "following_user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "following_user", cascade = CascadeType.ALL)
 	private Set<Following> following = new HashSet<Following>();
 	
 	@Column(name = "Role")
@@ -54,10 +54,42 @@ public class User {
 	@Column(name="Description")
 	private String description;
 	
-	@OneToMany(mappedBy = "userLink")
+	@OneToMany(mappedBy = "userLink", cascade = CascadeType.ALL)
 	private List<Link> links = new ArrayList<Link>();
 	
+	@Column(name="ProfileImage", length = 100000)
+	private byte[] profileImage;
 	
+	@Column(name="BackgroundImage", length = 100000)
+	private byte[] profileBackgroundImage;
+	
+	
+	
+	public byte[] getProfileBackgroundImage() {
+		return profileBackgroundImage;
+	}
+
+	public void setProfileBackgroundImage(byte[] profileBackgroundImage) {
+		this.profileBackgroundImage = profileBackgroundImage;
+	}
+
+	public byte[] getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(byte[] profileImage) {
+		this.profileImage = profileImage;
+	}
+	
+	public String getProfileImageAsString() {
+		return new String(getProfileImage());
+	}
+
+	public String getProfileBackgroundImageAsString() {
+		return new String(getProfileBackgroundImage());
+	}
+	
+
 	public String getDescription() {
 		return description;
 	}

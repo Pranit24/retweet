@@ -1,5 +1,9 @@
 package com.me.controller;
 
+import java.io.IOException;
+import java.util.Base64;
+
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +14,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.me.dao.UserDao;
 import com.me.pojo.User;
@@ -54,16 +60,21 @@ public class RegisterController {
 		HttpSession session = request.getSession();
 		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
-		System.out.println(user_logged.getUserId());
 		model.addAttribute("update", user_logged);
 		return "editProfile";
 	}
 	
+
+	// TODO check if its an image
+	// do it in validator?
 	@RequestMapping(value="/edit.htm", method=RequestMethod.POST)
-	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user, BindingResult results) {
-		HttpSession session = request.getSession();
+	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user, BindingResult results, HttpSession session,
+			@RequestPart(value = "profile", required = false) MultipartFile profileImage,
+			@RequestPart(value = "profileBanner", required = false) MultipartFile profileBanner) {
 		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
+		String removeProfile = request.getParameter("removeProfile");
+		String removeBanner = request.getParameter("removeBanner");
 		updated_user.setUserId(user_logged.getUserId());
 		EditValidator editValid = new EditValidator();
 		editValid.validate(updated_user, results);
@@ -71,12 +82,38 @@ public class RegisterController {
 			return "editProfile";
 		}
 		updateUser(user_logged, updated_user);
-		System.out.println(user_logged.getDescription()+":"+user_logged.getUserId());
-
+		// Profile image
+		if(!profileImage.isEmpty() && removeProfile == null) {
+			user_logged.setProfileImage(uploadImage(user_logged, profileImage));
+		}
+		if(removeProfile != null && removeProfile.equals("true")){
+			user_logged.setProfileImage(null);
+		}
+		// Profile banner
+		if(!profileBanner.isEmpty() && removeBanner == null) {
+			user_logged.setProfileBackgroundImage(uploadImage(user_logged, profileBanner));
+		}
+		if(removeBanner != null && removeBanner.equals("true")){
+			user_logged.setProfileBackgroundImage(null);
+		}
+		
 		userDao.editUser(user_logged);
+
 		return "redirect:/profile/"+user_logged.getHandle();
 	}
 	
+	public byte[] uploadImage(User user, MultipartFile uploadedFile) {
+
+        byte[] bFile = null;
+		try {
+			bFile = uploadedFile.getBytes();
+		} catch (IOException e) {
+			user.setProfileImage(null);
+			return null;
+		}
+        bFile = Base64.getEncoder().encode(bFile);
+        return bFile;
+	}
 	
 	/**
 	 * @param user_logged - Currect user logged to the site

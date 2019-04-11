@@ -10,3 +10,5 @@
 1554786047863	Delete element
 1554786994526	Rename type 'Like'
 1554858675444	Rename local variable 'liked'
+1554960890624	Rename local variable 'file'
+1554961110190	Rename local variable 'remove'

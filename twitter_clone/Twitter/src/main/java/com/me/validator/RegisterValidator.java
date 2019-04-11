@@ -35,6 +35,9 @@ public class RegisterValidator  implements Validator{
 		if(!user.getHandle().matches("^[a-zA-Z0-9]*$")) {
 			errors.rejectValue("handle", "","-Only alphanumerical values for your handle");
 		}
+		if(!user.getHandle().matches("^[a-zA-Z0-9]*$")) {
+			errors.rejectValue("handle", "","-Only alphanumerical values for your handle");
+		}
 		if(errors.hasErrors()) return;
 		UserDao userDao = new UserDao();
 		if(userDao.alreadyExists("email", user.getEmail()) != null) {

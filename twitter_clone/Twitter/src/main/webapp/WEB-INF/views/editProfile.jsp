@@ -63,7 +63,7 @@
     <!-- <button onclick="document.getElementById('change').readOnly=false" class="btn btn-light btn-sm" >
    		<i class="far fa-edit"></i> Edit
 		</button>  -->
-    <form:form action="${pageContext.request.contextPath}/register/edit.htm" method="post" modelAttribute="update">
+    <form:form action="${pageContext.request.contextPath}/register/edit.htm" method="POST" enctype="multipart/form-data" modelAttribute="update">
     	<div class="alert alert-danger"><form:errors path="*"></form:errors></div> 
         <div class="form-group">
             <h6>Email</h6>
@@ -84,6 +84,28 @@
         <div class="form-group">
             <h6>Description</h6>
             <form:textarea class="form-control form-control-lg white-space" rows="5" cols="30" path="description" placeholder="${sessionScope['user-logged'].description}" id="change"  />
+        </div>
+        
+        <div class="form-group">
+            <h6> Select file for profile picture </h6>
+            <div class="form-check">
+        	<input class="form-check-input" type="checkbox" name="removeProfile" value="true"/>
+        	<label class="form-check-label" for="defaultCheck1">
+    			<h6>Remove profile image</h6>
+  			</label>
+        </div>
+            <input type="file" name="profile" accept="image/*"/>
+        </div>
+        
+        <div class="form-group">
+            <h6> Select file for profile banner </h6>
+            <div class="form-check">
+        	<input class="form-check-input" type="checkbox" name="removeBanner" value="true"/>
+        	<label class="form-check-label" for="defaultCheck1">
+    			<h6>Remove banner</h6>
+  			</label>
+        </div>
+            <input type="file" name="profileBanner" accept="image/*"/>
         </div>
         <div class="form-group">
             <button class="btn btn-light btn-lg btn-block">Update</button>

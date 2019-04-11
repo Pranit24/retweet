@@ -30,12 +30,10 @@ public class Tweet {
 	@Column(name = "Message")
 	private String message;
 	
-	@OneToMany(mappedBy = "tweetLiked")
-//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "msgID", nullable = false)
+	@OneToMany(mappedBy = "tweetLiked", cascade = CascadeType.ALL)
 	private Set<LikedTweet> likes = new HashSet<LikedTweet>();
 	
-	@OneToMany(mappedBy = "tweetRetweeted")
+	@OneToMany(mappedBy = "tweetRetweeted", cascade = CascadeType.ALL)
 	private Set<Retweet> retweets = new HashSet<Retweet>();
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -46,7 +44,26 @@ public class Tweet {
 	@JoinColumn(name = "USERID", nullable = false)
 	private User tweet_user;
 	
+	@Column(name = "UniqueUrl")
+	private String uniqueUrl;
 	
+	
+	public User getTweet_user() {
+		return tweet_user;
+	}
+
+	public void setTweet_user(User tweet_user) {
+		this.tweet_user = tweet_user;
+	}
+
+	public String getUniqueUrl() {
+		return uniqueUrl;
+	}
+
+	public void setUniqueUrl(String uniqueUrl) {
+		this.uniqueUrl = uniqueUrl;
+	}
+
 	public User getUser() {
 		return tweet_user;
 	}

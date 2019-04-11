@@ -72,12 +72,37 @@
 	
 	<div  class="col-lg-12">
 	<!-- PROFILE IMAGE -->
+	<c:if test="${requestScope.user.profileImage ne null }">
+	
 	<img class="rounded-circle border border-light" 
-	src="<c:url value="/resources/images/default_profile.png" />" 
-	alt="Card image cap" style="margin-left:65px;margin-top:150px;position:absolute;width:220px;height:220px;z-index:1;border-width:10px">	
+	 src="data:image/jpeg;base64,${requestScope.user.getProfileImageAsString() }"
+	
+	alt="Card image cap" style="margin-left:65px;margin-top:150px;position:absolute;width:220px;height:220px;z-index:1;border-width:10px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile.png" />'"/>	
+	</c:if>
+	
+	<c:if test="${requestScope.user.profileImage eq null }">
+	<img class="rounded-circle border border-light" 
+	 src="<c:url value="/resources/images/default_profile.png" />"
+	
+	alt="Card image cap" style="margin-left:65px;margin-top:150px;position:absolute;width:220px;height:220px;z-index:1;border-width:10px"/>	
+	</c:if>
+	
+	
 	<!-- BACKGROUND IMAGE -->
-	<img src="<c:url value="/resources/images/default_profile_background.jpg" />" 
-	class="ml-n3 mt-n2" alt="" style="width:2000px;height:300px;">
+	<c:if test="${requestScope.user.profileBackgroundImage ne null }">
+	<img class="ml-n3 mt-n2" 
+	 src="data:image/jpeg;base64,${requestScope.user.getProfileBackgroundImageAsString() }"
+	alt="Card image cap" style="width:2000px;height:300px;"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
+	</c:if>
+	
+	<c:if test="${requestScope.user.profileBackgroundImage eq null }">
+	<img class="ml-n3 mt-n2" 
+	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
+	
+	alt="Card image cap" style="width:2000px;height:300px;"/>	
+	</c:if>
 
 	</div>
 	
@@ -158,15 +183,15 @@
           <a class="dropdown-item" href="${pageContext.request.contextPath}/tweet/delete?tweet=${tweet.msgId}">Delete Tweet</a>
           </c:if>
         </div>
-    </font>
     </h5>
+    
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">
     <c:forEach var="likedUser" items="${tweet.likes }">
     
     <c:if test="${likedUser.userLikedId eq sessionScope.user_logged.userId }">
     <c:set var="likedAlready" value="${likedUser.tweetLiked.msgId}"/>
-	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-heart fa-lg"></i></a>
+	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:hotpink"><i class="fas fa-heart fa-lg"></i></a>
     <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
 	</c:if>
     </c:forEach>
@@ -175,9 +200,21 @@
     <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a>
     <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
     </c:if>
+    
+    <!-- ALREADY RETWEETED -->
+    <c:forEach var="retweetedUser" items="${tweet.retweets}">
+    
+    <c:if test="${retweetedUser.userRetweetId eq sessionScope.user_logged.userId }">
+    <c:set var="retweetedAlready" value="${retweetedUser.tweetRetweeted.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:yellow"><i class="fas fa-retweet fa-lg"></i></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.retweets)}</font>
+	</c:if>
+    </c:forEach>
     <!-- RETWEETS -->
+    <c:if test="${retweetedAlready ne tweet.msgId }">
     <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
     <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    </c:if>
     </div>
   	</div>
 		</div>

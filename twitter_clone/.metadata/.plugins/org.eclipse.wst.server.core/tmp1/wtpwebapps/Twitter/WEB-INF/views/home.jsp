@@ -98,11 +98,12 @@
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">
     
+    <!-- ALREADY LIKED -->
     <c:forEach var="likedUser" items="${tweet.likes }">
     
     <c:if test="${likedUser.userLikedId eq sessionScope.user_logged.userId }">
     <c:set var="likedAlready" value="${likedUser.tweetLiked.msgId}"/>
-	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-heart fa-lg"></i></a>
+	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:hotpink"><i class="fas fa-heart fa-lg"></i></a>
     <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
 	</c:if>
     </c:forEach>
@@ -113,9 +114,20 @@
     <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
     </c:if>
     
+    <!-- ALREADY RETWEETED -->
+    <c:forEach var="retweetedUser" items="${tweet.retweets}">
+    
+    <c:if test="${retweetedUser.userRetweetId eq sessionScope.user_logged.userId }">
+    <c:set var="retweetedAlready" value="${retweetedUser.tweetRetweeted.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:yellow"><i class="fas fa-retweet fa-lg"></i></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.retweets)}</font>
+	</c:if>
+    </c:forEach>
     <!-- RETWEETS -->
+    <c:if test="${retweetedAlready ne tweet.msgId }">
     <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
     <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    </c:if>
     </div>
   	</div>
 		</div>
