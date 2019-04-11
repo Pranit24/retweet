@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.hibernate.annotations.CascadeType"/>
-<fullyQualifiedTypeName name="org.hibernate.annotations.IndexColumn"/>
-<fullyQualifiedTypeName name="javax.persistence.criteria.CriteriaQuery"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.ManyToAny"/>
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-<fullyQualifiedTypeName name="org.hibernate.Hibernate"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.LazyCollectionOption"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.LazyCollection"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.me.dao.TweetDao"/>
 <fullyQualifiedTypeName name="com.me.pojo.Following"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
@@ -34,8 +28,6 @@
 <fullyQualifiedTypeName name="com.me.dao.UserDao"/>
 <fullyQualifiedTypeName name="java.lang.Readable"/>
 <fullyQualifiedTypeName name="com.me.pojo.Retweet"/>
-<fullyQualifiedTypeName name="org.hibernate.Criteria"/>
-<fullyQualifiedTypeName name="org.hibernate.criterion.Restrictions"/>
 <fullyQualifiedTypeName name="com.me.pojo.LikedTweet"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="org.hibernate.engine.transaction.jta.platform.internal.ResinJtaPlatform"/>
+<fullyQualifiedTypeName name="org.hibernate.Criteria"/>
+<fullyQualifiedTypeName name="org.hibernate.criterion.Restrictions"/>
+<fullyQualifiedTypeName name="org.hibernate.criterion.MatchMode"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
+<fullyQualifiedTypeName name="org.hibernate.Hibernate"/>
 </qualifiedTypeNameHistroy>

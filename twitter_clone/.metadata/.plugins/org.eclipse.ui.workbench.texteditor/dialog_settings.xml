@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="tweetda"/>
 			<item value="hoverblu"/>
 			<item value="list-inline-item"/>
 			<item value="form-control-lg"/>
@@ -15,7 +16,6 @@
 			<item value="about"/>
 			<item value="req"/>
 			<item value="995"/>
-			<item value="profi"/>
 		</list>
 		<list key="replacehistory">
 		</list>

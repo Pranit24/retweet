@@ -1,12 +1,15 @@
 package com.me.dao;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.hibernate.query.Query;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import com.me.pojo.Following;
@@ -209,23 +212,89 @@ public class UserDao extends DAO{
 		return true;
 	}
 	
-	@SuppressWarnings("deprecation")
-	public User search(String searchString) {
-		User user = null;
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<User> searchUserByAt(String searchString) {
+		List<User> users = new ArrayList<User>();
 		try {
 			begin();
-//			Query query = getSession().createQuery("from User where handle="+searchString);
 			Criteria criteria = getSession().createCriteria(User.class);
 			criteria.add(Restrictions.eq("handle",searchString));
-			criteria.setMaxResults(1);
-			user = (User) criteria.uniqueResult();
+			users = criteria.list();
 			commit();
 		}catch (HibernateException e) {
 			rollback();
 		}finally {
 			close();
 		}
-		return user;
+		return users;
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<User> searchUserName(String searchString) {
+		List<User> users = new ArrayList<User>();
+		try {
+			begin();
+			Criteria criteria = getSession().createCriteria(User.class);
+			criteria.add(Restrictions.like("name", searchString, MatchMode.ANYWHERE));
+			users = criteria.list();
+			for(User user: users){
+				Hibernate.initialize(user.getListOfTweets());
+				Hibernate.initialize(user.getFollowing());
+				Hibernate.initialize(user.getLinks());
+			}
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return users;
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<User> searchHandle(String searchString) {
+		List<User> users = new ArrayList<User>();
+		try {
+			begin();
+			Criteria criteria = getSession().createCriteria(User.class);
+			criteria.add(Restrictions.like("handle",searchString, MatchMode.START));
+			users = criteria.list();
+			for(User user: users){
+				Hibernate.initialize(user.getListOfTweets());
+				Hibernate.initialize(user.getFollowing());
+				Hibernate.initialize(user.getLinks());
+			}
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return users;
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<User> searchTweet(String searchString) {
+		List<User> users = new ArrayList<User>();
+		if(!searchString.contains("#")) searchString = "#"+searchString;
+		try {
+			begin();
+			Criteria criteria = getSession().createCriteria(User.class);
+			Criteria tweetCritria = criteria.createCriteria("listOfTweets");
+			tweetCritria.add(Restrictions.like("message",searchString, MatchMode.ANYWHERE));
+			users = criteria.list();
+			for(User user: users){
+				Hibernate.initialize(user.getListOfTweets());
+				Hibernate.initialize(user.getFollowing());
+				Hibernate.initialize(user.getLinks());
+			}
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return users;
 	}
 	
 	public void deleteUser(User user) {
