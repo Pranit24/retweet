@@ -8,14 +8,14 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="about"/>
+			<item value="req"/>
 			<item value="995"/>
 			<item value="profi"/>
 			<item value="textarea"/>
 			<item value="alread"/>
 			<item value="desc"/>
 			<item value="follow"/>
-			<item value="user-logged"/>
-			<item value="model"/>
 		</list>
 		<list key="replacehistory">
 		</list>

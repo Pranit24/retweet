@@ -22,9 +22,9 @@
       <li class="nav-item active mr-2">
         <a class="nav-link  text-dark" href="/twitter/"><span class="fas fa-home"></span>Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link  text-dark" href="#">About</a>
-      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link  text-dark" href="aboutPage.jsp">About</a>
+      </li> -->
      
     </ul>
     <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
@@ -69,14 +69,47 @@
 
 	<div class="row">    
 	        <!-- User Info  -->
+	<!-- Profile Image -->
+	<c:if test="${sessionScope.user_logged.profileImage ne null }">
+	
+	<img class="rounded-circle border-4 border-light" 
+	 src="data:image/jpeg;base64,${sessionScope.user_logged.getProfileImageAsString() }"
+	
+	alt="Card image cap" style="width:100px;height:100px;margin-left:55px;position:absolute;z-index:1;margin-top:70px;border-width:10px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile.png" />'"/>	
+	</c:if>
+	
+	<c:if test="${sessionScope.user_logged.profileImage eq null }">
+	<img class="rounded-circle border-4 border-light" 
+	 src="<c:url value="/resources/images/default_profile.png" />"
+	
+	alt="Card image cap" style="width:100px;height:100px;margin-left:55px;position:absolute;z-index:1;margin-top:70px;border-width:10px"/>	
+	</c:if>
       <div class="col-md-3">
-			<div class="card my-2" style="margin-left: 2em;margin-right: 2em">
-  
+			<div class="card my-2" style="margin-left: 2em;margin-right: 2em;border:none">
+			
+	<!-- BACKGROUND IMAGE -->
+	<c:if test="${sessionScope.user_logged.profileBackgroundImage ne null }">
+	<img class="card-img-top mb-2" 
+	 src="data:image/jpeg;base64,${sessionScope.user_logged.getProfileBackgroundImageAsString() }"
+	alt="Card image cap" style="height:120px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
+	</c:if>
+	
+	<c:if test="${sessionScope.user_logged.profileBackgroundImage eq null }">
+	<img class="card-img-top mb-2" 
+	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
+	
+	alt="Card image cap" style="height:120px"/>	
+	
+	</c:if>
+	<!-- Profile image -->
+  	
   		<div class="card-body">
     
-    <h5 class="card-title">${sessionScope['user_logged'].name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@${sessionScope['user_logged'].handle}</h6>
-    <p class="card-text"><pre>${sessionScope['user_logged'].description}</pre></p>
+    <h5 class="card-title mt-n3" style="margin-left:90px">${sessionScope['user_logged'].name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted" style="margin-left:90px">@${sessionScope['user_logged'].handle}</h6>
+     
    <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
   	</div>
 		</div>

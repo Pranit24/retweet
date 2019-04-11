@@ -23,9 +23,9 @@
       <li class="nav-item active mr-2">
         <a class="nav-link  text-dark" href="/twitter/"><span class="fas fa-home"></span>Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link  text-dark" href="#">About</a>
-      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link  text-dark" href="aboutPage.jsp">About</a>
+      </li> -->
      
     </ul>
     <form class="form-inline" method="get" action="${pageContext.request.contextPath}/search/">
