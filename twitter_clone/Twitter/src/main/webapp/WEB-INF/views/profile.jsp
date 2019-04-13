@@ -111,16 +111,16 @@
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
 		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p>
 		  </a></li>
-		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/">
 		  Followers <p class="text-center">${requestScope.user.followers}</p>
 		  </a></li>
-		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/following/">
 		  Following <p class="text-center">${fn:length(requestScope.user.following) }</p>
 		  </a></li>
 		  
 		  
 		  <!-- FOLLOW BUTTON -->
-		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyFollowing eq false}">
+		<c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyFollowing eq false}">
 		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
 		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/follow/follow.htm" method="post" modelAttribute="following">
 			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
@@ -131,6 +131,8 @@
 		</form:form>
 		  </li>
 		  </c:if>
+		  
+		  
 		  <!-- TODO IMPLEMENT UNFOLLOW -->
 		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyFollowing eq true}">
 		  <li class="list-inline-item float-right mt-2" style="padding-right:370px">
@@ -273,7 +275,7 @@
     <c:if test="${empty requestScope.user }">
     		<div class="card my-2 " style="margin-left:600px">
     		<div class="card-body">
-  			<h5 class="card-title"> @${requestScope.error} doesn't exist!</h5>
+  			<h5 class="card-title"> ${requestScope.error} doesn't exist!</h5>
     		<form class="form-inline d-flex justify-content-center" action="${pageContext.request.contextPath}/tweet/tweet.htm" method="get">
 		
 	</form>

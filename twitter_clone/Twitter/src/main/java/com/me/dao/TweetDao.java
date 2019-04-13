@@ -3,8 +3,11 @@ package com.me.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 import com.me.pojo.LikedTweet;
@@ -152,6 +155,28 @@ public class TweetDao extends DAO{
 		}
 		
 		return false;
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Tweet> searchTweet(String searchString) {
+		List<Tweet> tweets = new ArrayList<Tweet>();
+		if(!searchString.contains("#")) searchString = "#"+searchString;
+		try {
+			begin();
+			Criteria tweetCritria = getSession().createCriteria(Tweet.class);
+			tweetCritria.add(Restrictions.like("message",searchString, MatchMode.ANYWHERE));
+			tweets = tweetCritria.list();
+			for(Tweet user: tweets){
+				Hibernate.initialize(user.getLikes());
+				Hibernate.initialize(user.getRetweets());
+			}
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return tweets;
 	}
 	
 	public void deleteTweet(Tweet tweet) {

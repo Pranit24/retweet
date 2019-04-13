@@ -36,7 +36,7 @@ public class User {
 	@Column(name="Handle")
 	private String handle;
 	
-	@OneToMany(mappedBy = "tweet_user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "tweet_user", cascade = CascadeType.ALL)
 	private List<Tweet> listOfTweets = new ArrayList<Tweet>();
 	
 	@Column(name="Followers")

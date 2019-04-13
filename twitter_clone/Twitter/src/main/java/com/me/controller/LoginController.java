@@ -1,6 +1,7 @@
 package com.me.controller;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -47,6 +48,7 @@ public class LoginController {
 	public String home(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		User user_logged = (User) session.getAttribute("user_logged");
+		createStaff();
 		if(user_logged==null) {
 			User user = new User();
 			model.addAttribute("login",user);
@@ -59,12 +61,27 @@ public class LoginController {
 			      return o2.getTimestamp().compareTo(o1.getTimestamp());
 			  }
 			});
-
+		user_logged.setListOfTweets(tweetDao.getTweet(user_logged));
 		user_logged.setFollowing(userDao.getListOfFollowing(user_logged));
 		user_logged.setFollowers(userDao.getNumberOfFollowers(user_logged));
 		model.addAttribute("followingTweets",tweets);
 		
 		return "home";
+	}
+	
+
+	public void createStaff() {
+		if(userDao.getUser(new Long(1)) == null) {
+			User staff = new User();
+			staff.setName("Pranit Staff");
+			staff.setRole(true);
+			staff.setVerified(true);
+			staff.setEmail("pranit@g.com");
+			staff.setPassword("pranit");
+			staff.setHandle("@pranitstaff");
+			userDao.register(staff);
+		}
+	
 	}
 	
 	@RequestMapping(value="/profile/*", method=RequestMethod.POST)
@@ -84,16 +101,18 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/profile/*", method=RequestMethod.GET)
-	public ModelAndView profile(HttpServletRequest request, Model model) {
+	public ModelAndView profile(HttpServletRequest request, Model model, HttpSession session) {
 		String user_url = request.getRequestURI();
 		String[] url = user_url.split("/");
+
+		User user_logged = (User) session.getAttribute("user_logged");
 		String handle = url[url.length -1];
 		if(handle.equals("profile")) return new ModelAndView("redirect:/");
+
 		User user = userDao.getUser(handle);
-		if(user==null) return new ModelAndView("profile","error",handle);
-		HttpSession session = request.getSession();
 		
-		User user_logged = (User) session.getAttribute("user_logged");
+		if(user==null) return new ModelAndView("profile","error",handle);
+		
 		boolean alreadyFollowing = false;
 		if(user_logged != null) {
 			alreadyFollowing = userDao.checkIfFollowing(user_logged, user);
@@ -121,6 +140,75 @@ public class LoginController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/profile/*/following")
+	public String followingPage(HttpServletRequest request, Model model, HttpSession session) {
+		String user_url = request.getRequestURI();
+		String[] url = user_url.split("/");
+		String handle = url[url.length -2];
+
+		if(handle.equals("profile")) return "redirect:/";
+		User user = userDao.getUser(handle);
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user == null) return "redirect:/";
+		model.addAttribute("user",user);
+		
+		user.setFollowing(userDao.getListOfFollowing(user));
+		user.setFollowers(userDao.getNumberOfFollowers(user));
+		model.addAttribute("following", new Following());
+		
+		boolean alreadyFollowing = false;
+		if(user_logged != null) {
+			alreadyFollowing = userDao.checkIfFollowing(user_logged, user);
+		}
+		model.addAttribute("alreadyFollowing",alreadyFollowing);
+		
+		List<Long> usersFollowingId = userDao.getFollowing(user);
+		List<User> usersFollowing = new ArrayList<User>();
+		for(Long id :usersFollowingId) {
+			usersFollowing.add(userDao.getUser(id));
+		}
+		
+		getFollowers(usersFollowing);
+		model.addAttribute("ListOfUsersFollowing",usersFollowing);
+		return "followPage";
+	}
+	
+	public void getFollowers(List<User> usersFound) {
+		for(User user: usersFound) {
+			user.setFollowers(userDao.getNumberOfFollowers(user));
+		}
+	}
+	
+	@RequestMapping(value="/profile/*/followers")
+	public String followerPage(HttpServletRequest request, Model model, HttpSession session) {
+		String user_url = request.getRequestURI();
+		String[] url = user_url.split("/");
+		String handle = url[url.length -2];
+
+		if(handle.equals("profile")) return "redirect:/";
+		User user = userDao.getUser(handle);
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user == null) return "redirect:/";
+		model.addAttribute("user",user);
+		System.out.println("HERE");
+		user.setFollowing(userDao.getListOfFollowing(user));
+		user.setFollowers(userDao.getNumberOfFollowers(user));
+		model.addAttribute("following", new Following());
+		
+		boolean alreadyFollowing = false;
+		if(user_logged != null) {
+			alreadyFollowing = userDao.checkIfFollowing(user_logged, user);
+		}
+		model.addAttribute("alreadyFollowing",alreadyFollowing);
+		
+		
+		List<User> usersFollowing = userDao.getFollowers(user);
+		getFollowers(usersFollowing);
+		model.addAttribute("ListOfUsersFollowing",usersFollowing);
+		return "followPage";
+	}
+
 	
 	
 }

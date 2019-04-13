@@ -195,6 +195,25 @@ public class UserDao extends DAO{
 		return list;
 	}
 	
+	public List<User> getFollowers(User user){
+		List<User> list = new ArrayList<User>();
+		try {
+			begin();
+			Criteria criteria = getSession().createCriteria(User.class);
+			Criteria followingCriteria = criteria.createCriteria("following");
+			followingCriteria.add(Restrictions.eq("fId",user.getUserId()));
+			list = criteria.list();
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		
+		return list;
+		
+	}
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean checkIfFollowing(User user_logged, User user) {
 		List<Following> list = null;
@@ -273,29 +292,7 @@ public class UserDao extends DAO{
 		return users;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<User> searchTweet(String searchString) {
-		List<User> users = new ArrayList<User>();
-		if(!searchString.contains("#")) searchString = "#"+searchString;
-		try {
-			begin();
-			Criteria criteria = getSession().createCriteria(User.class);
-			Criteria tweetCritria = criteria.createCriteria("listOfTweets");
-			tweetCritria.add(Restrictions.like("message",searchString, MatchMode.ANYWHERE));
-			users = criteria.list();
-			for(User user: users){
-				Hibernate.initialize(user.getListOfTweets());
-				Hibernate.initialize(user.getFollowing());
-				Hibernate.initialize(user.getLinks());
-			}
-			commit();
-		}catch (HibernateException e) {
-			rollback();
-		}finally {
-			close();
-		}
-		return users;
-	}
+	
 	
 	public void deleteUser(User user) {
 		try {

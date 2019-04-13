@@ -123,12 +123,12 @@
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-3"> 
-		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}/followers" style="color:black">
 		  Followers <p class="text-center" style="color:blue">${sessionScope['user_logged'].followers}</p>
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-2">
-		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}/following" style="color:black">
 		  Following <p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].following) }</p>
 		  </a></li>
 	</ul>

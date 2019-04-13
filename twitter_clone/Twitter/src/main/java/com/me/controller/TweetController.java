@@ -56,6 +56,7 @@ public class TweetController {
 		if(user_logged == null) return "redirect:/";
 		String tweet = request.getParameter("tweet");
 		Tweet tweetLiked = tweetDao.getTweet(new Long(tweet));
+		System.out.println(request.getParameter("handle")+"::::");
 		
 		if(tweetDao.deleteIfLiked(tweetLiked, user_logged)) {
 			return "redirect:/profile/"+request.getParameter("handle");

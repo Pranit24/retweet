@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.me.dao.TweetDao;
 import com.me.dao.UserDao;
+import com.me.pojo.Tweet;
 import com.me.pojo.User;
 
 @Controller
@@ -21,6 +23,9 @@ public class SearchController {
 	
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	TweetDao tweetDao;
 
 	@RequestMapping(value="/*", method=RequestMethod.GET)
 	public ModelAndView searchUser(HttpServletRequest request, Model model) {
@@ -34,13 +39,26 @@ public class SearchController {
 			return new ModelAndView("redirect:/profile/"+users.get(0).getHandle());
 		}else {
 			System.out.println(userDao.searchHandle(search).size());
-			model.addAttribute("UsersFoundByHandle",userDao.searchHandle(search));;
-			model.addAttribute("UsersFoundByName",userDao.searchUserName(search));
-			model.addAttribute("UsersFoundByTweet",userDao.searchTweet(search));
+			List<User> UsersFoundByHandle = userDao.searchHandle(search);
+			List<User> UsersFoundByName = userDao.searchUserName(search);
+			
+			getFollowers(UsersFoundByHandle);
+			getFollowers(UsersFoundByName);
+			
+			model.addAttribute("UsersFoundByHandle", UsersFoundByHandle);;
+			model.addAttribute("UsersFoundByName", UsersFoundByName);
+			model.addAttribute("TweetsFoundByHashtag",tweetDao.searchTweet(search));
 			
 
 			
 			return new ModelAndView("searchResult");
+		}
+	}
+	
+	public void getFollowers(List<User> usersFound) {
+		for(User user: usersFound) {
+			System.out.println(user.getName());
+			user.setFollowers(userDao.getNumberOfFollowers(user));
 		}
 	}
 	

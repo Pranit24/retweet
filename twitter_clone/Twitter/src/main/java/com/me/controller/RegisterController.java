@@ -42,18 +42,18 @@ public class RegisterController {
 	
 	@RequestMapping(value="/create.htm", method=RequestMethod.POST)
 	public String register(Model model, HttpServletRequest request,@ModelAttribute("register") User user, BindingResult results) {
+		
 		RegisterValidator regValid = new RegisterValidator();
 		regValid.validate(user, results);
 		if(results.hasErrors()) {
 			return "register";
 		}
 		userDao.register(user);
-//		HttpSession session = request.getSession();
-//		session.setAttribute("user_logged", user);
 		
 		return "redirect:/";
 		
 	}
+	
 	
 	@RequestMapping(value="/edit.htm", method=RequestMethod.GET)
 	public String edit(Model model, HttpServletRequest request) {

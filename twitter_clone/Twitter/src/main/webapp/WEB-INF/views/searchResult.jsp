@@ -69,10 +69,45 @@
 	
 	<!-- Name results -->
 	<div class="col-4">
-		<h2>Users with similar names</h2>
+		<h2 class="text-center">Users with similar names</h2>
 		<c:forEach var="UserFoundByName" items="${requestScope.UsersFoundByName }">
 		<c:if test="${UserFoundByName.userId ne sessionScope.user_logged.userId }">
-			<div class="card">
+		
+	<div class="card" style="width:350px;margin: 0 auto;margin-bottom:10px">
+			<!-- Background -->
+			<c:if test="${UserFoundByName.profileBackgroundImage ne null }">
+			
+	<img class="card-img-top mb-2" 
+	 src="data:image/jpeg;base64,${UserFoundByName.getProfileBackgroundImageAsString() }"
+	alt="Card image cap" style="height:100px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
+	</c:if>
+	
+	<c:if test="${UserFoundByName.profileBackgroundImage eq null }">
+	<img class="card-img-top mb-2"
+	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
+	
+	alt="Card image cap" style="height:100px"/>	
+	
+	</c:if>
+	
+	<!-- Profile -->
+	<c:if test="${UserFoundByName.profileImage ne null }">
+	
+	<img class="card-img-top rounded-circle border border-light" 
+	 src="data:image/jpeg;base64,${UserFoundByName.getProfileImageAsString() }"
+	
+	alt="Card image cap" style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile.png" />'"/>	
+	</c:if>
+	
+	<c:if test="${UserFoundByName.profileImage eq null }">
+	<img class="card-img-top rounded-circle border border-light" 
+	 src="<c:url value="/resources/images/default_profile.png" />"
+	
+	alt="Card image cap"  style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
+	/>	
+	</c:if>
 		<div class="card-body" style="height:115px">
     
     <h5 class="card-title mt-n3" style="margin-left:90px">
@@ -86,7 +121,7 @@
      <ul class="list-inline">
 		  
 		  <li class="list-inline-item pr-3">
-		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}" style="color:black" id="hoverBlue">
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}" style="color:black">
 		  Tweets <p class="text-center" style="color:blue">${fn:length(UserFoundByName.listOfTweets) }</p>
 		  </a></li>
 		  
@@ -114,6 +149,145 @@
 	
 	</div>
 	<!-- END OF NAME RESULTS -->
+	
+	<!-- Handle Results -->
+	<div class="col-4">
+		<h2 class="text-center">Users with similar handles</h2>
+		<c:forEach var="UserFoundByHandle" items="${requestScope.UsersFoundByHandle }">
+		<c:if test="${UserFoundByHandle.userId ne sessionScope.user_logged.userId }">
+		
+	<div class="card" style="width:350px;margin: 0 auto;margin-bottom:10px">
+			<!-- Background -->
+			<c:if test="${UserFoundByHandle.profileBackgroundImage ne null }">
+			
+	<img class="card-img-top mb-2" 
+	 src="data:image/jpeg;base64,${UserFoundByHandle.getProfileBackgroundImageAsString() }"
+	alt="Card image cap" style="height:100px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
+	</c:if>
+	
+	<c:if test="${UserFoundByHandle.profileBackgroundImage eq null }">
+	<img class="card-img-top mb-2"
+	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
+	
+	alt="Card image cap" style="height:100px"/>	
+	
+	</c:if>
+	
+	<!-- Profile -->
+	<c:if test="${UserFoundByHandle.profileImage ne null }">
+	
+	<img class="card-img-top rounded-circle border border-light" 
+	 src="data:image/jpeg;base64,${UserFoundByHandle.getProfileImageAsString() }"
+	
+	alt="Card image cap" style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
+	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile.png" />'"/>	
+	</c:if>
+	
+	<c:if test="${UserFoundByHandle.profileImage eq null }">
+	<img class="card-img-top rounded-circle border border-light" 
+	 src="<c:url value="/resources/images/default_profile.png" />"
+	
+	alt="Card image cap"  style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
+	/>	
+	</c:if>
+		<div class="card-body" style="height:115px">
+    
+    <h5 class="card-title mt-n3" style="margin-left:90px">
+    <a href="${pageContext.request.contextPath}/profile/${UserFoundByHandle.handle}" style="color:black">
+    ${UserFoundByHandle.name}</a></h5>
+    <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
+    <a href="${pageContext.request.contextPath}/profile/${UserFoundByHandle.handle}" style="color:black">
+    @${UserFoundByHandle.handle}</a></h6>
+     <div class="row">
+     <div  class="col-12">
+     <ul class="list-inline">
+		  
+		  <li class="list-inline-item pr-3">
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByHandle.handle}" style="color:black">
+		  Tweets <p class="text-center" style="color:blue">${fn:length(UserFoundByHandle.listOfTweets) }</p>
+		  </a></li>
+		  
+		  <li class="list-inline-item pr-3"> 
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByHandle.handle}/followers" style="color:black">
+		  Followers <p class="text-center" style="color:blue">${UserFoundByHandle.followers}</p>
+		  </a></li>
+		  
+		  <li class="list-inline-item pr-2">
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByHandle.handle}/following" style="color:black">
+		  Following <p class="text-center" style="color:blue">${fn:length(UserFoundByHandle.following) }</p>
+		  </a></li>
+	</ul>
+    
+     </div>
+     </div>
+   <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
+  	
+	</div>
+	
+	</div>
+	</c:if>
+		</c:forEach>
+	</div>
+	<!-- End of handle results -->
+	
+	<!-- Tweets with that hashtag -->
+	<div class="col-4">
+		<h2 class="text-center">Tweets with the hashtag</h2>
+		
+		<c:forEach var="TweetFoundByHashTag" items="${requestScope.TweetsFoundByHashtag }">
+		<c:if test="${TweetFoundByHashTag.tweet_user.userId ne sessionScope.user_logged.userId }">
+		
+		<div class="card h-10">
+  
+  		<div class="card-body">
+    	<fmt:parseDate var="parsedDate" value="${TweetFoundByHashTag.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
+    	
+    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${TweetFoundByHashTag.getUser().name}   
+    <font class="card-title mb-2 text-muted" size=3px>@${TweetFoundByHashTag.getUser().handle}</font>
+    <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
+    <pre><p class="card-text my-2 ml-2 lead ">${TweetFoundByHashTag.message }</p></pre>
+    <div class="card-footer border-0 bg-white">
+    
+    <!-- ALREADY LIKED -->
+    <c:forEach var="likedUser" items="${TweetFoundByHashTag.likes }">
+    
+    <c:if test="${likedUser.userLikedId eq sessionScope.user_logged.userId }">
+    <c:set var="likedAlready" value="${likedUser.tweetLiked.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/like?handle=${TweetFoundByHashTag.tweet_user.handle}&tweet=${TweetFoundByHashTag.msgId}" style="color:hotpink"><i class="fas fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(TweetFoundByHashTag.likes)}</font>
+	</c:if>
+    </c:forEach>
+    <!-- LIKES -->
+    <c:if test="${likedAlready ne TweetFoundByHashTag.msgId }">
+    
+    <a href="${pageContext.request.contextPath}/tweet/like?handle=${TweetFoundByHashTag.tweet_user.handle}&tweet=${TweetFoundByHashTag.msgId}"><i class="far fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(TweetFoundByHashTag.likes)}</font>
+    </c:if>
+    
+    <!-- ALREADY RETWEETED -->
+    <c:forEach var="retweetedUser" items="${TweetFoundByHashTag.retweets}">
+    
+    <c:if test="${retweetedUser.userRetweetId eq sessionScope.user_logged.userId }">
+    <c:set var="retweetedAlready" value="${retweetedUser.tweetRetweeted.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/retweet?handle=${TweetFoundByHashTag.tweet_user.handle}&tweet=${TweetFoundByHashTag.msgId}" style="color:yellow"><i class="fas fa-retweet fa-lg"></i></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(TweetFoundByHashTag.retweets)}</font>
+	</c:if>
+    </c:forEach>
+    <!-- RETWEETS -->
+    <c:if test="${retweetedAlready ne TweetFoundByHashTag.msgId }">
+    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${TweetFoundByHashTag.tweet_user.handle}&tweet=${TweetFoundByHashTag.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
+    <font color="#000000" size=4.5cm>  ${fn:length(TweetFoundByHashTag.retweets)}</font>
+    </c:if>
+    </div>
+  	</div>
+		</div>
+	</c:if>
+		</c:forEach>
+	</div>
+	<!-- End of tweet result -->
+	<!-- End of all search -->
+	
 </div>
 
 </body>
