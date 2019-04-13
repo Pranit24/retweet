@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.me.dao.TweetDao;
 import com.me.dao.UserDao;
-import com.me.pojo.Tweet;
 import com.me.pojo.User;
 
 @Controller

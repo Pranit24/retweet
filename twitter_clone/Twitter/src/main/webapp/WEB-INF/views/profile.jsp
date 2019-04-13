@@ -117,6 +117,12 @@
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/following/">
 		  Following <p class="text-center">${fn:length(requestScope.user.following) }</p>
 		  </a></li>
+		  <c:if test="${requestScope.user.handle eq sessionScope.user_logged.handle && 
+		  sessionScope.user_logged.role eq true}">
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/reportPage/">
+		  Reports <p class="text-center">${fn:length(requestScope.user.reports) }</p>
+		  </a></li>
+		  </c:if>
 		  
 		  
 		  <!-- FOLLOW BUTTON -->
@@ -146,6 +152,30 @@
 		</form:form>
 		  </li>
 		  </c:if>
+		  
+		  <!-- REPORT BUTTON -->
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyReported eq false 
+		  && requestScope.user.role eq false}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:-370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/report/report" method="post" modelAttribute="report">
+		   <input type="hidden" name="handle" value="${requestScope.user.handle}"/>
+			<button type="submit" class="btn btn-danger mx-sm-3">
+	   		Report Abuse
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
+		  
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyReported eq true}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:-370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/report/unreport" method="post" modelAttribute="report">
+		   <input type="hidden" name="handle" value="${requestScope.user.handle}"/>
+			<button type="submit" class="btn btn-outline-danger mx-sm-3">
+	   		Remove Report 
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
 	</ul>
 	</div>
 	
@@ -159,7 +189,13 @@
   	 
   		<div class="card-body">
     
-    <h4 class="card-title">${requestScope.user.name}</h4>
+    <h4 class="card-title">${requestScope.user.name}
+    <c:if test="${requestScope.user.verified eq true}">
+    <i class="fas fa-user-check fa-sm"></i>
+    </c:if>
+    <c:if test="${requestScope.user.role eq true }">
+    <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
+    </c:if></h4>
     <h5 class="card-subtitle mb-2 text-muted">@${requestScope.user.handle}</h5>
     <p class="card-text"><pre>${requestScope.user.description}</pre></p>
   	</div>
@@ -179,18 +215,29 @@
   
   		<div class="card-body">
     	<fmt:parseDate var="parsedDate" value="${tweet.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
-    	
-    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${requestScope.user.name}
-    <font class="card-title mb-2 text-muted" size=3px>@${requestScope.user.handle}</font>
+    <c:if test="${requestScope.user.handle ne tweet.tweet_user.handle}"> 
+    <p class="font-weight-light">Retweeted</p>
+    </c:if>
+    <a href="${pageContext.request.contextPath}/profile/${tweet.tweet_user.handle}" style="color:black">
+    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${tweet.tweet_user.name} 
+    <font class="card-title mb-2 text-muted" size=3px>@${tweet.tweet_user.handle}</font>
+    </a><c:if test="${tweet.tweet_user.verified eq true}">
+    <i class="fas fa-user-check fa-sm"></i>
+    </c:if>
+    <c:if test="${tweet.tweet_user.role eq true }">
+    <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
+    </c:if>
     <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font>
+     <c:if test="${tweet.tweet_user.handle eq sessionScope.user_logged.handle }">
     <a class="card-title float-right nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownOptionLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </a>
+         
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownOptionLink">
-          <a class="dropdown-item" href="#">Copy link to Tweet</a>
-          <c:if test="${requestScope.user.handle eq sessionScope.user_logged.handle }">
+          <!-- <a class="dropdown-item" href="#">Copy link to Tweet</a> -->
           <a class="dropdown-item" href="${pageContext.request.contextPath}/tweet/delete?tweet=${tweet.msgId}">Delete Tweet</a>
-          </c:if>
+          
         </div>
+        </c:if>
     </h5>
     
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
@@ -209,6 +256,7 @@
     <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
     </c:if>
     
+    <c:if test="${tweet.tweet_user.handle ne sessionScope.user_logged.handle }">
     <!-- ALREADY RETWEETED -->
     <c:forEach var="retweetedUser" items="${tweet.retweets}">
     
@@ -223,6 +271,9 @@
     <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
     <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
     </c:if>
+    </c:if>
+    
+    
     </div>
   	</div>
 		</div>

@@ -1,7 +1,9 @@
 package com.me.dao;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
@@ -182,6 +184,7 @@ public class TweetDao extends DAO{
 	public void deleteTweet(Tweet tweet) {
 		try {
 			begin();
+			getSession().clear();
 			getSession().delete(tweet);
 			commit();
 			
@@ -190,5 +193,26 @@ public class TweetDao extends DAO{
 		}finally {
 			close();
 		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public List<Tweet> getRetweetedTweets(User user) {
+		List<Tweet> ListOfMsgId = new ArrayList<Tweet>();
+		try {
+			begin();
+			Query query = getSession().createQuery("select tweetRetweeted from Retweet where RetweetId="+user.getUserId());
+			ListOfMsgId = query.list();
+			for(Tweet tweet: ListOfMsgId) {
+				Hibernate.initialize(tweet.getLikes());
+				Hibernate.initialize(tweet.getRetweets());
+			}
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return ListOfMsgId;
 	}
 }

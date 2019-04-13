@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Profile Follow</title>
+<title>Profile Reports</title>
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -226,10 +226,17 @@
     
     <h5 class="card-title mt-n3" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-    ${Userfollowing.name}</a></h5>
+    ${Userfollowing.name}</a>
+    <form class="card-title float-right" method="post" action="${pageContext.request.contextPath}/deleteReported">
+		  	<input type="hidden" name="toDelete" value="${Userfollowing.handle}"/>
+		  	<button type="submit" class="btn btn-danger btn-sm mx-sm-1">
+	   		Delete User
+			</button>
+	</form></h5>
     <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
     @${Userfollowing.handle}</a></h6>
+    
      <div class="row">
      <div  class="col-12">
      <ul class="list-inline">
@@ -240,14 +247,18 @@
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-3"> 
-		  <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}/followers/" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/" style="color:black">
 		  Followers <p class="text-center" style="color:blue">${Userfollowing.followers}</p>
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-2">
-		  <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}/following" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
 		  Following <p class="text-center" style="color:blue">${fn:length(Userfollowing.following) }</p>
 		  </a></li>
+		  
+		  <li class="list-inline-item pr-2">
+		  
+		  </li>
 	</ul>
     
      </div>

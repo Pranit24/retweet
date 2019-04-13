@@ -36,13 +36,13 @@ public class User {
 	@Column(name="Handle")
 	private String handle;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "tweet_user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "tweet_user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Tweet> listOfTweets = new ArrayList<Tweet>();
 	
 	@Column(name="Followers")
 	private Integer followers;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "following_user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "following_user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Following> following = new HashSet<Following>();
 	
 	@Column(name = "Role")
@@ -54,17 +54,23 @@ public class User {
 	@Column(name="Description")
 	private String description;
 	
-	@OneToMany(mappedBy = "userLink", cascade = CascadeType.ALL)
-	private List<Link> links = new ArrayList<Link>();
-	
 	@Column(name="ProfileImage", length = 100000)
 	private byte[] profileImage;
 	
 	@Column(name="BackgroundImage", length = 100000)
 	private byte[] profileBackgroundImage;
 	
+	@OneToMany(mappedBy = "reportedUserId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<Report> reports = new HashSet<Report>();
 	
-	
+	public Set<Report> getReports() {
+		return reports;
+	}
+
+	public void setReports(Set<Report> reports) {
+		this.reports = reports;
+	}
+
 	public byte[] getProfileBackgroundImage() {
 		return profileBackgroundImage;
 	}
@@ -98,13 +104,6 @@ public class User {
 		this.description = description;
 	}
 
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
 
 	public User() {
 		

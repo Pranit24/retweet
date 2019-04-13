@@ -46,7 +46,7 @@ public class Following {
 	public Following() {
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userid", nullable = false)
 	private User following_user;
 

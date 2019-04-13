@@ -109,7 +109,10 @@
     
     <h5 class="card-title mt-n3" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
-    ${sessionScope['user_logged'].name}</a></h5>
+    ${sessionScope['user_logged'].name}<c:if test="${sessionScope['user_logged'].verified eq true}">
+    <i class="fas fa-user-check fa-sm"></i>
+    </c:if>
+    </a></h5>
     <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black">
     @${sessionScope['user_logged'].handle}</a></h6>
@@ -150,8 +153,17 @@
   		<div class="card-body">
     	<fmt:parseDate var="parsedDate" value="${tweet.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
     	
+    <a href="${pageContext.request.contextPath}/profile/${tweet.tweet_user.handle}" 
+    style="color:black">
     <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${tweet.getUser().name}   
     <font class="card-title mb-2 text-muted" size=3px>@${tweet.getUser().handle}</font>
+    </a>
+    <c:if test="${tweet.tweet_user.verified eq true}">
+    <i class="fas fa-user-check fa-sm"></i>
+    </c:if>
+    <c:if test="${tweet.tweet_user.role eq true }">
+    <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
+    </c:if>
     <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
     <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
     <div class="card-footer border-0 bg-white">

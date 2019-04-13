@@ -30,17 +30,17 @@ public class Tweet {
 	@Column(name = "Message")
 	private String message;
 	
-	@OneToMany(mappedBy = "tweetLiked", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "tweetLiked", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<LikedTweet> likes = new HashSet<LikedTweet>();
 	
-	@OneToMany(mappedBy = "tweetRetweeted", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "tweetRetweeted", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Retweet> retweets = new HashSet<Retweet>();
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TweetedOn")
 	private Date timestamp;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "USERID", nullable = false)
 	private User tweet_user;
 	

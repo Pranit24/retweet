@@ -17,6 +17,6 @@
         <mapping class="com.me.pojo.LikedTweet"/>
         <mapping class="com.me.pojo.Following"/>
         <mapping class="com.me.pojo.Retweet"/>
-        <mapping class="com.me.pojo.Link"/>
+        <mapping class="com.me.pojo.Report"/>
     </session-factory>
 </hibernate-configuration>

@@ -195,6 +195,20 @@ public class UserDao extends DAO{
 		return list;
 	}
 	
+	public void initializeLazy(User user) {
+		try {
+			begin();
+			Hibernate.initialize(user.getListOfTweets());
+			
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}	
+	}
+	
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<User> getFollowers(User user){
 		List<User> list = new ArrayList<User>();
 		try {
@@ -259,7 +273,6 @@ public class UserDao extends DAO{
 			for(User user: users){
 				Hibernate.initialize(user.getListOfTweets());
 				Hibernate.initialize(user.getFollowing());
-				Hibernate.initialize(user.getLinks());
 			}
 			commit();
 		}catch (HibernateException e) {
@@ -281,7 +294,6 @@ public class UserDao extends DAO{
 			for(User user: users){
 				Hibernate.initialize(user.getListOfTweets());
 				Hibernate.initialize(user.getFollowing());
-				Hibernate.initialize(user.getLinks());
 			}
 			commit();
 		}catch (HibernateException e) {
@@ -293,6 +305,33 @@ public class UserDao extends DAO{
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
+	public void deleteFollowing(User user) {
+		try {
+			begin();
+			Query query = getSession().createQuery("delete from Following where following_user="+user.getUserId());
+			query.executeUpdate();
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void deleteFollowingOfReported(User user) {
+		try {
+			begin();
+			Query query = getSession().createQuery("delete from Following where fId="+user.getUserId());
+			query.executeUpdate();
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+	}
 	
 	public void deleteUser(User user) {
 		try {

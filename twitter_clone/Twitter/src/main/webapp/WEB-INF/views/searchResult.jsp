@@ -126,12 +126,12 @@
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-3"> 
-		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}/followers/" style="color:black">
 		  Followers <p class="text-center" style="color:blue">${UserFoundByName.followers}</p>
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-2">
-		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}" style="color:black">
+		  <a href="${pageContext.request.contextPath}/profile/${UserFoundByName.handle}/following/" style="color:black">
 		  Following <p class="text-center" style="color:blue">${fn:length(UserFoundByName.following) }</p>
 		  </a></li>
 	</ul>
@@ -243,8 +243,10 @@
   		<div class="card-body">
     	<fmt:parseDate var="parsedDate" value="${TweetFoundByHashTag.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
     	
+    <a href="${pageContext.request.contextPath}/profile/${TweetFoundByHashTag.tweet_user.handle}" style="color:black">
     <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${TweetFoundByHashTag.getUser().name}   
     <font class="card-title mb-2 text-muted" size=3px>@${TweetFoundByHashTag.getUser().handle}</font>
+    </a>
     <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font></h5>
     <pre><p class="card-text my-2 ml-2 lead ">${TweetFoundByHashTag.message }</p></pre>
     <div class="card-footer border-0 bg-white">

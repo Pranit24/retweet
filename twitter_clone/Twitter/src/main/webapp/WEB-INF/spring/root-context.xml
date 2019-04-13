@@ -7,6 +7,7 @@
 		
 		<bean id="tweetDao" class="com.me.dao.TweetDao"/>
 		<bean id="userDao" class="com.me.dao.UserDao"/>
+		<bean id="reportDao" class="com.me.dao.ReportDao"/>
 		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
  <property name="maxUploadSize" value="268435456"/>
 </bean>
