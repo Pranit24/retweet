@@ -45,6 +45,9 @@ public class RegisterController {
 		
 		RegisterValidator regValid = new RegisterValidator();
 		regValid.validate(user, results);
+		if(!user.getPassword().equals(request.getParameter("confirm_password"))) {
+			results.rejectValue("password", "","-Passwords do not match");
+		}
 		if(results.hasErrors()) {
 			return "register";
 		}

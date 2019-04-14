@@ -14,6 +14,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+    <script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+    function Ajax() {
+        $.ajax({
+            url : '/twitter/ajax/top',
+            success : function(data) {
+                $('#topTweets').html(data);
+            }
+        });
+    }
+</script>
+ 
+<script type="text/javascript">
+    var intervalId = 0;
+    intervalId = setInterval(Ajax, 2000);
+</script>
 </head>
 <body class="bg-info">
 <nav class="navbar navbar-expand-md navbar-navbar-light" style="background-color: #e3f2fd;">
@@ -221,7 +238,14 @@
     	</c:if>
     </div>
     
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+      <div class="card" style="margin-left: 2em;margin-right: 2em;border:none">
+      <div class="card-body">
+    <h5 class="card-title">Top Tweets</h5>
+    <p class="card-text" id="topTweets"></p>
+  </div>
+      </div>
+      </div>
     </div>
 </div>
 

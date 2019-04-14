@@ -136,7 +136,7 @@ public class LoginController {
 		List<Tweet> retweetedTweets = tweetDao.getRetweetedTweets(user);
 //		List<Tweet> retweetedTweets = tweetDao.getFollowingTweet(tweetId);
 		user.setListOfTweets(joinAndSortLists(user.getListOfTweets(), retweetedTweets));
-		
+		model.addAttribute("sizeOfRetweets", retweetedTweets.size());
 		model.addAttribute("following", new Following());
 		model.addAttribute("report", new Report(user.getUserId(), user_logged));
 		model.addAttribute("alreadyFollowing",alreadyFollowing);

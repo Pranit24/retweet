@@ -215,4 +215,24 @@ public class TweetDao extends DAO{
 		}
 		return ListOfMsgId;
 	}
+	
+	public List<Tweet> getAllTweets(){
+		List<Tweet> ListOfMsgId = new ArrayList<Tweet>();
+		try {
+			begin();
+			Query query = getSession().createQuery("from Tweet");
+			ListOfMsgId = query.list();
+			for(Tweet tweet: ListOfMsgId) {
+				Hibernate.initialize(tweet.getLikes());
+				Hibernate.initialize(tweet.getRetweets());
+			}
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return ListOfMsgId;
+	}
 }

@@ -14,6 +14,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	var user = '${requestScope.user.handle}';
+	var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
+    function Ajax() {
+        $.ajax({
+        	type : 'POST',
+        	data : {user: user, tweetCount: tweetCount},
+            url : '/twitter/ajax/check',
+            success : function(data) {
+            	console.log(JSON.stringify(data));
+            	count = count +1;
+                $('#newTweets').html(data);
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    var intervalId = 0;
+    intervalId = setInterval(Ajax, 10000);
+</script> 
+ 
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-md navbar-navbar-light" style="background-color: #e3f2fd;">
@@ -109,7 +132,7 @@
 	<div class=" bg-white col-12 border-bottom border-dark" style="padding-left:400px;height:60px">
 	<ul class="list-inline">
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
-		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p>
+		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) - requesttScope.sizeOfRetweets }</p>
 		  </a></li>
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/">
 		  Followers <p class="text-center">${requestScope.user.followers}</p>
@@ -209,6 +232,13 @@
    
       <div class="col-md-6">
       
+      <!-- Tweets AJAX 
+      <div class="card" style="margin-left: 2em;margin-right: 2em;border:none">
+      <div class="card-body">
+    		<p class="card-text" id="newTweets"></p>
+  		</div>
+      </div>-->
+      <!-- TWEETS -->
       <c:if test="${fn:length(requestScope.user.listOfTweets) gt 0 }">
    		<c:forEach var="tweet" items="${requestScope.user.listOfTweets}">
       	<div class="card h-10">

@@ -9,9 +9,20 @@
 	<title>Register to Twitter!</title>
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
+	
+	<script>
+	$('#password','#confirm_password').onkeyup(function () {
+		    if ($('#password').val() == $('#confirm_password').val()) {
+		        $('#message').html('Matching').css('color', 'green');
+		    } else 
+		        $('#message').html('Not Matching').css('color', 'red');
+		});
+	</script>
 </head>
 <body class="bg-info">
-<div class="d-flex align-items-center flex-column justify-content-center h-100 bg-info text-white " id="header">
+<div class="d-flex align-items-center flex-column justify-content-center h-100 bg-info text-white" style="color:#00FFFF" id="header">
     <h1 class="display-4">Register</h1>
     <form:form action="${pageContext.request.contextPath}/register/create.htm" method="post" modelAttribute="register">
     <div class="alert alert-danger"><form:errors path="*"></form:errors></div> 
@@ -21,8 +32,14 @@
         </div>
         <div class="form-group">
         	<h6>Password</h6>
-            <form:input class="form-control form-control-lg" path="password" placeholder="*******" type="password"/>
+            <form:input class="form-control form-control-lg" id="password" onkeyup="check()" path="password" placeholder="*******" type="password"/>
+            
         </div>
+        <div class="form-group">
+        	<h6>Confirm Password</h6>
+            <input class="form-control form-control-lg" id="confirm_password" onkeyup="check()" name="confirm_password" placeholder="*******" type="password"/>
+        </div>
+        <span id='message'></span>
         <div class="form-group">
             <h6>Name</h6>
             <form:input class="form-control form-control-lg" path="name" placeholder="John Doe" type="text"/>

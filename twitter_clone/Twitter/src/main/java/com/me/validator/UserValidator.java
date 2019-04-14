@@ -31,7 +31,7 @@ public class UserValidator implements Validator{
 		UserDao userDao = new UserDao();
 		User user = userDao.check(logged_user.getEmail(), logged_user.getPassword());
 		if(user==null) {
-			errors.rejectValue("email","","-The email or password is wrong");
+			errors.rejectValue("email","","-The email or password is wrong.");
 		}
 		
 	}
