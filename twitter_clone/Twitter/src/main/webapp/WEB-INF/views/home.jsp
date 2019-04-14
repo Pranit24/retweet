@@ -16,20 +16,13 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
+
 <script type="text/javascript">
-    function Ajax() {
-        $.ajax({
-            url : '/twitter/ajax/top',
-            success : function(data) {
-                $('#topTweets').html(data);
-            }
-        });
-    }
-</script>
- 
-<script type="text/javascript">
+	var tweetCount = '${fn:length(requestScope.followingTweets)}';
+	var user = '${sessionScope.user_logged.handle}';
     var intervalId = 0;
-    intervalId = setInterval(Ajax, 2000);
+    intervalId = setInterval(function() {homeAjax(user, tweetCount);}, 1000);
 </script>
 </head>
 <body class="bg-info">
@@ -137,12 +130,12 @@
      <div  class="col-12">
      <ul class="list-inline">
 		  
-		  <li class="list-inline-item pr-3">
+		  <li class="list-inline-item pr-2">
 		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black" id="hoverBlue">
 		  Tweets <p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].listOfTweets) }</p>
 		  </a></li>
 		  
-		  <li class="list-inline-item pr-3"> 
+		  <li class="list-inline-item pr-2"> 
 		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}/followers" style="color:black">
 		  Followers <p class="text-center" style="color:blue">${sessionScope['user_logged'].followers}</p>
 		  </a></li>
@@ -162,7 +155,11 @@
       <!-- Tweets -->
    
       <div class="col-md-6 mt-2">
-      
+      <!-- Tweets AJAX -->
+    		<a class="text-center text-danger" href="${pageContext.request.contextPath}/">
+    		<p class="card-text" id="newHomeTweets"></p>
+    		</a>
+      <!-- TWEETS -->
       <c:if test="${fn:length(requestScope.followingTweets) gt 0 }">
    		<c:forEach var="tweet" items="${requestScope.followingTweets}">
       	<div class="card h-10">

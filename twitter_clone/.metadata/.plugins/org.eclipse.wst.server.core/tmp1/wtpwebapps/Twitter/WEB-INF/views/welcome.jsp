@@ -33,7 +33,7 @@
     </form:form>
     
     <h6>New User? <a href="${pageContext.request.contextPath}/register/create.htm" class="text-primary">Register</a></h6>
-    <a href="${pageContext.request.contextPath}/ajax/test">Test</a>
+    
 </div>
 	
 </body>

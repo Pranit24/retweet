@@ -16,25 +16,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
+	<script type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
+
 <script type="text/javascript">
-	var user = '${requestScope.user.handle}';
-	var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
-    function Ajax() {
-        $.ajax({
-        	type : 'POST',
-        	data : {user: user, tweetCount: tweetCount},
-            url : '/twitter/ajax/check',
-            success : function(data) {
-            	console.log(JSON.stringify(data));
-            	count = count +1;
-                $('#newTweets').html(data);
-            }
-        });
-    }
-</script>
-<script type="text/javascript">
+
+var user = '${requestScope.user.handle}';
+var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
     var intervalId = 0;
-    intervalId = setInterval(Ajax, 10000);
+    intervalId = setInterval( function() {profileAjax(user, tweetCount);}, 1000);
 </script> 
  
 </head>
@@ -232,12 +222,10 @@
    
       <div class="col-md-6">
       
-      <!-- Tweets AJAX 
-      <div class="card" style="margin-left: 2em;margin-right: 2em;border:none">
-      <div class="card-body">
+      <!-- Tweets AJAX -->
+    		<a class="text-center" href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
     		<p class="card-text" id="newTweets"></p>
-  		</div>
-      </div>-->
+    		</a>
       <!-- TWEETS -->
       <c:if test="${fn:length(requestScope.user.listOfTweets) gt 0 }">
    		<c:forEach var="tweet" items="${requestScope.user.listOfTweets}">

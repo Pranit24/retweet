@@ -8,3 +8,31 @@ var check = function() {
 		    document.getElementById('message').innerHTML = 'Passwords do not match';
 		  }
 		}
+
+function homeAjax(user, tweetCount) {
+    $.ajax({
+    	type : 'POST',
+    	data : {user: user, tweetCount: tweetCount},
+        url : '/twitter/ajax/checkHome',
+        dataType: 'text',
+        cache: false,
+        success : function(data) {
+        	console.log(data);
+            $('#newHomeTweets').html(data);
+        }
+    });
+}
+
+function profileAjax(user, tweetCount) {
+	$.ajax({
+    	type : 'POST',
+    	data : {user: user, tweetCount: tweetCount},
+        url : '/twitter/ajax/check',
+        cache: false,
+        dataType: 'text',
+        success : function(data) {
+        	console.log(data);
+            $('#newTweets').html(data);
+        }
+    });
+}

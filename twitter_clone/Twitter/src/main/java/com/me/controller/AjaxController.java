@@ -1,6 +1,8 @@
 package com.me.controller;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -49,7 +51,7 @@ public class AjaxController {
 		return list.get(i).getMessage();
 	}
 	@RequestMapping(value = "/check", method=RequestMethod.POST, produces = "application/json")
-	public @ResponseBody Tweet ajaxUser(HttpServletRequest request) {
+	public @ResponseBody String ajaxUser(HttpServletRequest request) {
 		String handle = request.getParameter("user");
 		User user = userDao.getUser(handle);
 		List<Tweet> tweets = tweetDao.getTweet(user);
@@ -58,15 +60,31 @@ public class AjaxController {
 		System.out.println(tweets.size()+":"+(count-retweetedTweets.size()));
 		JSONObject json = new JSONObject();
 		json.put("tweet",tweets.get(0));
-		System.out.println(json.toString());
+		
 		if(tweets.size() > (count-retweetedTweets.size())) {
-			
-				
-		      
-			
-			System.out.println("HERE-----------------------------------"+tweets.size()+":"+count);
-			return tweets.get(0);
+			System.out.println("IN "+(tweets.size()-(count-retweetedTweets.size()))+" New Tweets");
+			String result = (tweets.size()-(count-retweetedTweets.size()))+" New Tweets";
+			return result;
 		}
 		return null;
 	}
+	
+	@RequestMapping(value = "/checkHome", method=RequestMethod.POST)
+	public @ResponseBody String ajaxHome(HttpServletRequest request) {
+		String handle = request.getParameter("user");
+		User user = userDao.getUser(handle);
+		List<Long> followingList = userDao.getFollowing(user);
+		List<Tweet> tweets = tweetDao.getFollowingTweet(followingList);
+
+		int count = Integer.parseInt(request.getParameter("tweetCount"));
+		System.out.println(tweets.size()+":"+count);
+		if(tweets.size() > count) {
+			System.out.println("IN "+(tweets.size()-count)+" New Tweets");
+			String result = (tweets.size()-count)+" New Tweets";
+			return result;
+		}
+		return null;
+	}
+	
+	
 }
