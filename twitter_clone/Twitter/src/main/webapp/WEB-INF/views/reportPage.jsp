@@ -93,7 +93,7 @@
 	<c:if test="${requestScope.user.profileBackgroundImage ne null }">
 	<img class="ml-n3 mt-n2" 
 	 src="data:image/jpeg;base64,${requestScope.user.getProfileBackgroundImageAsString() }"
-	alt="Card image cap" style="width:2000px;height:300px;"
+	alt="Card image cap" style="width:1540px;height:300px;"
 	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
 	</c:if>
 	
@@ -101,7 +101,7 @@
 	<img class="ml-n3 mt-n2" 
 	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
 	
-	alt="Card image cap" style="width:2000px;height:300px;"/>	
+	alt="Card image cap" style="width:1540px;height:300px;"/>	
 	</c:if>
 
 	</div>
@@ -226,13 +226,17 @@
     
     <h5 class="card-title mt-n3" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-    ${Userfollowing.name}</a>
+    ${Userfollowing.name}
+     
+    </a>
     <form class="card-title float-right" method="post" action="${pageContext.request.contextPath}/deleteReported">
 		  	<input type="hidden" name="toDelete" value="${Userfollowing.handle}"/>
 		  	<button type="submit" class="btn btn-danger btn-sm mx-sm-1">
-	   		Delete User
+	   		Delete User: ${requestScope.userToCount.get(Userfollowing.handle)}
 			</button>
-	</form></h5>
+	</form>
+	<font class="card-title float-right" size="2"> </font>
+	</h5>
     <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
     <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
     @${Userfollowing.handle}</a></h6>

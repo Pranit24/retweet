@@ -24,7 +24,8 @@ public class TweetDao extends DAO{
 		List<Tweet> tweets= null;
 		try {
 			begin();
-			Query query = getSession().createQuery("from Tweet where userid="+user.getUserId()+" order by TweetedOn desc");
+			Query query = getSession().createQuery("from Tweet where userid=:userid order by TweetedOn desc");
+			query.setString("userid",""+user.getUserId());
 			tweets = query.list();
 			for(Tweet tweet: tweets) {
 				Hibernate.initialize(tweet.getLikes());
@@ -63,7 +64,8 @@ public class TweetDao extends DAO{
 		try {
 			begin();
 			for(Long useridLong : listOfFollowing) {
-				Query query = getSession().createQuery("from Tweet where userid="+useridLong);
+				Query query = getSession().createQuery("from Tweet where userid=:userIdLong");
+				query.setString("userIdLong", ""+useridLong);
 				List<Tweet> tweetsFromUser = query.list();
 				for(Tweet tw: tweetsFromUser) {
 					Hibernate.initialize(tw.getLikes());
@@ -115,7 +117,9 @@ public class TweetDao extends DAO{
 	public boolean deleteIfLiked(Tweet tweet, User user_logged) {
 		try {
 			begin();
-			Query query = getSession().createQuery("from LikedTweet where userLikedId="+user_logged.getUserId()+" and msgId="+tweet.getMsgId());
+			Query query = getSession().createQuery("from LikedTweet where userLikedId=:userLikedId and msgId=:msgId");
+			query.setString("userLikedId", ""+user_logged.getUserId());
+			query.setString("msgId", ""+tweet.getMsgId());
 			List<LikedTweet> liked = query.list();
 			if(liked.size() == 0) return false;
 			LikedTweet likedTweet = liked.get(0);
@@ -139,7 +143,9 @@ public class TweetDao extends DAO{
 	public boolean deleteIfRetweeted(Tweet tweet, User user_logged) {
 		try {
 			begin();
-			Query query = getSession().createQuery("from Retweet where RetweetId="+user_logged.getUserId()+" and msgId="+tweet.getMsgId());
+			Query query = getSession().createQuery("from Retweet where RetweetId=:retweetId and msgId=:msgId");
+			query.setString("retweetId", ""+user_logged.getUserId());
+			query.setString("msgId", ""+tweet.getMsgId());
 			List<Retweet> retweet = query.list();
 			if(retweet.size() == 0) return false;
 			Retweet retweetedTweet = retweet.get(0);
@@ -166,8 +172,9 @@ public class TweetDao extends DAO{
 		try {
 			begin();
 			Criteria tweetCritria = getSession().createCriteria(Tweet.class);
-			tweetCritria.add(Restrictions.like("message",searchString, MatchMode.ANYWHERE));
-			tweets = tweetCritria.list();
+			Query query = getSession().createQuery("from Tweet where message like :message");
+			query.setString("message", "%"+searchString+"%");
+			tweets = query.list();
 			for(Tweet user: tweets){
 				Hibernate.initialize(user.getLikes());
 				Hibernate.initialize(user.getRetweets());

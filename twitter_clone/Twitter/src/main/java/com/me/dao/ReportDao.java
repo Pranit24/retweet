@@ -50,13 +50,15 @@ public class ReportDao extends DAO {
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	public boolean checkIfReported(User user_logged, User user) {
 		List<Report> report = new ArrayList<Report>();
 		try {
 			begin();
-			Query query = getSession().createQuery("from Report where reportedById="+user_logged.getUserId()+" "
-					+ "and reportedUserId="+user.getUserId());
+			Query query = getSession().createQuery("from Report where reportedById=:reportedById "
+					+ "and reportedUserId=:reportedUserId");
+			query.setString("reportedById", ""+user_logged.getUserId());
+			query.setString("reportedUserId", ""+user.getUserId());
 			report = query.list();
 			if(report.size() == 0) return false;
 			commit();
@@ -72,8 +74,10 @@ public class ReportDao extends DAO {
 	public void removeReport(User user_logged, User user) {
 		try {
 			begin();
-			Query query = getSession().createQuery("from Report where reportedById="+user_logged.getUserId()+" "
-					+ "and reportedUserId="+user.getUserId());
+			Query query = getSession().createQuery("from Report where reportedById=:reportedById "
+					+ "and reportedUserId=:reportedUserId");
+			query.setString("reportedById", ""+user_logged.getUserId());
+			query.setString("reportedUserId", ""+user.getUserId());
 			Report report = (Report) query.uniqueResult();
 			getSession().delete(report);
 			commit();
@@ -121,12 +125,29 @@ public class ReportDao extends DAO {
 		return reports;
 	}
 	
+	public Integer getNumberOfReports(User user) {
+		Integer count = 0;
+		try {
+			begin();
+			Query query = getSession().createQuery("from Report where reportedUserId=:id");
+			query.setString("id", ""+user.getUserId());
+			count = query.list().size();
+			commit();
+		}catch(HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return count;
+	}
+	
 	@SuppressWarnings("rawtypes")
 	public boolean check(User user) {
 		boolean exists = false;
 		try {
 			begin();
-			Query query = getSession().createQuery("from Report where reportedUserId="+user.getUserId());
+			Query query = getSession().createQuery("from Report where reportedUserId=:reportedUserId");
+			query.setString("reportedUserId", ""+user.getUserId());
 			if(query.list().size() > 0) return true;
 			commit();
 		}catch(HibernateException e) {

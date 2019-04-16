@@ -129,11 +129,14 @@ public class UserDao extends DAO{
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public void unfollow(Following follow, User user) {
 		try {
 			begin();
-			Query query = getSession().createQuery("from Following where fId="+follow.getfId()+" and userid="+user.getUserId());
+			Query query = getSession().createQuery("from Following where fId=:fId "
+					+ "and userid=:userid");
+			query.setString("fId", ""+follow.getfId());
+			query.setString("userid",""+user.getUserId());
 			Following follower = (Following) query.uniqueResult();
 			getSession().delete(follower);
 			commit();
@@ -149,7 +152,8 @@ public class UserDao extends DAO{
 		Integer num = null;
 		try {
 			begin();
-			Query query = getSession().createQuery("from Following where fid="+user.getUserId());
+			Query query = getSession().createQuery("from Following where fid=:fId");
+			query.setString("fId", ""+user.getUserId());
 			num = query.list().size();
 			commit();
 		}catch (HibernateException e) {
@@ -165,7 +169,8 @@ public class UserDao extends DAO{
 		Set<Following> following = null;
 		try {
 			begin();
-			Query query = getSession().createQuery("from Following where userid="+user.getUserId());
+			Query query = getSession().createQuery("from Following where userid=:userid");
+			query.setString("userid", ""+user.getUserId());
 			List<Following> list = query.list();
 			following = new HashSet<Following>(list);
 			commit();
@@ -178,12 +183,13 @@ public class UserDao extends DAO{
 		return following;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	public List<Long> getFollowing(User user) {
 		List<Long> list = null;
 		try {
 			begin();
-			Query query = getSession().createQuery("select fId from Following where userid="+user.getUserId());
+			Query query = getSession().createQuery("select fId from Following where userid=:userid");
+			query.setString("userid", ""+user.getUserId());
 			list = query.list();
 			commit();
 		}catch (HibernateException e) {
@@ -213,10 +219,13 @@ public class UserDao extends DAO{
 		List<User> list = new ArrayList<User>();
 		try {
 			begin();
-			Criteria criteria = getSession().createCriteria(User.class);
-			Criteria followingCriteria = criteria.createCriteria("following");
-			followingCriteria.add(Restrictions.eq("fId",user.getUserId()));
-			list = criteria.list();
+			Query query = getSession().createQuery("select following_user from Following where fId=:fId");
+			query.setString("fId", ""+user.getUserId());
+			
+			list = query.list();
+			for(User id : list) {
+				System.out.println(id.getUserId());
+			}
 			commit();
 		}catch (HibernateException e) {
 			rollback();
@@ -228,12 +237,14 @@ public class UserDao extends DAO{
 		
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	public boolean checkIfFollowing(User user_logged, User user) {
 		List<Following> list = null;
 		try {
 			begin();
-			Query query = getSession().createQuery("from Following where userid="+user_logged.getUserId()+" and fId="+user.getUserId());
+			Query query = getSession().createQuery("from Following where userid=:userid and fId=:fId");
+			query.setString("userid", ""+user_logged.getUserId());
+			query.setString("fId", ""+user.getUserId());
 			list = query.list();
 			if(list.size() == 0) return false;
 			commit();
@@ -267,9 +278,9 @@ public class UserDao extends DAO{
 		List<User> users = new ArrayList<User>();
 		try {
 			begin();
-			Criteria criteria = getSession().createCriteria(User.class);
-			criteria.add(Restrictions.like("name", searchString, MatchMode.ANYWHERE));
-			users = criteria.list();
+			Query query = getSession().createQuery("from User where name like :name");
+			query.setString("name", "%"+searchString+"%");
+			users = query.list();
 			for(User user: users){
 				Hibernate.initialize(user.getListOfTweets());
 				Hibernate.initialize(user.getFollowing());
@@ -288,9 +299,9 @@ public class UserDao extends DAO{
 		List<User> users = new ArrayList<User>();
 		try {
 			begin();
-			Criteria criteria = getSession().createCriteria(User.class);
-			criteria.add(Restrictions.like("handle",searchString, MatchMode.START));
-			users = criteria.list();
+			Query query = getSession().createQuery("from User where handle=:handle");
+			query.setString("handle", searchString);
+			users = query.list();
 			for(User user: users){
 				Hibernate.initialize(user.getListOfTweets());
 				Hibernate.initialize(user.getFollowing());
@@ -305,11 +316,12 @@ public class UserDao extends DAO{
 	}
 	
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public void deleteFollowing(User user) {
 		try {
 			begin();
-			Query query = getSession().createQuery("delete from Following where following_user="+user.getUserId());
+			Query query = getSession().createQuery("delete from Following where following_user=:userid");
+			query.setString("userid", ""+user.getUserId());
 			query.executeUpdate();
 			commit();
 		}catch (HibernateException e) {
@@ -319,11 +331,12 @@ public class UserDao extends DAO{
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public void deleteFollowingOfReported(User user) {
 		try {
 			begin();
-			Query query = getSession().createQuery("delete from Following where fId="+user.getUserId());
+			Query query = getSession().createQuery("delete from Following where fId=:fId");
+			query.setString("fId", ""+user.getUserId());
 			query.executeUpdate();
 			commit();
 		}catch (HibernateException e) {

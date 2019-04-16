@@ -106,7 +106,7 @@ var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
 	<c:if test="${requestScope.user.profileBackgroundImage ne null }">
 	<img class="ml-n3 mt-n2" 
 	 src="data:image/jpeg;base64,${requestScope.user.getProfileBackgroundImageAsString() }"
-	alt="Card image cap" style="width:2000px;height:300px;"
+	alt="Card image cap" style="width:1540px;height:300px;"
 	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
 	</c:if>
 	
@@ -114,7 +114,7 @@ var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
 	<img class="ml-n3 mt-n2" 
 	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
 	
-	alt="Card image cap" style="width:2000px;height:300px;"/>	
+	alt="Card image cap" style="width:1540px;height:300px;"/>	
 	</c:if>
 
 	</div>
@@ -203,9 +203,23 @@ var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
   		<div class="card-body">
     
     <h4 class="card-title">${requestScope.user.name}
+    <!-- Verified Tag -->
     <c:if test="${requestScope.user.verified eq true}">
     <i class="fas fa-user-check fa-sm"></i>
     </c:if>
+    <c:if test="${requestScope.user.role eq false && requestScope.user.verified eq false && sessionScope.user_logged.role eq true }">
+    <form method='get' action="${pageContext.request.contextPath}/admin/verify">
+    <input type="hidden" name="handle" value="${requestScope.user.handle }"/>
+    	<input type="submit" class="btn btn-info btn-sm" value="Verify"/>
+    </form>
+    </c:if>
+    <c:if test="${requestScope.user.role eq false && requestScope.user.verified eq true && sessionScope.user_logged.role eq true }">
+    <form method='get' action="${pageContext.request.contextPath}/admin/unverify">
+    <input type="hidden" name="handle" value="${requestScope.user.handle }"/>
+    	<input type="submit" class="btn btn-outline-info btn-sm" value="Remove Verify"/>
+    </form>
+    </c:if>
+    <!--  End of verified -->
     <c:if test="${requestScope.user.role eq true }">
     <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
     </c:if></h4>

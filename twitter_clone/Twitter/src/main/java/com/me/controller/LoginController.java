@@ -4,7 +4,9 @@ package com.me.controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +64,9 @@ public class LoginController {
 		}
 		List<Long> followingList = userDao.getFollowing(user_logged);
 		List<Tweet> tweets = tweetDao.getFollowingTweet(followingList);
+		
+		List<Tweet> retweetedTweets = tweetDao.getRetweetedTweets(user_logged);
+		model.addAttribute("retweetedTweetsSize", retweetedTweets.size());
 		Collections.sort(tweets, new Comparator<Tweet>() {
 			  public int compare(Tweet o1, Tweet o2) {
 			      return o2.getTimestamp().compareTo(o1.getTimestamp());
@@ -141,6 +146,7 @@ public class LoginController {
 		model.addAttribute("report", new Report(user.getUserId(), user_logged));
 		model.addAttribute("alreadyFollowing",alreadyFollowing);
 		model.addAttribute("alreadyReported", alreadyReported);
+		
 		return new ModelAndView("profile", "user", user);
 	}
 	
@@ -212,7 +218,7 @@ public class LoginController {
 		if(user_logged != null) {
 			alreadyReported = reportDao.checkIfReported(user_logged, user);
 		}
-		if(user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
+		if(user_logged != null && user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
 		model.addAttribute("alreadyFollowing",alreadyFollowing);
 		
 		List<Long> usersFollowingId = userDao.getFollowing(user);
@@ -258,11 +264,12 @@ public class LoginController {
 		if(user_logged != null) {
 			alreadyReported = reportDao.checkIfReported(user_logged, user);
 		}
-		if(user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
+		if(user_logged != null && user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
 		model.addAttribute("alreadyFollowing",alreadyFollowing);
 		
 		
 		List<User> usersFollowing = userDao.getFollowers(user);
+		
 		getFollowers(usersFollowing);
 		model.addAttribute("ListOfUsersFollowing",usersFollowing);
 		model.addAttribute("alreadyReported", alreadyReported);
@@ -292,11 +299,17 @@ public class LoginController {
 		
 		
 		Set<User> reports = reportDao.getAllUserReports();
+		Map<String, Integer> userToCount = new HashMap<String, Integer>();
+		for(User reportedUser :reports) {
+			System.out.println(reportDao.getNumberOfReports(reportedUser));
+			userToCount.put(reportedUser.getHandle(), reportDao.getNumberOfReports(reportedUser));
+		}
 		for(User usersReported: reports) {
 			usersReported.setFollowers(userDao.getNumberOfFollowers(usersReported));
 		}
 		model.addAttribute("user", user);
 		model.addAttribute("ListOfUsersFollowing",reports);
+		model.addAttribute("userToCount",userToCount);
 		return "reportPage";
 	}
 	

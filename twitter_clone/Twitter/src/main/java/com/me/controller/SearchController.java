@@ -37,10 +37,8 @@ public class SearchController {
 			if(users.size() == 0) return new ModelAndView("profile","error", search);
 			return new ModelAndView("redirect:/profile/"+users.get(0).getHandle());
 		}else {
-			System.out.println(userDao.searchHandle(search).size());
 			List<User> UsersFoundByHandle = userDao.searchHandle(search);
 			List<User> UsersFoundByName = userDao.searchUserName(search);
-			
 			getFollowers(UsersFoundByHandle);
 			getFollowers(UsersFoundByName);
 			
@@ -56,7 +54,6 @@ public class SearchController {
 	
 	public void getFollowers(List<User> usersFound) {
 		for(User user: usersFound) {
-			System.out.println(user.getName());
 			user.setFollowers(userDao.getNumberOfFollowers(user));
 		}
 	}

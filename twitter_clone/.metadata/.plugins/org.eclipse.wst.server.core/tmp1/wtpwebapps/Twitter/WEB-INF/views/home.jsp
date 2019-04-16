@@ -132,7 +132,7 @@
 		  
 		  <li class="list-inline-item pr-2">
 		  <a href="${pageContext.request.contextPath}/profile/${sessionScope['user_logged'].handle}" style="color:black" id="hoverBlue">
-		  Tweets <p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].listOfTweets) }</p>
+		  Tweets<p class="text-center" style="color:blue">${fn:length(sessionScope['user_logged'].listOfTweets) + requestScope.retweetedTweetsSize }</p>
 		  </a></li>
 		  
 		  <li class="list-inline-item pr-2"> 
