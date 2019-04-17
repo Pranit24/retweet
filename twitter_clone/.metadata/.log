@@ -3258,3 +3258,273 @@ java.lang.NoSuchMethodError: org.jboss.tools.common.el.core.ELReference.init(Lja
 
 !ENTRY org.jboss.tools.common 4 0 2019-04-17 14:54:59.783
 !MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:17.966
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:17.974
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:17.981
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:17.987
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:17.994
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:18.001
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-17 15:20:18.007
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.eclipse.jdt.core 4 4 2019-04-17 15:21:15.368
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.me.controller;
+
+import java.io.IOException;
+import java.util.Base64;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.me.dao.UserDao;
+import com.me.pojo.User;
+import com.me.validator.EditValidator;
+import com.me.validator.RegisterValidator;
+
+/**
+ * @author Pranit
+ *
+ */
+@Controller
+@RequestMapping("/register/*")
+public class RegisterController {
+
+	@Autowired
+	UserDao userDao;
+	
+	@RequestMapping(value="/create.htm", method=RequestMethod.GET)
+	public String register(Model model) {
+		User user = new User();
+		model.addAttribute("register",user);
+		return "register";
+	}
+	
+	@RequestMapping(value="/create.htm", method=RequestMethod.POST)
+	public String register(Model model, HttpServletRequest request,@ModelAttribute("register") User user, BindingResult results) {
+		
+		RegisterValidator regValid = new RegisterValidator();
+		regValid.validate(user, results);
+		if(!user.getPassword().equals(request.getParameter("confirm_password"))) {
+			results.rejectValue("password", "","-Passwords do not match");
+		}
+		if(results.hasErrors()) {
+			return "register";
+		}
+		userDao.register(user);
+		
+		return "redirect:/";
+		
+	}
+	
+	public void hashPassword()
+	
+	
+	@RequestMapping(value="/edit.htm", method=RequestMethod.GET)
+	public String edit(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user_logged==null) return "redirect:/";
+		model.addAttribute("update", user_logged);
+		return "editProfile";
+	}
+	
+
+	// TODO check if its an image
+	// do it in validator?
+	@RequestMapping(value="/edit.htm", method=RequestMethod.POST)
+	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user, BindingResult results, HttpSession session,
+			@RequestPart(value = "profile", required = false) MultipartFile profileImage,
+			@RequestPart(value = "profileBanner", required = false) MultipartFile profileBanner) {
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user_logged==null) return "redirect:/";
+		
+		// Check if uploaded file is JPG, BMP, GIF, PNG
+		if(!profileImage.isEmpty()) {
+			try {
+				ImageIO.read(profileImage.getInputStream()).toString();
+			}catch (Exception e) {
+				System.out.println("NOT IMAGE");
+				results.rejectValue("profileImage", "","-The profile image you uploaded was not an image!");
+			}
+		}
+		if(!profileBanner.isEmpty()) {
+			try {
+				ImageIO.read(profileBanner.getInputStream()).toString();
+			}catch (Exception e) {
+				System.out.println("NOT IMAGE");
+				results.rejectValue("profileBanner", "","-The profile banner you uploaded was not an image!");
+			}
+		}
+		
+		
+		
+		String removeProfile = request.getParameter("removeProfile");
+		String removeBanner = request.getParameter("removeBanner");
+		updated_user.setUserId(user_logged.getUserId());
+		EditValidator editValid = new EditValidator();
+		editValid.validate(updated_user, results);
+		if(results.hasErrors()) {
+			return "editProfile";
+		}
+		updateUser(user_logged, updated_user);
+		// Profile image
+		if(!profileImage.isEmpty() && removeProfile == null) {
+			user_logged.setProfileImage(uploadImage(user_logged, profileImage));
+		}
+		if(removeProfile != null && removeProfile.equals("true")){
+			user_logged.setProfileImage(null);
+		}
+		// Profile banner
+		if(!profileBanner.isEmpty() && removeBanner == null) {
+			user_logged.setProfileBackgroundImage(uploadImage(user_logged, profileBanner));
+		}
+		if(removeBanner != null && removeBanner.equals("true")){
+			user_logged.setProfileBackgroundImage(null);
+		}
+		
+		userDao.editUser(user_logged);
+
+		return "redirect:/profile/"+user_logged.getHandle();
+	}
+	
+	public byte[] uploadImage(User user, MultipartFile uploadedFile) {
+
+        byte[] bFile = null;
+		try {
+			bFile = uploadedFile.getBytes();
+		} catch (IOException e) {
+			user.setProfileImage(null);
+			return null;
+		}
+        bFile = Base64.getEncoder().encode(bFile);
+        return bFile;
+	}
+	
+	/**
+	 * @param user_logged - Currect user logged to the site
+	 * @param updated_user - User's updated profile
+	 */
+	public void updateUser(User user_logged, User updated_user) {
+		user_logged.setEmail(updated_user.getEmail());
+		user_logged.setPassword(updated_user.getPassword());
+		user_logged.setName(updated_user.getName());
+		user_logged.setHandle(updated_user.getHandle());
+		user_logged.setDescription(updated_user.getDescription());
+	}
+	
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2949)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:636)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:367)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2019-04-17 15:21:15.437
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2949)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:636)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:367)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2019-04-17 15:21:15.447
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2949)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:636)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:367)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
