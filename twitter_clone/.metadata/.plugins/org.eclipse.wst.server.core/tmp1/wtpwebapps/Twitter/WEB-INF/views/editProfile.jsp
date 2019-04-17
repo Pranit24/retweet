@@ -31,9 +31,9 @@
     	<div class="input-group">
             <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
-                <div class="input-group-text bg-light">
+                <button class="input-group-text bg-light" type="submit">
                 <i class="fa fa-search"></i>
-                </div>
+                </button>
             </span>
         </div>
     </form>
@@ -83,16 +83,18 @@
         </div>
         <div class="form-group">
             <h6>Description</h6>
-            <form:textarea class="form-control form-control-lg white-space" rows="5" cols="30" path="description" placeholder="${sessionScope['user-logged'].description}" id="change"  />
+            <form:textarea maxlength="140" class="form-control form-control-lg white-space" rows="5" cols="30" path="description" placeholder="${sessionScope['user-logged'].description}" id="change"  />
         </div>
         
         <div class="form-group">
             <h6> Select file for profile picture </h6>
             <div class="form-check">
+        	<c:if test="${sessionScope.user_logged.profileImage ne null }">
         	<input class="form-check-input" type="checkbox" name="removeProfile" value="true" id="removeProfile_id"/>
         	<label class="form-check-label h6 mb-1" for="removeProfile_id">
     			Remove profile image
   			</label>
+  			</c:if>
         </div>
             <input type="file" name="profile" accept="image/*"/>
         </div>
@@ -100,10 +102,12 @@
         <div class="form-group">
             <h6> Select file for profile banner </h6>
             <div class="form-check">
+            <c:if test="${sessionScope.user_logged.profileBackgroundImage ne null }">
         	<input class="form-check-input" type="checkbox" name="removeBanner" value="true" id="removeBanner_id"/>
         	<label class="form-check-label h6 mb-1" for="removeBanner_id">
     			Remove banner
   			</label>
+  			</c:if>
         </div>
             <input type="file" name="profileBanner" accept="image/*"/>
         </div>
@@ -112,7 +116,7 @@
         </div>
     </form:form>
     <form class="form-group" action="${pageContext.request.contextPath}/delete" method="post">
-    	<button class="btn btn-danger btn-lg btn-block">Delete</button>
+    	<button class="btn btn-danger btn-lg btn-block">Delete Account</button>
     </form>
     
 </div>

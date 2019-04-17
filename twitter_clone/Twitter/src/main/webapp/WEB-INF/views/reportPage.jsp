@@ -32,9 +32,9 @@
     	<div class="input-group">
             <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
-                <div class="input-group-text bg-light">
+                <button class="input-group-text bg-light" type="submit">
                 <i class="fa fa-search"></i>
-                </div>
+                </button>
             </span>
         </div>
     </form>

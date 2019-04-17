@@ -31,9 +31,9 @@
     	<div class="input-group">
             <input class="form-control py-2 border-right-0 border" name="search" type="search" placeholder="Search" id="example-search-input">
             <span class="input-group-append">
-                <div class="input-group-text bg-light">
+                <button class="input-group-text bg-light" type="submit">
                 <i class="fa fa-search"></i>
-                </div>
+                </button>
             </span>
         </div>
     </form>
@@ -74,7 +74,8 @@
     <p class="card-text">
     <form:form  action="${pageContext.request.contextPath}/tweet/tweet.htm" method="post" modelAttribute="message" class="form-inline">
     <div class="form-group">
-        	<form:textarea class="form-control d-flex justify-content-center white-space" maxlength="140" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
+        	<form:textarea maxlength="140" class="form-control d-flex justify-content-center white-space" maxlength="140" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
+        	
         	
         </div>
         
