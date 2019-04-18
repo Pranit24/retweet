@@ -35,6 +35,9 @@ public class EditValidator implements Validator {
 		if(!editedUser.getHandle().matches("^[a-zA-Z0-9]*$")) {
 			errors.rejectValue("handle", "","-Only alphanumerical values for your handle");
 		}
+		if(!editedUser.getName().matches("^[A-Za-z0-9\\h@]*$")) {
+			errors.rejectValue("handle", "","-Only alphanumerical values for your name");
+		}
 		if(errors.hasErrors()) return;
 		UserDao userDao = new UserDao();
 		if(userDao.alreadyExists("email", editedUser.getEmail()) != null) {

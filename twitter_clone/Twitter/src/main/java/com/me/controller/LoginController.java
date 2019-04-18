@@ -29,6 +29,7 @@ import com.me.pojo.Following;
 import com.me.pojo.Report;
 import com.me.pojo.Tweet;
 import com.me.pojo.User;
+import com.me.utils.PasswordHashing;
 import com.me.validator.UserValidator;
 
 
@@ -89,7 +90,13 @@ public class LoginController {
 			staff.setRole(true);
 			staff.setVerified(true);
 			staff.setEmail("pranit@g.com");
-			staff.setPassword("pranit");
+			try {
+				PasswordHashing pwdHash = new PasswordHashing();
+				staff.setPassword(pwdHash.encrypt("pranit"));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			staff.setHandle("pranitstaff");
 			userDao.register(staff);
 		}
@@ -99,6 +106,12 @@ public class LoginController {
 	@RequestMapping(value="/profile/*", method=RequestMethod.POST)
 	public String signIn(@ModelAttribute("login") User logged_user, HttpServletRequest request, BindingResult results) {
 		UserValidator userValid = new UserValidator();
+		try {
+			PasswordHashing pwdHash = new PasswordHashing();
+			logged_user.setPassword(pwdHash.encrypt(logged_user.getPassword()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		userValid.validate(logged_user, results);
 		
@@ -140,6 +153,8 @@ public class LoginController {
 		// Get all retweeted tweets
 		List<Tweet> retweetedTweets = tweetDao.getRetweetedTweets(user);
 //		List<Tweet> retweetedTweets = tweetDao.getFollowingTweet(tweetId);
+		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
+		model.addAttribute("numofLikedTweets", likedTweet.size());
 		user.setListOfTweets(joinAndSortLists(user.getListOfTweets(), retweetedTweets));
 		model.addAttribute("sizeOfRetweets", retweetedTweets.size());
 		model.addAttribute("following", new Following());
@@ -226,7 +241,8 @@ public class LoginController {
 		for(Long id :usersFollowingId) {
 			usersFollowing.add(userDao.getUser(id));
 		}
-		
+		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
+		model.addAttribute("numofLikedTweets", likedTweet.size());
 		getFollowers(usersFollowing);
 		model.addAttribute("ListOfUsersFollowing",usersFollowing);
 		model.addAttribute("alreadyReported", alreadyReported);
@@ -269,7 +285,8 @@ public class LoginController {
 		
 		
 		List<User> usersFollowing = userDao.getFollowers(user);
-		
+		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
+		model.addAttribute("numofLikedTweets", likedTweet.size());
 		getFollowers(usersFollowing);
 		model.addAttribute("ListOfUsersFollowing",usersFollowing);
 		model.addAttribute("alreadyReported", alreadyReported);
@@ -307,10 +324,47 @@ public class LoginController {
 		for(User usersReported: reports) {
 			usersReported.setFollowers(userDao.getNumberOfFollowers(usersReported));
 		}
+		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
+		model.addAttribute("numofLikedTweets", likedTweet.size());
 		model.addAttribute("user", user);
 		model.addAttribute("ListOfUsersFollowing",reports);
 		model.addAttribute("userToCount",userToCount);
 		return "reportPage";
+	}
+	
+	@RequestMapping(value="/profile/*/likes")
+	public String likePage(HttpServletRequest request, Model model, HttpSession session) {
+		String user_url = request.getRequestURI();
+		String[] url = user_url.split("/");
+		String handle = url[url.length -2];
+
+		if(handle.equals("profile")) return "redirect:/";
+		User user = userDao.getUser(handle);
+		User user_logged = (User) session.getAttribute("user_logged");
+		if(user == null) return "redirect:/";
+		model.addAttribute("user",user);
+		user.setFollowing(userDao.getListOfFollowing(user));
+		user.setFollowers(userDao.getNumberOfFollowers(user));
+		model.addAttribute("following", new Following());
+		
+		boolean alreadyFollowing = false;
+		if(user_logged != null) {
+			alreadyFollowing = userDao.checkIfFollowing(user_logged, user);
+		}
+		boolean alreadyReported = false;
+		if(user_logged != null) {
+			alreadyReported = reportDao.checkIfReported(user_logged, user);
+		}
+		if(user_logged != null && user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
+		model.addAttribute("alreadyFollowing",alreadyFollowing);
+		
+		
+		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
+		model.addAttribute("numofLikedTweets", likedTweet.size());
+		model.addAttribute("tweetsLiked",likedTweet);
+		model.addAttribute("alreadyReported", alreadyReported);
+		model.addAttribute("user", user);
+		return "likedPage";
 	}
 	
 }

@@ -18,11 +18,35 @@
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
 
+ 
 <script type="text/javascript">
 	var tweetCount = '${fn:length(requestScope.followingTweets)}';
 	var user = '${sessionScope.user_logged.handle}';
     var intervalId = 0;
-    intervalId = setInterval(function() {homeAjax(user, tweetCount);}, 1000);
+    intervalId = setInterval(function() {homeAjax(user, tweetCount);}, 5000);
+</script>
+ 
+<script type="text/javascript">
+function homePopularAjax() {
+	$.ajax({
+    	type : 'POST',
+        url : '/twitter/ajax/getPopular',
+        cache: false,
+        dataType:'text',
+        success : function(data) {
+        	var json = JSON.parse(data);
+            var myHtml = '<ul class="list-group"><li class="list-group-item"><a href=${pageContext.request.contextPath}/profile/'+json.firstUserHandle+'>'+json.firstUserName+'</li>'+
+            '<li class="list-group-item"><a href=${pageContext.request.contextPath}/profile/'+json.secondUserHandle+'>'+json.secondUserName+'</li>'+
+                '<li class="list-group-item"><a href=${pageContext.request.contextPath}/profile/'+json.thirdUserHandle+'>'+json.thirdUserName+'</li>'+
+                '</ul>';
+            
+            console.log(json.firstUserName);
+    		$('#topUsers').html(myHtml);
+        }
+    });
+}
+
+    setInterval(homePopularAjax, 1000);
 </script>
 </head>
 <body class="bg-info">
@@ -239,7 +263,7 @@
       <div class="card" style="margin-left: 2em;margin-right: 2em;border:none">
       <div class="card-body">
     <h5 class="card-title">Top Tweets</h5>
-    <p class="card-text" id="topTweets"></p>
+    <div class="card-text" id="topUsers"></div>
   </div>
       </div>
       </div>

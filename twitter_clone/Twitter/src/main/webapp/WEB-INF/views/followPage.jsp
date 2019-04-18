@@ -14,6 +14,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
+	<script type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-md navbar-navbar-light" style="background-color: #e3f2fd;">
@@ -105,17 +108,20 @@
 	</c:if>
 
 	</div>
-	
+	<c:set var="url" value="${requestScope['javax.servlet.forward.request_uri']}"/>
 	<div class=" bg-white col-12 border-bottom border-dark" style="padding-left:400px;height:60px">
 	<ul class="list-inline">
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
 		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p>
 		  </a></li>
-		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/">
+		  <li class="list-inline-item"><a <c:if test="${fn:contains(url, 'followers') }">class="btn btn-info"</c:if> href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/">
 		  Followers <p class="text-center">${requestScope.user.followers}</p>
 		  </a></li>
-		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/following/">
+		  <li class="list-inline-item"><a <c:if test="${fn:contains(url, 'following') }">class="btn btn-info"</c:if> href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/following/">
 		  Following <p class="text-center">${fn:length(requestScope.user.following) }</p>
+		  </a></li>
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/likes/">
+		  Likes <p class="text-center">${requestScope.numofLikedTweets}</p>
 		  </a></li>
 		  <c:if test="${requestScope.user.handle eq sessionScope.user_logged.handle && 
 		  sessionScope.user_logged.role eq true}">
@@ -146,7 +152,7 @@
 			
 			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
 			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
-			<button type="submit" class="btn btn-outline-primary mx-sm-3">
+			<button type="submit" class="btn btn-outline-primary mx-sm-3"  onmouseover="mouseOver()" id="unfollow" onmouseout="mouseOut()">
 	   		Following
 			</button>
 		</form:form>
@@ -181,7 +187,7 @@
     </form>
     </c:if>
     <c:if test="${requestScope.user.role eq true }">
-    <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
+    <button type="button" class="btn btn-outline-info btn-sm disabled" >Staff</button>
     </c:if></h4>
     <h5 class="card-subtitle mb-2 text-muted">@${requestScope.user.handle}</h5>
     <p class="card-text"><pre>${requestScope.user.description}</pre></p>

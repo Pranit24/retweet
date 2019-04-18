@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.me.dao.UserDao;
 import com.me.pojo.User;
+import com.me.utils.PasswordHashing;
 import com.me.validator.EditValidator;
 import com.me.validator.RegisterValidator;
 
@@ -51,6 +52,13 @@ public class RegisterController {
 		if(results.hasErrors()) {
 			return "register";
 		}
+		try {
+			PasswordHashing pwdHash = new PasswordHashing();
+			user.setPassword(pwdHash.encrypt(user.getPassword()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		user.setName(user.getName().trim());
 		userDao.register(user);
 		
 		return "redirect:/";
@@ -63,19 +71,46 @@ public class RegisterController {
 		HttpSession session = request.getSession();
 		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
-		model.addAttribute("update", user_logged);
+		model.addAttribute("update", new User());
 		return "editProfile";
 	}
 	
-
-	// TODO check if its an image
-	// do it in validator?
+	public User ifNotFilledBasic(User original_info, User updated_info) {
+		if(updated_info.getName().equals("")) {
+			updated_info.setName(original_info.getName());
+		}
+		if(updated_info.getHandle().equals("")) {
+			updated_info.setHandle(original_info.getHandle());
+		}
+		if(updated_info.getDescription().equals("")) {
+			updated_info.setDescription(original_info.getDescription());
+		}
+		if(updated_info.getEmail().equals("")) {
+			updated_info.setEmail(original_info.getEmail());
+		}
+		if(updated_info.getProfileBackgroundImage() == null) {
+			updated_info.setProfileBackgroundImage(original_info.getProfileBackgroundImage());
+		}if(updated_info.getProfileImage() == null) {
+			updated_info.setProfileImage(original_info.getProfileImage());
+		}
+		return updated_info;
+	}
+	
 	@RequestMapping(value="/edit.htm", method=RequestMethod.POST)
 	public String edit(HttpServletRequest request, @ModelAttribute("update") User updated_user, BindingResult results, HttpSession session,
 			@RequestPart(value = "profile", required = false) MultipartFile profileImage,
 			@RequestPart(value = "profileBanner", required = false) MultipartFile profileBanner) {
 		User user_logged = (User) session.getAttribute("user_logged");
 		if(user_logged==null) return "redirect:/";
+		if(updated_user.getPassword().equals("")) {
+			results.rejectValue("password", "", "-Please enter password to make any changes or click on cancel!");
+			return "editProfile";
+		}
+		if(!updated_user.getPassword().equals(request.getParameter("confirm_password"))) {
+			results.rejectValue("password", "", "-Passwords don't match");
+			return "editProfile";
+		}
+		updated_user = ifNotFilledBasic(user_logged, updated_user);
 		
 		// Check if uploaded file is JPG, BMP, GIF, PNG
 		if(!profileImage.isEmpty()) {
@@ -103,6 +138,7 @@ public class RegisterController {
 		EditValidator editValid = new EditValidator();
 		editValid.validate(updated_user, results);
 		if(results.hasErrors()) {
+			updated_user = new User();
 			return "editProfile";
 		}
 		updateUser(user_logged, updated_user);
@@ -120,7 +156,14 @@ public class RegisterController {
 		if(removeBanner != null && removeBanner.equals("true")){
 			user_logged.setProfileBackgroundImage(null);
 		}
-		
+		try {
+			PasswordHashing pwdHash = new PasswordHashing();
+			user_logged.setPassword(pwdHash.encrypt(user_logged.getPassword()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		user_logged.setName(user_logged.getName().trim());
 		userDao.editUser(user_logged);
 
 		return "redirect:/profile/"+user_logged.getHandle();

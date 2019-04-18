@@ -38,7 +38,7 @@
         </div>
     </form>
  
- <form class="form-inline" action="tweet/tweet.htm" method="get">
+ <form class="form-inline" action="${pageContext.request.contextPath}/tweet/tweet.htm" method="get">
 		
 		<button type="submit" class="btn btn-primary mx-sm-3"  style="background-color: #1DA1F2">
    		<span class="fas fa-edit"></span> Tweet
@@ -67,23 +67,27 @@
     	<div class="alert alert-danger" style="width:350px"><form:errors path="*"></form:errors></div> 
         <div class="form-group">
             <h6>Email</h6>
-            <form:input class="form-control form-control-lg" path="email" placeholder="${sessionScope['user-logged'].email}" type="text" id="change"  />
+            <form:input class="form-control form-control-lg" path="email" placeholder="${sessionScope['user_logged'].email}" type="text" id="change"  />
         </div>
         <div class="form-group">
             <h6>Password</h6>
-            <form:input class="form-control form-control-lg" path="password" placeholder="*******" type="password" id="change"  />
+            <form:input class="form-control form-control-lg" path="password" placeholder="*******" type="password" id="change" value=""/>
+        </div>
+         <div class="form-group">
+            <h6>Confirm Password</h6>
+            <input class="form-control form-control-lg" name="confirm_password" placeholder="*******" type="password" id="change" value=""/>
         </div>
         <div class="form-group">
             <h6>Name</h6>
-            <form:input class="form-control form-control-lg" path="name" placeholder="${sessionScope['user-logged'].name}" type="text" id="change"  />
+            <form:input class="form-control form-control-lg" path="name" placeholder="${sessionScope['user_logged'].name}" type="text" id="change"  />
         </div>
         <div class="form-group">
             <h6>Handle</h6>
-            <form:input class="form-control form-control-lg" path="handle" placeholder="${sessionScope['user-logged'].handle}" type="text" id="change"  />
+            <form:input class="form-control form-control-lg" path="handle" placeholder="${sessionScope['user_logged'].handle}" type="text" id="change"  />
         </div>
         <div class="form-group">
             <h6>Description</h6>
-            <form:textarea maxlength="140" class="form-control form-control-lg white-space" rows="5" cols="30" path="description" placeholder="${sessionScope['user-logged'].description}" id="change"  />
+            <form:textarea maxlength="200" class="form-control form-control-lg white-space" rows="5" cols="30" path="description" placeholder="${sessionScope['user_logged'].description}" id="change"  />
         </div>
         
         <div class="form-group">
@@ -115,9 +119,12 @@
             <button class="btn btn-light btn-lg btn-block">Update</button>
         </div>
     </form:form>
+    <a class="btn btn-warning btn-lg" href="${pageContext.request.contextPath}/profile/${sessionScope.user_logged.handle}">Cancel</a>
+    <c:if test="${sessionScope.user_logged.role eq false}">
     <form class="form-group" action="${pageContext.request.contextPath}/delete" method="post">
     	<button class="btn btn-danger btn-lg btn-block">Delete Account</button>
     </form>
+    </c:if>
     
 </div>
 
