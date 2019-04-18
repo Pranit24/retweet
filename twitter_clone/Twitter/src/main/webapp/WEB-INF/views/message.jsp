@@ -74,7 +74,7 @@
     <p class="card-text">
     <form:form  action="${pageContext.request.contextPath}/tweet/tweet.htm" method="post" modelAttribute="message" class="form-inline">
     <div class="form-group">
-        	<form:textarea maxlength="140" class="form-control d-flex justify-content-center white-space" maxlength="140" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
+        	<form:textarea class="form-control d-flex justify-content-center white-space" maxlength="140" rows="5" cols="60" path="message" placeholder="Whats on your mind?"/>
         	
         	
         </div>

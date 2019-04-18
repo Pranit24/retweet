@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Profile Reports</title>
+<title>Liked Page</title>
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,6 +17,9 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     
 	<script type="text/javascript" src="<c:url value="/resources/js/myjavascript.js" />"></script>
+
+
+ 
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-md navbar-navbar-light" style="background-color: #e3f2fd;">
@@ -109,10 +112,11 @@
 
 	</div>
 	
+	
 	<div class=" bg-white col-12 border-bottom border-dark" style="padding-left:400px;height:60px">
 	<ul class="list-inline">
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}">
-		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) }</p>
+		  Tweets <p class="text-center">${fn:length(requestScope.user.listOfTweets) - requesttScope.sizeOfRetweets }</p>
 		  </a></li>
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/">
 		  Followers <p class="text-center">${requestScope.user.followers}</p>
@@ -120,12 +124,12 @@
 		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/following/">
 		  Following <p class="text-center">${fn:length(requestScope.user.following) }</p>
 		  </a></li>
-		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/likes/">
+		  <li class="list-inline-item"><a class="btn btn-info" href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/likes/">
 		  Likes <p class="text-center">${requestScope.numofLikedTweets}</p>
 		  </a></li>
 		  <c:if test="${requestScope.user.handle eq sessionScope.user_logged.handle && 
 		  sessionScope.user_logged.role eq true}">
-		  <li class="list-inline-item"><a class="btn btn-info" href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/reportPage/">
+		  <li class="list-inline-item"><a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/reportPage/">
 		  Reports <p class="text-center">${fn:length(requestScope.user.reports) }</p>
 		  </a></li>
 		  </c:if>
@@ -152,8 +156,32 @@
 			
 			<input type="hidden" name="profile" value="${requestScope.user.handle}"/>
 			<form:input type="hidden" path="fId" value="${requestScope.user.userId}"/>
-			<button type="submit" class="btn btn-outline-primary mx-sm-3"  onmouseover="mouseOver()" id="unfollow" onmouseout="mouseOut()">
+			<button type="submit" class="btn btn-outline-primary mx-sm-3" onmouseover="mouseOver()" id="unfollow" onmouseout="mouseOut()">
 	   		Following
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
+		  
+		  <!-- REPORT BUTTON -->
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyReported eq false 
+		  && requestScope.user.role eq false}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:-370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/report/report" method="post" modelAttribute="report">
+		   <input type="hidden" name="handle" value="${requestScope.user.handle}"/>
+			<button type="submit" class="btn btn-danger mx-sm-3">
+	   		Report Abuse
+			</button>
+		</form:form>
+		  </li>
+		  </c:if>
+		  
+		  <c:if test="${requestScope.user.handle ne sessionScope['user_logged'].handle && requestScope.alreadyReported eq true}">
+		  <li class="list-inline-item float-right mt-2" style="padding-right:-370px">
+		   <form:form class="form-inline" action="${pageContext.request.contextPath}/profile/report/unreport" method="post" modelAttribute="report">
+		   <input type="hidden" name="handle" value="${requestScope.user.handle}"/>
+			<button type="submit" class="btn btn-outline-danger mx-sm-3">
+	   		Remove Report 
 			</button>
 		</form:form>
 		  </li>
@@ -171,9 +199,24 @@
   	 
   		<div class="card-body">
     
-    <h4 class="card-title">${requestScope.user.name}<c:if test="${requestScope.user.verified eq true}">
+    <h4 class="card-title">${requestScope.user.name}
+    <!-- Verified Tag -->
+    <c:if test="${requestScope.user.verified eq true}">
     <i class="fas fa-user-check fa-sm"></i>
     </c:if>
+    <c:if test="${requestScope.user.role eq false && requestScope.user.verified eq false && sessionScope.user_logged.role eq true }">
+    <form method='get' action="${pageContext.request.contextPath}/admin/verify">
+    <input type="hidden" name="handle" value="${requestScope.user.handle }"/>
+    	<input type="submit" class="btn btn-info btn-sm" value="Verify"/>
+    </form>
+    </c:if>
+    <c:if test="${requestScope.user.role eq false && requestScope.user.verified eq true && sessionScope.user_logged.role eq true }">
+    <form method='get' action="${pageContext.request.contextPath}/admin/unverify">
+    <input type="hidden" name="handle" value="${requestScope.user.handle }"/>
+    	<input type="submit" class="btn btn-outline-info btn-sm" value="Remove Verify"/>
+    </form>
+    </c:if>
+    <!--  End of verified -->
     <c:if test="${requestScope.user.role eq true }">
     <button type="button" class="btn btn-outline-info btn-sm disabled" >Staff</button>
     </c:if></h4>
@@ -189,101 +232,77 @@
       <!-- Tweets -->
    
       <div class="col-md-6">
-      <!-- -----------------------------------------------------------------Following -->
-      <c:forEach var="Userfollowing" items="${requestScope.ListOfUsersFollowing}">
-		<c:if test="${Userfollowing.userId ne requestScope.user.userId }">
-		
-	<div class="card" style="width:350px;margin: 0 auto;margin-bottom:10px">
-			<!-- Background -->
-			<c:if test="${Userfollowing.profileBackgroundImage ne null }">
-			
-	<img class="card-img-top mb-2" 
-	 src="data:image/jpeg;base64,${Userfollowing.getProfileBackgroundImageAsString() }"
-	alt="Card image cap" style="height:100px"
-	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile_background.jpg" />'"/>	
-	</c:if>
-	
-	<c:if test="${Userfollowing.profileBackgroundImage eq null }">
-	<img class="card-img-top mb-2"
-	 src="<c:url value="/resources/images/default_profile_background.jpg" />"
-	
-	alt="Card image cap" style="height:100px"/>	
-	
-	</c:if>
-	
-	<!-- Profile -->
-	<c:if test="${Userfollowing.profileImage ne null }">
-	
-	<img class="card-img-top rounded-circle border border-light" 
-	 src="data:image/jpeg;base64,${Userfollowing.getProfileImageAsString() }"
-	
-	alt="Card image cap" style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
-	onerror="this.onerror=null;this.src='<c:url value="/resources/images/default_profile.png" />'"/>	
-	</c:if>
-	
-	<c:if test="${Userfollowing.profileImage eq null }">
-	<img class="card-img-top rounded-circle border border-light" 
-	 src="<c:url value="/resources/images/default_profile.png" />"
-	
-	alt="Card image cap"  style="width:100px;height:100px;position:absolute;margin-top:45px;margin-left:10px"
-	/>	
-	</c:if>
-		<div class="card-body" style="height:115px">
-    
-    <h5 class="card-title mt-n3" style="margin-left:90px">
-    <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-    ${Userfollowing.name}
-     
-    </a>
-    <form class="card-title float-right" method="post" action="${pageContext.request.contextPath}/deleteReported">
-		  	<input type="hidden" name="toDelete" value="${Userfollowing.handle}"/>
-		  	<button type="submit" class="btn btn-danger btn-sm mx-sm-1">
-	   		Delete User: ${requestScope.userToCount.get(Userfollowing.handle)}
-			</button>
-	</form>
-	<font class="card-title float-right" size="2"> </font>
-	</h5>
-    <h6 class="card-subtitle mb-2 mt-n3 text-muted" style="margin-left:90px">
-    <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-    @${Userfollowing.handle}</a></h6>
-    
-     <div class="row">
-     <div  class="col-12">
-     <ul class="list-inline">
-		  
-		  <li class="list-inline-item pr-3">
-		  <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-		  Tweets <p class="text-center" style="color:blue">${fn:length(Userfollowing.listOfTweets) }</p>
-		  </a></li>
-		  
-		  <li class="list-inline-item pr-3"> 
-		  <a href="${pageContext.request.contextPath}/profile/${requestScope.user.handle}/followers/" style="color:black">
-		  Followers <p class="text-center" style="color:blue">${Userfollowing.followers}</p>
-		  </a></li>
-		  
-		  <li class="list-inline-item pr-2">
-		  <a href="${pageContext.request.contextPath}/profile/${Userfollowing.handle}" style="color:black">
-		  Following <p class="text-center" style="color:blue">${fn:length(Userfollowing.following) }</p>
-		  </a></li>
-		  
-		  <li class="list-inline-item pr-2">
-		  
-		  </li>
-	</ul>
-    
-     </div>
-     </div>
-   <!-- <a class="btn btn-primary" href="${pageContext.request.contextPath}/profile/pranit24">go to  Pranit24's profile</a> --> 
-  	
-	</div>
-	
-	</div>
-	</c:if>
-		</c:forEach>
-      <!-- END of foreach -->
-      </div>
-      
 
+      <!-- TWEETS -->
+      <c:if test="${fn:length(requestScope.user.listOfTweets) gt 0 }">
+   		<c:forEach var="tweet" items="${requestScope.tweetsLiked}">
+      	<div class="card h-10">
+  
+  		<div class="card-body">
+    	<fmt:parseDate var="parsedDate" value="${tweet.timestamp}" pattern="yyyy-MM-dd HH:mm:ss"/>
+    <a href="${pageContext.request.contextPath}/profile/${tweet.tweet_user.handle}" style="color:black">
+    <h5 class="card-title clearkfix" style="margin-bottom:-0.1em">${tweet.tweet_user.name} 
+    <font class="card-title mb-2 text-muted" size=3px>@${tweet.tweet_user.handle}</font>
+    </a><c:if test="${tweet.tweet_user.verified eq true}">
+    <i class="fas fa-user-check fa-sm"></i>
+    </c:if>
+    <c:if test="${tweet.tweet_user.role eq true }">
+    <button type="button" class="btn btn-outline-info btn-sm" disable>Staff</button>
+    </c:if>
+    <font class="card-title mb-2 text-muted" size=3px><fmt:formatDate value="${parsedDate}" pattern="MMMM dd"/></font>
+     <c:if test="${tweet.tweet_user.handle eq sessionScope.user_logged.handle }">
+    <a class="card-title float-right nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownOptionLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a>
+         
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownOptionLink">
+          <!-- <a class="dropdown-item" href="#">Copy link to Tweet</a> -->
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/tweet/delete?tweet=${tweet.msgId}">Delete Tweet</a>
+          
+        </div>
+        </c:if>
+    </h5>
+    
+    <pre><p class="card-text my-2 ml-2 lead ">${tweet.message }</p></pre>
+    <div class="card-footer border-0 bg-white">
+    <c:forEach var="likedUser" items="${tweet.likes }">
+    
+    <c:if test="${likedUser.userLikedId eq sessionScope.user_logged.userId }">
+    <c:set var="likedAlready" value="${likedUser.tweetLiked.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:hotpink"><i class="fas fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+	</c:if>
+    </c:forEach>
+    <!-- LIKES  -->
+    <c:if test="${likedAlready ne tweet.msgId }">
+    <a href="${pageContext.request.contextPath}/tweet/like?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="far fa-heart fa-lg"></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.likes)}</font>
+    </c:if>
+    
+    <c:if test="${tweet.tweet_user.handle ne sessionScope.user_logged.handle }">
+    <!-- ALREADY RETWEETED -->
+    <c:forEach var="retweetedUser" items="${tweet.retweets}">
+    
+    <c:if test="${retweetedUser.userRetweetId eq sessionScope.user_logged.userId }">
+    <c:set var="retweetedAlready" value="${retweetedUser.tweetRetweeted.msgId}"/>
+	<a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}" style="color:yellow"><i class="fas fa-retweet fa-lg"></i></i></a>
+    <font color="#000000" size=4.5cm class="mr-5">  ${fn:length(tweet.retweets)}</font>
+	</c:if>
+    </c:forEach>
+    <!-- RETWEETS -->
+    <c:if test="${retweetedAlready ne tweet.msgId }">
+    <a href="${pageContext.request.contextPath}/tweet/retweet?handle=${requestScope.user.handle}&tweet=${tweet.msgId}"><i class="fas fa-retweet fa-lg"></i></a>
+    <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    </c:if>
+    </c:if>
+    
+    
+    </div>
+  	</div>
+		</div>
+    	</c:forEach>
+    	</c:if>
+    	
+    
       <div class="col-md-3"></div>
     </div>
 </div>

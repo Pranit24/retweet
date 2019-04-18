@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <h6>Handle</h6>
-            <form:input class="form-control form-control-lg" path="handle" placeholder="@johndoe" type="text"/>
+            <form:input class="form-control form-control-lg" path="handle" placeholder="johndoe" type="text"/>
         </div>
         <div class="form-group">
             <button class="btn btn-light btn-lg btn-block">Register</button>

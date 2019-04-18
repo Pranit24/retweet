@@ -36,3 +36,11 @@ function profileAjax(user, tweetCount) {
         }
     });
 }
+
+function mouseOver(){
+	$('#unfollow').html('Unfollow');
+}
+
+function mouseOut(){
+	$('#unfollow').html('Following');
+}

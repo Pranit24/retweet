@@ -19,9 +19,9 @@ import com.me.pojo.User;
 
 public class TweetDao extends DAO{
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public List<Tweet> getTweet(User user) {
-		List<Tweet> tweets= null;
+		List<Tweet> tweets= new ArrayList<Tweet>();
 		try {
 			begin();
 			Query query = getSession().createQuery("from Tweet where userid=:userid order by TweetedOn desc");
@@ -84,7 +84,20 @@ public class TweetDao extends DAO{
 	}
 	
 	public Tweet getTweet(Long id) {
-		return (Tweet) getSession().get(Tweet.class, id);
+		Tweet tw = (Tweet) getSession().get(Tweet.class, id);
+		try {
+			begin();
+			tw = getSession().get(Tweet.class, id);
+			Hibernate.initialize(tw.getLikes());
+			Hibernate.initialize(tw.getRetweets());
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return tw;
 	}
 	
 	public void likedTweet(LikedTweet likedTweet) {
@@ -241,5 +254,27 @@ public class TweetDao extends DAO{
 			close();
 		}
 		return ListOfMsgId;
+	}
+	
+	@SuppressWarnings({ "deprecation", "rawtypes" })
+	public List<Tweet> getLikedTweet(User user) {
+		List<Tweet> tweets = new ArrayList<Tweet>();
+		try {
+			begin();
+			Query query = getSession().createQuery("select tweetLiked from LikedTweet where userLikedId=:userid");
+			query.setString("userid", ""+user.getUserId());
+			tweets = query.list();
+			for(Tweet tweet: tweets) {
+				Hibernate.initialize(tweet.getLikes());
+				Hibernate.initialize(tweet.getRetweets());
+			}
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return tweets;
 	}
 }

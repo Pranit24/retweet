@@ -10,6 +10,10 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.me.pojo.Following;
@@ -185,7 +189,7 @@ public class UserDao extends DAO{
 	
 	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
 	public List<Long> getFollowing(User user) {
-		List<Long> list = null;
+		List<Long> list = new ArrayList<Long>();
 		try {
 			begin();
 			Query query = getSession().createQuery("select fId from Following where userid=:userid");
@@ -356,5 +360,30 @@ public class UserDao extends DAO{
 		}finally {
 			close();
 		}
+	}
+	
+	public List<Object[]> getPopularUsers() {
+		List<Object[]> l = null;
+		try {
+			begin();
+
+			Criteria criteria = getSession().createCriteria(Following.class);
+			ProjectionList pList = Projections.projectionList();
+			pList.add(Projections.count("fId"));
+			pList.add(Projections.groupProperty("fId"));
+			criteria.setProjection(pList);
+			l = criteria.list();
+//			for(Object[] obj : l) {
+//			System.out.println(obj);
+//			}
+			
+			commit();
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		
+		return l;
 	}
 }
