@@ -19,7 +19,7 @@ public class ReportDao extends DAO {
 		
 	}
 	
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	@SuppressWarnings({ "deprecation" })
 	public Set<Report> getReportedBy(User user){
 		List<Report> reportsList = new ArrayList<Report>();
 		Set<Report> reports = null;
@@ -50,7 +50,7 @@ public class ReportDao extends DAO {
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public boolean checkIfReported(User user_logged, User user) {
 		List<Report> report = new ArrayList<Report>();
 		try {
@@ -70,7 +70,7 @@ public class ReportDao extends DAO {
 		return true;
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public void removeReport(User user_logged, User user) {
 		try {
 			begin();
@@ -87,7 +87,7 @@ public class ReportDao extends DAO {
 			close();
 		}
 	}
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "deprecation" })
 	public Set<User> getAllUserReports(){
 		List<User> reportsList = new ArrayList<User>();
 		Set<User> reports = null;
@@ -106,7 +106,7 @@ public class ReportDao extends DAO {
 		return reports;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "deprecation" })
 	public Set<Report> getAllreports(){
 		List<Report> reportsList = new ArrayList<Report>();
 		Set<Report> reports = null;
@@ -124,7 +124,8 @@ public class ReportDao extends DAO {
 		}
 		return reports;
 	}
-	
+
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public Integer getNumberOfReports(User user) {
 		Integer count = 0;
 		try {
@@ -141,7 +142,7 @@ public class ReportDao extends DAO {
 		return count;
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public boolean check(User user) {
 		boolean exists = false;
 		try {

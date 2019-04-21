@@ -262,7 +262,7 @@ function homePopularAjax() {
       <div class="col-md-3">
       <div class="card" style="margin-left: 2em;margin-right: 2em;border:none">
       <div class="card-body">
-    <h5 class="card-title">Top Tweets</h5>
+    <h5 class="card-title">Popular Users</h5>
     <div class="card-text" id="topUsers"></div>
   </div>
       </div>

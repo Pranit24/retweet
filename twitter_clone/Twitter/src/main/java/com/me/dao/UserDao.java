@@ -9,9 +9,6 @@ import org.hibernate.query.Query;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -151,7 +148,7 @@ public class UserDao extends DAO{
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public Integer getNumberOfFollowers(User user) {
 		Integer num = null;
 		try {
@@ -168,7 +165,7 @@ public class UserDao extends DAO{
 		return num;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public Set<Following>  getListOfFollowing(User user) {
 		Set<Following> following = null;
 		try {
@@ -187,7 +184,7 @@ public class UserDao extends DAO{
 		return following;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public List<Long> getFollowing(User user) {
 		List<Long> list = new ArrayList<Long>();
 		try {
@@ -218,7 +215,7 @@ public class UserDao extends DAO{
 		}	
 	}
 	
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public List<User> getFollowers(User user){
 		List<User> list = new ArrayList<User>();
 		try {
@@ -241,7 +238,7 @@ public class UserDao extends DAO{
 		
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked", "deprecation" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public boolean checkIfFollowing(User user_logged, User user) {
 		List<Following> list = null;
 		try {
@@ -260,7 +257,7 @@ public class UserDao extends DAO{
 		return true;
 	}
 	
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	@SuppressWarnings({ "deprecation" })
 	public List<User> searchUserByAt(String searchString) {
 		List<User> users = new ArrayList<User>();
 		try {
@@ -277,7 +274,7 @@ public class UserDao extends DAO{
 		return users;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public List<User> searchUserName(String searchString) {
 		List<User> users = new ArrayList<User>();
 		try {
@@ -298,13 +295,13 @@ public class UserDao extends DAO{
 		return users;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public List<User> searchHandle(String searchString) {
 		List<User> users = new ArrayList<User>();
 		try {
 			begin();
-			Query query = getSession().createQuery("from User where handle=:handle");
-			query.setString("handle", searchString);
+			Query query = getSession().createQuery("from User where handle like :handle");
+			query.setString("handle", searchString+"%");
 			users = query.list();
 			for(User user: users){
 				Hibernate.initialize(user.getListOfTweets());
@@ -362,6 +359,7 @@ public class UserDao extends DAO{
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public List<Object[]> getPopularUsers() {
 		List<Object[]> l = null;
 		try {

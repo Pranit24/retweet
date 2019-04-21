@@ -1,15 +1,11 @@
 package com.me.dao;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.hibernate.Criteria;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 import com.me.pojo.LikedTweet;
@@ -58,7 +54,7 @@ public class TweetDao extends DAO{
 		}
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public List<Tweet> getFollowingTweet(List<Long> listOfFollowing) {
 		List<Tweet> tweets = new ArrayList<Tweet>();
 		try {
@@ -126,7 +122,7 @@ public class TweetDao extends DAO{
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public boolean deleteIfLiked(Tweet tweet, User user_logged) {
 		try {
 			begin();
@@ -152,7 +148,7 @@ public class TweetDao extends DAO{
 		return false;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public boolean deleteIfRetweeted(Tweet tweet, User user_logged) {
 		try {
 			begin();
@@ -178,13 +174,12 @@ public class TweetDao extends DAO{
 		return false;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public List<Tweet> searchTweet(String searchString) {
 		List<Tweet> tweets = new ArrayList<Tweet>();
 		if(!searchString.contains("#")) searchString = "#"+searchString;
 		try {
 			begin();
-			Criteria tweetCritria = getSession().createCriteria(Tweet.class);
 			Query query = getSession().createQuery("from Tweet where message like :message");
 			query.setString("message", "%"+searchString+"%");
 			tweets = query.list();
@@ -235,13 +230,14 @@ public class TweetDao extends DAO{
 		}
 		return ListOfMsgId;
 	}
-	
-	//Test
+
+	@SuppressWarnings({ "deprecation", "rawtypes" })
 	public List<Retweet> getRetweetedTweetId(User user){
 		List<Retweet> ListOfMsgId = new ArrayList<Retweet>();
 		try {
 			begin();
-			Query query = getSession().createQuery("from Retweet where RetweetId="+user.getUserId());
+			Query query = getSession().createQuery("from Retweet where RetweetId=:userid");
+			query.setString("userid", ""+user.getUserId());
 			ListOfMsgId = query.list();
 			
 			commit();
@@ -254,6 +250,7 @@ public class TweetDao extends DAO{
 		return ListOfMsgId;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public List<Tweet> getAllTweets(){
 		List<Tweet> ListOfMsgId = new ArrayList<Tweet>();
 		try {
