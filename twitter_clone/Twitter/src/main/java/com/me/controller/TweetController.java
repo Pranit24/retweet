@@ -81,6 +81,7 @@ public class TweetController {
 		}
 		
 		Retweet retweet = new Retweet();
+		retweet.setRetweet_timestamp(new Timestamp(System.currentTimeMillis()));
 		retweet.setUserRetweetId(user_logged.getUserId());
 		retweet.setTweetRetweeted(tweetRetweeted);
 		tweetDao.retweetedTweet(retweet);

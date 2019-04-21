@@ -236,6 +236,24 @@ public class TweetDao extends DAO{
 		return ListOfMsgId;
 	}
 	
+	//Test
+	public List<Retweet> getRetweetedTweetId(User user){
+		List<Retweet> ListOfMsgId = new ArrayList<Retweet>();
+		try {
+			begin();
+			Query query = getSession().createQuery("from Retweet where RetweetId="+user.getUserId());
+			ListOfMsgId = query.list();
+			
+			commit();
+			
+		}catch (HibernateException e) {
+			rollback();
+		}finally {
+			close();
+		}
+		return ListOfMsgId;
+	}
+	
 	public List<Tweet> getAllTweets(){
 		List<Tweet> ListOfMsgId = new ArrayList<Tweet>();
 		try {

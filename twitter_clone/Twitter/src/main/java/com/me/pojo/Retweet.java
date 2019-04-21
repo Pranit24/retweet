@@ -1,5 +1,7 @@
 package com.me.pojo;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Retweet {
@@ -24,7 +28,19 @@ public class Retweet {
 	@JoinColumn(name = "msgId", nullable = false)
 	private Tweet tweetRetweeted;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "TweetedOn")
+	private Date retweet_timestamp;
 	
+	
+	public Date getRetweet_timestamp() {
+		return retweet_timestamp;
+	}
+
+	public void setRetweet_timestamp(Date retweet_timestamp) {
+		this.retweet_timestamp = retweet_timestamp;
+	}
+
 	public Retweet() {
 		
 	}

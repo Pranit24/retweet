@@ -306,6 +306,11 @@ var tweetCount ='${fn:length(requestScope.user.listOfTweets)}'
     <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
     </c:if>
     </c:if>
+    <c:if test="${tweet.tweet_user.handle eq sessionScope.user_logged.handle }">
+    <!-- RETWEETS -->
+   <i class="fas fa-retweet fa-lg"></i>
+    <font color="#000000" size=4.5cm>  ${fn:length(tweet.retweets)}</font>
+    </c:if>
     
     
     </div>

@@ -27,6 +27,7 @@ import com.me.dao.TweetDao;
 import com.me.dao.UserDao;
 import com.me.pojo.Following;
 import com.me.pojo.Report;
+import com.me.pojo.Retweet;
 import com.me.pojo.Tweet;
 import com.me.pojo.User;
 import com.me.utils.PasswordHashing;
@@ -151,18 +152,31 @@ public class LoginController {
 		if(user_logged != null && user_logged.getHandle().equals(user.getHandle()) && user_logged.isRole()) user.setReports(reportDao.getAllreports());
 		
 		// Get all retweeted tweets
-		List<Tweet> retweetedTweets = tweetDao.getRetweetedTweets(user);
-//		List<Tweet> retweetedTweets = tweetDao.getFollowingTweet(tweetId);
+		List<Tweet> retweetWithTimeStamp = getListOfTweets(user);
 		List<Tweet> likedTweet = tweetDao.getLikedTweet(user);
 		model.addAttribute("numofLikedTweets", likedTweet.size());
-		user.setListOfTweets(joinAndSortLists(user.getListOfTweets(), retweetedTweets));
-		model.addAttribute("sizeOfRetweets", retweetedTweets.size());
+		user.setListOfTweets(joinAndSortLists(user.getListOfTweets(), retweetWithTimeStamp));
+		model.addAttribute("sizeOfRetweets", retweetWithTimeStamp.size());
 		model.addAttribute("following", new Following());
 		model.addAttribute("report", new Report(user.getUserId(), user_logged));
 		model.addAttribute("alreadyFollowing",alreadyFollowing);
 		model.addAttribute("alreadyReported", alreadyReported);
 		
 		return new ModelAndView("profile", "user", user);
+	}
+	
+	public List<Tweet> getListOfTweets(User user) {
+		List<Retweet> retweetId = tweetDao.getRetweetedTweetId(user);
+		List<Tweet> tweets = new ArrayList<Tweet>();
+		if (retweetId.size() == 0) return tweets;
+		for(Retweet rt: retweetId) {
+			Tweet tweet = tweetDao.getTweet(rt.getTweetRetweeted().getMsgId());
+			tweet.setTimestamp(rt.getRetweet_timestamp());
+			tweets.add(tweet);
+		}
+		
+		return tweets;
+		
 	}
 	
 	public List<Tweet> joinAndSortLists(List<Tweet> userTweets, List<Tweet> retweetedTweets) {
