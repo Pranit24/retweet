@@ -1,5 +1,6 @@
 package com.me.validator;
 
+import org.apache.commons.validator.EmailValidator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -20,11 +21,11 @@ public class RegisterValidator  implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "", "-Please enter a password");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "handle", "", "-Please enter a handle");
 		User user = (User) target;
-		
+		EmailValidator validator = EmailValidator.getInstance();
 		if(user.getEmail().equals("")) {
 			errors.rejectValue("email","", "-Enter an email address");
 		}
-		else if(!user.getEmail().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+(.[a-zA-Z]{2,})$")) {
+		else if(!validator.isValid(user.getEmail())) {
 			errors.rejectValue("email", "","-Enter a valid email address!");
 		}
 		if(user.getPassword().length() < 6) {

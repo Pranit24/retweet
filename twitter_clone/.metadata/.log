@@ -4216,3 +4216,1078 @@ org.eclipse.swt.SWTException: Widget is disposed
 
 !ENTRY org.jboss.tools.common 4 0 2019-04-21 16:52:28.530
 !MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-04-21 21:27:54.297
+!MESSAGE Connection to https://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-04-21 21:27:55.310
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-21 21:27:55.641
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-21 23:57:02.166
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-04-21 23:57:02.335
+!MESSAGE Connection to https://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-04-21 23:57:02.343
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2019-04-22 01:57:02.542
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:24.991
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.030
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.044
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.055
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.069
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.079
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:25.090
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.940
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.952
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.961
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.971
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.982
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:30.992
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:31.001
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.140
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.151
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.160
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.173
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.183
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.196
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:34.210
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.753
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.757
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.761
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.767
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.770
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.775
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:52.781
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.349
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.352
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.356
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.359
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.362
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.365
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:03:55.368
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.950
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.954
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.957
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.961
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.964
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.967
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:56.970
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.633
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.636
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.640
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.643
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.647
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.650
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:04:59.653
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.241
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.245
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.250
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.253
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.257
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.261
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:24.265
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.080
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.083
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.086
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.089
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.092
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.095
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:13:27.098
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.046
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.049
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.052
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.055
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.058
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.060
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:15:09.063
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.506
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.511
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.514
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.518
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.521
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.525
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:30.528
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.443
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.446
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.450
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.454
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.457
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.461
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:16:33.464
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.912
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.915
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.918
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.921
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.924
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.927
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:43.930
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.393
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.396
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.399
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.402
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.405
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.408
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:40:46.411
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.972
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.975
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.979
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.982
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.985
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.989
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:51.992
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.605
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.608
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.611
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.614
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.616
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.619
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:42:54.622
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.362
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.365
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.368
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.372
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.375
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.379
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:04.383
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.372
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.376
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.379
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.383
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.386
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.389
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:50.392
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.004
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.007
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.011
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.014
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.018
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.022
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:44:53.026
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.150
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.153
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.156
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.159
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.162
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.165
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:29.169
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.778
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.781
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.784
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.787
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.790
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.793
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:45:31.796
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.062
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.099
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.103
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.108
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.112
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.116
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:44.119
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.916
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.919
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.922
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.924
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.927
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.930
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:46:46.933
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.250
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.253
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.256
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.259
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.262
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.265
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:45.268
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.152
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.164
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.168
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.171
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.174
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.177
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:47:53.181
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.566
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.581
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.587
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.596
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.601
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.604
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:15.609
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.864
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.869
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.873
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.878
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.881
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.884
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:19.888
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.342
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.345
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.349
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.353
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.356
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.360
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:21.363
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.171
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.175
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.178
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.181
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.183
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.186
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:23.190
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.070
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.073
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.077
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.080
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.083
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.087
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:48:24.090
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.296
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.300
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.303
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.307
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.310
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.313
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:07.316
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.175
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.179
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.182
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.185
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.189
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.192
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:49:10.195
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.924
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.928
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.931
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.934
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.937
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.940
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:45.943
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.977
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.981
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.984
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.987
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.990
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.994
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:46.997
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.755
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.758
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.761
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.763
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.766
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.769
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:48.772
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.408
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.427
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.431
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.434
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.438
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.443
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:50:49.446
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.046
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.049
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.053
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.056
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.059
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.062
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:25.065
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.877
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.880
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.883
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.886
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.890
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.893
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:52:27.896
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.172
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.177
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.180
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.183
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.187
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.190
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:11.193
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.437
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.440
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.443
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.446
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.449
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.452
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:27.455
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.267
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.270
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.273
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.276
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.279
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.282
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:30.285
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.130
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.133
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.136
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.139
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.142
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.145
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:37.148
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.244
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.246
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.249
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.252
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.255
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.258
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:50.261
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.124
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.127
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.130
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.132
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.135
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.138
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:54:53.141
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.586
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.590
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.593
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.597
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.600
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.603
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:56:58.607
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.521
+!MESSAGE problemType is not found for validator class: org.jboss.tools.cdi.internal.core.validation.CDICoreValidator and validator id: org.jboss.tools.cdi.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.524
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.composite.CompositeComponentValidator and validator id: org.jboss.tools.jsf.CompositeComponentValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.528
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jsf.web.validation.FacesConfigValidator and validator id: org.jboss.tools.jsf.web.validation.FacesConfigValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.532
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.validation.WebXMLCoreValidator and validator id: org.jboss.tools.jst.web.validation.WebXMLCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.535
+!MESSAGE problemType is not found for validator class: org.jboss.tools.jst.web.kb.internal.validation.ELValidator and validator id: org.jboss.tools.jst.web.kb.ELValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.539
+!MESSAGE problemType is not found for validator class: org.jboss.tools.seam.internal.core.validation.SeamCoreValidator and validator id: org.jboss.tools.seam.core.CoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point
+
+!ENTRY org.jboss.tools.common 4 0 2019-04-22 02:57:01.543
+!MESSAGE problemType is not found for validator class: org.jboss.tools.struts.validation.StrutsCoreValidator and validator id: org.jboss.tools.struts.validation.StrutsCoreValidator, problemType must be set as a attribute of element validator in org.jboss.tools.common.validation.validator extension point

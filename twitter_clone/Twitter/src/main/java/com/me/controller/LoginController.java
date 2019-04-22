@@ -90,7 +90,7 @@ public class LoginController {
 			staff.setName("Pranit Staff");
 			staff.setRole(true);
 			staff.setVerified(true);
-			staff.setEmail("pranit@g.com");
+			staff.setEmail("staff@gmail.com");
 			try {
 				PasswordHashing pwdHash = new PasswordHashing();
 				staff.setPassword(pwdHash.encrypt("pranit"));

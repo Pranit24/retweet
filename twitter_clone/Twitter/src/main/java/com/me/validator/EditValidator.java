@@ -3,7 +3,7 @@ package com.me.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
+import org.apache.commons.validator.EmailValidator;
 import com.me.dao.UserDao;
 import com.me.pojo.User;
 
@@ -20,11 +20,12 @@ public class EditValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "", "-Please enter a password");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "handle", "", "-Please enter a handle");
 		User editedUser = (User) target;
-		
+		EmailValidator validator = EmailValidator.getInstance();
 		if(editedUser.getEmail().equals("")) {
 			errors.rejectValue("email","", "-Enter an email address");
 		}
-		else if(!editedUser.getEmail().matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+(.[a-zA-Z]{2,})$")) {
+		else if(!validator.isValid(editedUser.getEmail())) {
+			System.out.println("HERE????????????????");
 			errors.rejectValue("email", "","-Enter a valid email address!");
 		}
 		if(editedUser.getPassword().length() < 6) {

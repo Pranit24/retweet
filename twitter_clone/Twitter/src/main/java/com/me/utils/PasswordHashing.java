@@ -19,7 +19,7 @@ public class PasswordHashing {
    SecretKey key;
 
    public PasswordHashing() throws Exception {
-       myEncryptionKey = "ThisIsSpartaThisIsSparta";
+       myEncryptionKey = "MyTwitterAppMyTwitterAppMyTwitterAppMyTwitterApp";
        myEncryptionScheme = DESEDE_ENCRYPTION_SCHEME;
        arrayBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
        ks = new DESedeKeySpec(arrayBytes);

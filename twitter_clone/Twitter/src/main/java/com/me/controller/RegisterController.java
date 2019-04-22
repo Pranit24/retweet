@@ -93,6 +93,7 @@ public class RegisterController {
 		}if(updated_info.getProfileImage() == null) {
 			updated_info.setProfileImage(original_info.getProfileImage());
 		}
+	
 		return updated_info;
 	}
 	
